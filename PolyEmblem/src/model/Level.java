@@ -23,6 +23,29 @@ public class Level {
     }
     
     private int getStep(){
-        return 400;
+        return this.level * 50 +50;
+    }
+    
+    public boolean addXP(int xp){
+        this.exp +=xp;
+        if(this.exp>=this.step){
+            this.levelUp();
+            return true;
+        }
+        return false;
+    }
+    
+    private void levelUp(){
+        this.level++;
+        this.exp = 0;
+        this.step = this.getStep();
+    }
+    
+    public int getLevelValue(){
+        return this.level;
+    }
+    
+    public int getExp(){
+        return this.exp;
     }
 }

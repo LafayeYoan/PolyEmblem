@@ -32,6 +32,8 @@ public class Character {
         this.maxDext = maxDext;
         this.level = new Level();
     }
+    
+    
 
     
     
