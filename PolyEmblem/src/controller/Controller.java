@@ -10,6 +10,10 @@ public class Controller {
     private Character player;
     private Events event;
     
+    public static void main(String[] args) {
+        //TODO
+    }
+    
     private Fight act() {
         //TODO
         return null;
