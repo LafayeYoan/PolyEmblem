@@ -10,6 +10,6 @@ package view;
  *
  * @author p1504274
  */
-public class Menu {
+public class HUD {
     
 }
