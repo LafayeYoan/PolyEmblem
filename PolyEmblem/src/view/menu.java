@@ -10,6 +10,6 @@ package view;
  *
  * @author p1504274
  */
-public class menu {
+public class Menu {
     
 }
