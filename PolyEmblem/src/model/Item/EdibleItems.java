@@ -9,4 +9,9 @@ public class EdibleItems extends Items {
         super(name, weight, allEffects);
     }
     
+    private EdibleItems consume() {
+        //TODO
+        return this;
+    }
+    
 }
