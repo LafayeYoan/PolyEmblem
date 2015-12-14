@@ -1,9 +1,9 @@
-package model.Item;
+package model.Items;
 
 import java.util.Map;
-import model.Items;
+import model.Item;
 
-public class WeaponItems extends Items {
+public class WeaponItems extends Item {
     
     private int damage;
     private int heal;

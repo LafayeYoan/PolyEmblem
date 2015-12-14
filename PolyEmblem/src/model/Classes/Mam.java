@@ -6,29 +6,32 @@
 
 package model.Classes;
 
+import java.util.HashMap;
+import model.Characteristic;
+
 /**
  *
  * @author Darkos
  */
 public class Mam extends model.Character{
-    public static int BASIC_STRENGHT = 2;
-    public static int BASIC_HEALTH = 15;
+    public static int BASIC_STRENGHT = 1;
+    public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
-    public static int BASIC_DEFENCE = 2;
+    public static int BASIC_DEFENCE = 1;
+    public static int BASIC_INTELIGENCE = 1;
     
-    public Mam(String name, int maxWeight, int maxHealth, int maxDext, model.Characteristics characteristics){
+    public Mam(String name, int maxWeight, int maxHealth, int maxDext){
         super(name,maxWeight,maxHealth,maxDext);
-        this.setCharacteristics(characteristics);
     }
-    
+
     @Override
-    protected void setCharacteristics(){
-        this.characteritics = new model.Characteristics(Info.BASIC_STRENGHT,Info.BASIC_HEALTH,Info.BASIC_DEXTIRITY,Info.BASIC_DEFENCE);
-    }
-    
-    @Override
-    protected void setCharacteristics(model.Characteristics characteristics){
-        this.characteritics = characteristics;
+    protected void setCharacteristics() {
+        this.characteritics=new HashMap<>();
+        this.characteritics.put(Characteristic.HEALTH, BASIC_HEALTH);
+        this.characteritics.put(Characteristic.STRENGHT, BASIC_STRENGHT);
+        this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
+        this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
+        this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
     }
     
 }

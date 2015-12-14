@@ -1,13 +1,13 @@
 package model;
 
 
-public class Effects {
+public class Effect {
     
-    private Characteristics characteristicEffect;
+    private Characteristic characteristicEffect;
     private int value;
     private int permanent;  //WHAT IS IT FOR ???
     
-    public Effects(Characteristics characteristicEffect, int value) {
+    public Effect(Characteristic characteristicEffect, int value) {
         this.characteristicEffect = characteristicEffect;
         this.value = value;
     }

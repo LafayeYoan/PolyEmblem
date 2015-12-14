@@ -1,9 +1,9 @@
-package model.Item;
+package model.Items;
 
 import java.util.Map;
-import model.Items;
+import model.Item;
 
-public class EdibleItems extends Items {
+public class EdibleItems extends Item {
 
     public EdibleItems(String name, int weight, Map allEffects) {
         super(name, weight, allEffects);
