@@ -1,23 +1,17 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package model;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
-/**
- *
- * @author p1504274
- */
-public abstract class Character {    
+public abstract class Character {  
+    
     private String name;
     private Level level;
     private int maxWeight;
     private int maxHealth;
     private int maxDext;
+    private Map allItems;
     protected Characteristics characteritics;
     protected List<Skill> skills;
 
@@ -28,6 +22,7 @@ public abstract class Character {
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
         this.characteritics = new Characteristics();
+        this.allItems = new HashMap();
     }
 
     public Character(String name, int maxWeight, int maxHealth, int maxDext) {
