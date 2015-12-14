@@ -8,7 +8,7 @@ Alors que l'école Polytech Lyon viens tout juste d'ouvrir ces portes, une lutte
 
 Quel camps choisirez-vous : 
 
-* Informaticien (aka : INFO)
+* Informaticien (aka : INFO) : Cette guilde de développeurs invétérés possède des atouts indéniables en milieu binaire et informatique. Fort de leur caractère solitaire, les informaticiens sont capable de passer des années sans contact avec le monde extérieur. Ils n'attaqueront jamais de front, préférant hacker sauvagement votre boite mail pour envoyer des photos comprométantes à votre maman, plutôt que de risquer un accident en essayant de vous regarder droit dans les yeux... (classe voleur). 
 
 * Matériaux (aka MAT) 
 
