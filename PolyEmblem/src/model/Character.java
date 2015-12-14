@@ -3,8 +3,8 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.Items.ArmorItems;
-import model.Items.WeaponItems;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 
 public abstract class Character { 
     
@@ -16,8 +16,8 @@ public abstract class Character {
     private int maxHealth;
     private int maxDext;
     private Map <Integer,Item> allItems;
-    private WeaponItems[] weapons;
-    private ArmorItems armor;
+    private WeaponItem[] weapons;
+    private ArmorItem armor;
     
     protected Map<Characteristic, Integer> characteritics;
     protected List<Skill> skills;
@@ -29,9 +29,9 @@ public abstract class Character {
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
         this.allItems = new HashMap<>();
-        this.weapons = new WeaponItems[MAX_NUMBER_OF_WEAPONS];
+        this.weapons = new WeaponItem[MAX_NUMBER_OF_WEAPONS];
         this.armor = null;
-        this.setCharacteristics();
+        this.initCharacteristics();
     }
 
     public Character(String name, int maxWeight, int maxHealth, int maxDext) {
@@ -40,8 +40,18 @@ public abstract class Character {
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
         this.level = new Level();
-        this.setCharacteristics();
+        this.initCharacteristics();
     }
     
-    protected abstract void setCharacteristics();
+    protected abstract void initCharacteristics();
+    
+    
+    public void putEffect(Effect effect){
+        
+    }
+    
+    public void equuipWeapon(model.Items.WeaponItem weaponItem){
+        
+    }
+    
 }

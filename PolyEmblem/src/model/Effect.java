@@ -7,7 +7,7 @@ public class Effect {
     private int value;
     private int permanent;  //WHAT IS IT FOR ???
     
-    public Effect(Characteristic characteristicEffect, int value) {
+    public Effect(Characteristic characteristicEffect, int value, int permanent) {
         this.characteristicEffect = characteristicEffect;
         this.value = value;
     }
