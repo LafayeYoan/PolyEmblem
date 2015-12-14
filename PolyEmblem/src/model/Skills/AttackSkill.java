@@ -1,10 +1,10 @@
-package model.Abilities;
+package model.Skills;
 
 import model.Skill;
 import model.Character;
 import model.Effects;
 
-public class HealAbility implements Skill {
+public class AttackSkill implements Skill {
 
     @Override
     public Effects[] useAbility(Character srcCharacter, Character targetCharacter) {
