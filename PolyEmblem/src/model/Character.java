@@ -3,8 +3,8 @@ package model;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import model.Item.armorItems;
-import model.Item.weaponItems;
+import model.Item.ArmorItems;
+import model.Item.WeaponItems;
 
 public abstract class Character { 
     
@@ -16,8 +16,8 @@ public abstract class Character {
     private int maxHealth;
     private int maxDext;
     private Map allItems;
-    private weaponItems[] weapons;
-    private armorItems armor;
+    private WeaponItems[] weapons;
+    private ArmorItems armor;
     
     protected Characteristics characteritics;
     protected List<Skill> skills;
@@ -29,7 +29,7 @@ public abstract class Character {
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
         this.allItems = new HashMap();
-        this.weapons = new weaponItems[MAX_NUMBER_OF_WEAPONS];
+        this.weapons = new WeaponItems[MAX_NUMBER_OF_WEAPONS];
         this.armor = null;
         this.characteritics = new Characteristics();
     }
