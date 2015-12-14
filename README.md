@@ -14,6 +14,6 @@ Quel camps choisirez-vous :
 
 * Génie BioMédical (aka GBM) : Les Génies Biomédical ne sont pas juste des soigneurs hors pair, ce sont surtout des spécialistes reconnue dans tous ce qui touche plus ou moins directement le corps humain. Ils savent particulièrement où faire mal et comment. Ils connaissent des points faibles dont vous ne soupsonniez même pas l'existance. Prudence donc, à ne pas se les mettre à dos. (classe : prêtre). 
 
-* Mathémathicien Appliqués à la Modélisation (aka MAM, aka le nom de faction le plus long de l'histoire de l'univers de Polytech)
+* Mathémathicien Appliqués à la Modélisation (aka MAM, aka le nom de faction le plus long de l'histoire de l'univers de Polytech) : Le Mathématicien est un calculateur. Perfide, sournois et beaucoup trop intelligent par rapport à la moyenne nationale, il peut vous noyer dans un flot de statistiques ou vous étouffer à coup d'intégrale dans la tronche (et ce n'est jamais très agréable). Et si par hasard vous êtes très imbu de vous même, cette faction vous conviendra parfaitement. (classe : sorcier).
 
 * Mécanicien (aka MECA)
