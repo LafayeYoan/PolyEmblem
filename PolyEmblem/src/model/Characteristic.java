@@ -14,5 +14,6 @@ public enum Characteristic {
     HEALTH,
     DEXTIRITY,
     DEFENCE,
-    INTELIGENCE
+    INTELIGENCE,
+    LIFE
 }
