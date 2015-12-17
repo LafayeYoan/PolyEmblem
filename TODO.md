@@ -24,7 +24,16 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * Gérer la sauvegarde EN BINAIRE (Sérialisation + déserialisation). 
 
-* Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. 
+* Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes.
+
+* Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
+
+* La vie du joueur se met à jour quand il est attaqué pendant un combat.
+
+* Chaque classe possède deux capacités (parmi attaque, parade et soin)
+
+* Utilisation d'une capacité : 
+    ** 1. Vérifier qu'elle est réussite (proba de réussite). Cette probabilité dépend des caractéristiques du personnage (?) et de ses points de compétences. 2. Si la capacité est réussie : 
 
 
 # Developpement View
