@@ -23,7 +23,7 @@ public abstract class Character {
     protected List<Skill> skills;
     private List<Effect> effects;
 
-    public Character(String name,Level level, int maxWeight, int maxHealth) {
+    public Character(String name, Level level, int maxWeight, int maxHealth) {
         this.name = name;
         this.level = level;
         this.maxWeight = maxWeight;
