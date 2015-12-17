@@ -14,13 +14,15 @@ import model.Level;
 import view.HUD;
 
 public class Controller {
-    
+
     private HUD zeMenu;
     private Character player;
     private static List<Events> event;
     
     public static void main(String[] args) {
+        
         generateEvents();
+        runEvents();
     }
     
     /* Generate alls events for the current story */
@@ -52,6 +54,13 @@ public class Controller {
         System.out.println("---------- GENERATION DES EVENTS TERMINES ---------");
         System.out.println("---------------------------------------------------");
     }
+    
+    private static void runEvents() {
+        for(Events currentEvent : event) {
+            currentEvent.execute();
+        }
+    }
+    
     
     //TO REMOVE ?
     private Fight act() {

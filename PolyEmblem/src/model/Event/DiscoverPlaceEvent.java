@@ -12,4 +12,8 @@ public class DiscoverPlaceEvent extends Events {
         super(description);
         zeTreasure = treasure;
     }
+    
+    private Events execute() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }
