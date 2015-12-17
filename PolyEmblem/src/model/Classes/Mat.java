@@ -24,7 +24,7 @@ public class Mat extends model.Character{
     }
 
     @Override
-    protected void setCharacteristics() {
+    protected void initCharacteristics() {
         this.characteritics=new HashMap<>();
         this.characteritics.put(Characteristic.HEALTH, BASIC_HEALTH);
         this.characteritics.put(Characteristic.STRENGHT, BASIC_STRENGHT);
