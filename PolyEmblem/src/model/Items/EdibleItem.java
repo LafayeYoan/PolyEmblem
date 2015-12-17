@@ -1,7 +1,5 @@
 package model.Items;
 
-import java.util.List;
-import java.util.Map;
 import model.Effect;
 import model.Item;
 
