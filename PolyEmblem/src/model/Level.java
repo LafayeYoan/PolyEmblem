@@ -22,6 +22,12 @@ public class Level {
         this.step = this.getStep();
     }
     
+    public Level(int lv) {
+        level = lv;
+        exp = 0;
+        step = 0;
+    }
+    
     private int getStep(){
         return this.level * 50 +50;
     }
