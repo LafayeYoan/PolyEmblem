@@ -7,9 +7,9 @@ public class Fight {
     private Round zeRound;
     private Character player;
     private Character aICharacter;
-    private Ability abilityToUse;
+    private Skill abilityToUse;
     
-    private Fight(Character player, Character aICharacter, Ability abilityToUse) {
+    private Fight(Character player, Character aICharacter, Skill abilityToUse) {
         this.zeRound = new Round(); //To increment ? 
         this.player = player;
         this.aICharacter = aICharacter;

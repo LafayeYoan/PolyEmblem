@@ -3,25 +3,25 @@ package model;
 import java.util.HashMap;
 import java.util.Map;
 
-public class Items {
+public class Item {
     
     private String name;
     private int weight; 
     private Map allEffects;
     
-    public Items(String name, int weight, Map allEffects) {
+    public Item(String name, int weight, Map allEffects) {
         this.name = name; 
         this.weight = weight;
         this.allEffects = new HashMap();
         this.allEffects.putAll(allEffects);
     }
     
-    private int getValueEffect(Characteristics characteristicEffect) {
+    private int getValueEffect(Characteristic characteristicEffect) {
         //TODO
         return 0;
     }
     
-    private Items addEffect(Characteristics effectToAdd) {
+    private Item addEffect(Characteristic effectToAdd) {
         //TODO
         return this;
     }

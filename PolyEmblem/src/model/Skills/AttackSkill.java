@@ -1,13 +1,13 @@
-package model.Abilities;
+package model.Skills;
 
-import model.Ability;
+import model.Skill;
 import model.Character;
-import model.Effects;
+import model.Effect;
 
-public class HealAbility implements Ability {
+public class AttackSkill implements Skill {
 
     @Override
-    public Effects[] useAbility(Character srcCharacter, Character targetCharacter) {
+    public Effect[] useAbility(Character srcCharacter, Character targetCharacter) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
