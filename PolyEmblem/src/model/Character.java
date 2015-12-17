@@ -1,6 +1,8 @@
+
 package model;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import model.Items.ArmorItem;
@@ -15,7 +17,7 @@ public abstract class Character {
     
     private int actualLife;
     
-    private Map <Integer,Item> allItems;
+    private List<Item> allItems;
     private WeaponItem weapon;
     private ArmorItem armor;
     
@@ -29,7 +31,7 @@ public abstract class Character {
         this.maxWeight = maxWeight;
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
-        this.allItems = new HashMap<>();
+        this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.initCharacteristics();
@@ -65,6 +67,14 @@ public abstract class Character {
         if(Characteristic.LIFE.equals(e.getCharacteristicEffect())){
             
         }
+    }
+    
+    public void removeItem(Item item){
+        if(allItems.contains(item)) {
+            //enlever l'arme équipé
+            //enlever l'armure équipé
+            allItems.remove(item);
+        }    
     }
     
     public void equipWeapon(model.Items.WeaponItem weaponItem){
