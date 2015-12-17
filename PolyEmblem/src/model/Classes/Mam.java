@@ -20,8 +20,8 @@ public class Mam extends model.Character{
     public static int BASIC_DEFENCE = 1;
     public static int BASIC_INTELIGENCE = 1;
     
-    public Mam(String name, int maxWeight, int maxHealth, int maxDext){
-        super(name,maxWeight,maxHealth,maxDext);
+    public Mam(String name, int maxWeight, int maxHealth){
+        super(name,maxWeight,maxHealth);
     }
 
     @Override
