@@ -8,8 +8,8 @@ public class DiscoverPlaceEvent extends Events {
     /* Item to discover in this */
     private Item zeTreasure;
     
-    public DiscoverPlaceEvent(int number, String description, Item treasure) {
-        super(number, description);
+    public DiscoverPlaceEvent(String description, Item treasure) {
+        super(description);
         zeTreasure = treasure;
     }
 }
