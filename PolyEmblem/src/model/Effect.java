@@ -5,7 +5,7 @@ public class Effect {
     
     private Characteristic characteristicEffect;
     private int value;
-    private int permanent;  // -1 est permanent (à chaque tours), 0, ataque unique, 1,2,3... noubre de tour d'effet
+    private int permanent;  // -1 est permanent (à chaque tours), 0 ataque unique, 1,2,3... noubre de tour d'effet
     
     public Effect(Characteristic characteristicEffect, int value, int permanent) {
         this.characteristicEffect = characteristicEffect;
@@ -28,5 +28,10 @@ public class Effect {
         return permanent;
     }
     
-    
+    public void applicateEffect(model.Character charactere){
+        //todo
+    }
+    public void removeEffect(model.Character charactere){
+        //todo
+    }
 }
