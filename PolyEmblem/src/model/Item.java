@@ -1,19 +1,23 @@
 package model;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class Item {
     
     private String name;
     private int weight; 
-    private Map allEffects;
+    private List<Effect> allEffects;
     
-    public Item(String name, int weight, Map allEffects) {
+    public Item(String name, int weight, Effect... effects) {
         this.name = name; 
         this.weight = weight;
-        this.allEffects = new HashMap();
-        this.allEffects.putAll(allEffects);
+        this.allEffects = new ArrayList();
+        for (int i = 0; i < effects.length; i++) {
+            this.allEffects.add(effects[i]);
+        }
     }
     
     private int getValueEffect(Characteristic characteristicEffect) {
