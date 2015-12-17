@@ -33,7 +33,13 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 * Chaque classe possède deux capacités (parmi attaque, parade et soin)
 
 * Utilisation d'une capacité : 
-    ** 1. Vérifier qu'elle est réussite (proba de réussite). Cette probabilité dépend des caractéristiques du personnage (?) et de ses points de compétences. 2. Si la capacité est réussie : 
+    1. Vérifier qu'elle est réussite (proba de réussite). Cette probabilité dépend des caractéristiques du personnage (?) et de ses points de compétences. 
+    2. Si la capacité est réussie : 
+        - Calculer les dégats occasionés (force de l'attaquant + valeur de dégats de l'arme) : DEG
+        - Calculer la défense du personnage attaqué (Défense + résistance des armures) : DEF
+        - Calculer les dommages (DEG - DEF)
+        - Soustraire les dommages subis à la santé du personnage attaqué
+Attention, une parade augmente la défense quand le personnage subis une attaque. Le soin augmente la santé du personnage.
 
 
 # Developpement View
