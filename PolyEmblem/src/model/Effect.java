@@ -28,5 +28,10 @@ public class Effect {
         return permanent;
     }
     
-    
+    public void applicateEffect(model.Character charactere){
+        //todo
+    }
+    public void removeEffect(model.Character charactere){
+        //todo
+    }
 }
