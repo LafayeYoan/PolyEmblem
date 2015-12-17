@@ -3,6 +3,7 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.Characteristic;
+import model.Classes.Info;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -44,7 +45,7 @@ public class Controller {
                 + "\n Serré contre la porte, vous distinguez un paquet de tic tac au sol."
                 + "Vous vous appretez à le saisir lorsque la voix suave du tram annonce votre arrêt :"
                 + "Vous vous jetez dessus et passez la porte pile attend. "
-                + "Une chance qu'il reste des tics tacs dans la boite...", new Mam("Charlie le Kaid", new Level(), 0, 10)));*/
+                + "Une chance qu'il reste des tics tacs dans la boite...", new Info("Charlie le Kaid", 0, 10)));*/
         
         //TODO : add more events
         System.out.println("---------------------------------------------------");

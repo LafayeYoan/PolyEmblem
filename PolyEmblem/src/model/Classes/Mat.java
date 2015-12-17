@@ -1,17 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Level;
 
-/**
- *
- * @author Darkos
- */
 public class Mat extends model.Character{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
@@ -21,6 +13,10 @@ public class Mat extends model.Character{
     
     public Mat(String name, int maxWeight, int maxHealth){
         super(name,maxWeight,maxHealth);
+    }
+    
+    public Mat(String name, Level level, int maxWeight, int maxHealth){
+        super(name, level, maxWeight,maxHealth);
     }
 
     @Override
