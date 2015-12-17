@@ -1,6 +1,8 @@
+
 package model;
 
 import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import model.Items.ArmorItem;
@@ -15,7 +17,7 @@ public abstract class Character {
     
     private int actualLife;
     
-    private Map <Integer,Item> allItems;
+    private List<Item> allItems;
     private WeaponItem weapon;
     private ArmorItem armor;
     
@@ -29,7 +31,7 @@ public abstract class Character {
         this.maxWeight = maxWeight;
         this.maxHealth = maxHealth;
         this.maxDext = maxDext;
-        this.allItems = new HashMap<>();
+        this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.initCharacteristics();
@@ -67,6 +69,17 @@ public abstract class Character {
         }
     }
     
+    public void removeItem(Item item){
+        if(allItems.contains(item)) {
+            if(item==this.weapon){
+              //  unequipWeapon(Item item);
+            }
+            else if(item==this.armor)
+              //  unequipArmor(Item item);
+            allItems.remove(item);
+        }    
+    }
+    
     public void equipWeapon(model.Items.WeaponItem weaponItem){
         if(!this.weapon.equals(null)){
             //enlever effet de l'arme déja équipé
@@ -77,6 +90,11 @@ public abstract class Character {
         
         //code pour les effets de l'arme
     }
+   
+    public void unquipWeaon(Item item){
+    
+    }
+    
     
     public void equipArmor(model.Items.ArmorItem armorItem){
         if(!this.armor.equals(null)){
@@ -87,7 +105,8 @@ public abstract class Character {
         this.armor = armorItem;
         
         //code pour les effets de l'armure
-    }
+    } 
+    
     
     public int calcMaxHealth(){
         if(this.characteritics.containsKey(Characteristic.HEALTH)){
