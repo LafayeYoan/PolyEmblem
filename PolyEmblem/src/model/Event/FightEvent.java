@@ -1,6 +1,7 @@
 package model.Event;
 
 import model.Events;
+import model.Character;
 
 public class FightEvent extends Events {
     
