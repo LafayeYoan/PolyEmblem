@@ -51,7 +51,7 @@ Attention, une parade augmente la défense quand le personnage subis une attaque
 
 * A la fin du combat (et en cas de victoire), le joueur gagne de l'xp. 
 
-* Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
+* [EN COURS PAR SACHA] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
     - Combat contre un enemis ([OPTION] ou plusieurs)
     - Découverte d'un endroit avec du stuff
     - Autres (?)
