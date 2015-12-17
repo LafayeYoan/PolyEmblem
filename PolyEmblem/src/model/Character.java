@@ -71,8 +71,11 @@ public abstract class Character {
     
     public void removeItem(Item item){
         if(allItems.contains(item)) {
-            //enlever l'arme équipé
-            //enlever l'armure équipé
+            if(item==this.weapon){
+              //  unequipWeapon(Item item);
+            }
+            else if(item==this.armor)
+              //  unequipArmor(Item item);
             allItems.remove(item);
         }    
     }
@@ -87,6 +90,11 @@ public abstract class Character {
         
         //code pour les effets de l'arme
     }
+   
+    public void unquipWeaon(Item item){
+    
+    }
+    
     
     public void equipArmor(model.Items.ArmorItem armorItem){
         if(!this.armor.equals(null)){
@@ -97,7 +105,8 @@ public abstract class Character {
         this.armor = armorItem;
         
         //code pour les effets de l'armure
-    }
+    } 
+    
     
     public int calcMaxHealth(){
         if(this.characteritics.containsKey(Characteristic.HEALTH)){
