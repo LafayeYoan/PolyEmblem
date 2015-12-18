@@ -7,7 +7,7 @@ import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
-public abstract class Character {     
+public abstract class Personnage {     
     private String name;
     private Level level;
     private int maxWeight;
@@ -23,30 +23,31 @@ public abstract class Character {
     protected List<Skill> skills;
     private List<Effect> effects;
 
-    public Character(String name, Level level, int maxWeight, int maxHealth) {
+    public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
-        this.maxWeight = maxWeight;
-        this.maxHealth = maxHealth;
+        //this.maxWeight = maxWeight;
+        this.maxHealth = calcMaxHealth();
         this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.initCharacteristics();
+        this.initSkills();
         this.actualLife = this.calcMaxHealth();
     }
 
-    public Character(String name, int maxWeight, int maxHealth) {
+    public Personnage(String name) {
         this.name = name;
-        this.maxWeight = maxWeight;
-        this.maxHealth = maxHealth;
+        //this.maxWeight = maxWeight;
+        this.maxHealth = calcMaxHealth();
         this.level = new Level();
         this.initCharacteristics();
+        this.initSkills();
         this.actualLife = this.calcMaxHealth();
         
     }
     
-    protected abstract void initCharacteristics();
-    
+    protected abstract void initCharacteristics();    
     
     public void addEffect(Effect effect){
         this.effects.add(effect);
@@ -109,5 +110,12 @@ public abstract class Character {
             return this.characteritics.get(Characteristic.HEALTH);
         }
         return 20;
+    }
+    
+    public void initSkills(){
+        this.skills = new LinkedList<>();
+        this.skills.add(new model.Skills.AttackSkill());
+        this.skills.add(new model.Skills.HealSkill());
+        this.skills.add(new model.Skills.ParadeSkill());
     }
 }
