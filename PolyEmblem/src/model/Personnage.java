@@ -118,4 +118,8 @@ public abstract class Personnage {
         this.skills.add(new model.Skills.HealSkill());
         this.skills.add(new model.Skills.ParadeSkill());
     }
+    
+    public List<Skill> getSkills(){
+        return this.skills;
+    }
 }
