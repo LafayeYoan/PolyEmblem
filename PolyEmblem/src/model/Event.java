@@ -1,12 +1,12 @@
 package model;
 
 
-public class Events {
+public class Event {
     
     /* Describe the event for the player */
     private String descriptionEvent;
     
-    public Events(String description) {
+    public Event(String description) {
         descriptionEvent = description;
     }
     

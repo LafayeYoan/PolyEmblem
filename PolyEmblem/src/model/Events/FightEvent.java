@@ -1,8 +1,8 @@
-package model.Event;
+package model.Events;
 
-import model.Events;
+import model.Event;
 
-public class FightEvent extends Events {
+public class FightEvent extends Event {
     
     /* Character who wants to fight !*/
     private Character zeBadGuy;

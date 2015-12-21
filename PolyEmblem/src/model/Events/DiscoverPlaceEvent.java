@@ -1,9 +1,9 @@
-package model.Event;
+package model.Events;
 
-import model.Events;
+import model.Event;
 import model.Item;
 
-public class DiscoverPlaceEvent extends Events {
+public class DiscoverPlaceEvent extends Event {
     
     /* Item to discover in this */
     private Item zeTreasure;
