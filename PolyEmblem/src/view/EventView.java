@@ -16,7 +16,7 @@ public class EventView implements HUD {
     private static final int NB_OPTIONS = 6;
     
     private Personnage player;
-    private String enteredText;
+    private String nextAction;
     
     public EventView(Personnage player){
         this.player = player;
@@ -31,26 +31,20 @@ public class EventView implements HUD {
                 + "\n 4 : Sauvegarder"
                 + "\n 5 : Quitter" );
         do{
-            enteredText = scanner.nextLine();            
+            nextAction = scanner.nextLine();
         }while(!isValid());
-    }
-
-    @Override
-    public Object getResponse() {
-        
-        return null;
     }
     
     private boolean isValid(){
         boolean valid = true;
-        if(enteredText.isEmpty()){
+        if(nextAction.isEmpty()){
             System.out.println("Veuillez entrer une valeur.");
             valid = false;
             return valid;
         }
         int i;
         try{
-            i = Integer.parseInt(enteredText);         
+            i = Integer.parseInt(nextAction);         
         }catch(Exception e){
             System.out.println("Veuillez entrer un chiffre.");
             valid = false;
@@ -64,5 +58,10 @@ public class EventView implements HUD {
         }
         
         return valid;
+    }
+    
+    @Override
+    public String getResponse() {
+        return nextAction;
     }
 }

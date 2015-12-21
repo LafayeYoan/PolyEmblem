@@ -6,6 +6,7 @@
 package main;
 
 import controller.CharacterCreation;
+import controller.Controller;
 
 /**
  *
@@ -19,8 +20,13 @@ public class PolyEmblem {
     }
     
     public static void run(){
-        controller.Controller.generateEvents();
-        controller.Controller.players = CharacterCreation.start();
+        
+        /* Initialisation */
+        Controller.generateEvents();
+        Controller.players = CharacterCreation.start();
+        
+        /* Run the game */
+        Controller.runTheGame(Controller.players.get(0));
     }
     
     

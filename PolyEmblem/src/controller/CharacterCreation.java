@@ -11,10 +11,13 @@ import view.PersonnageDisplay;
  *
  * @author Darkos
  */
-public class CharacterCreation extends Controller{
+public class CharacterCreation {
+    
+    private static final int NUMBER_OF_PLAYER = 3;
+    
     public static List<Personnage> start(){
         ArrayList<Personnage> players = new ArrayList<>();
-        for(int i = 0 ; i< Controller.NUMBER_OF_PLAYER; i++){
+        for(int i = 0 ; i< NUMBER_OF_PLAYER; i++){
             PersonnageNom nom = new PersonnageNom();
             nom.loadHUD();
             PersonnageClasse classe = new PersonnageClasse();

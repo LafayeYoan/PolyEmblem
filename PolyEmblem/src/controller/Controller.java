@@ -12,24 +12,11 @@ import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.HUD;
 
 public class Controller {
-    
-    public static int NUMBER_OF_PLAYER = 3;
 
     private static List<Events> event;
-    public static List <Personnage> players;
-    
-    public static void main(String[] args) {
-        
-        Personnage player = new Info("YoaN"); //For Tests ONLY 
-        HUD zeMenu = new EventView(player);
-        
-        generateEvents();
-        runEvents(player, zeMenu);
-        
-    }
+    public static List<Personnage> players;
     
     /* Generate alls events for the current story */
     public static void generateEvents() {
@@ -63,10 +50,31 @@ public class Controller {
         System.out.println("---------------------------------------------------");
     }
     
-    private static void runEvents(Personnage player, HUD menuForDisplay) {
+    public static void runTheGame(Personnage player) {
+        
         for(Events currentEvent : event) {
-            currentEvent.execute(player, menuForDisplay);
-            menuForDisplay.loadHUD();
+            EventView eventView = new EventView(player);
+            eventView.loadHUD();
+            
+            switch(Integer.parseInt(eventView.getResponse())){
+                case 1 : /* Poursuivre le jeu */
+                    currentEvent.act(player);
+                    break;
+                case 2 : /* Utiliser un consommable */
+                    //TODO
+                    break;
+                case 3 : /* Voir les détails du personnage */
+                    //TODO
+                    break;
+                case 4 : /* Sauvegarder */ 
+                    //TODO
+                    break;
+                case 5 : /* Quitter le jeu */
+                    //TODO
+                    break;
+                default: /* Proposer de nouveau le menu event */
+                    //TODO
+            }
         }
     }    
 }

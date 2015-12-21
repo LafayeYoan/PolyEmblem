@@ -5,6 +5,7 @@ import model.Item;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 import model.Personnage;
+import view.EventView;
 import view.HUD;
 
 public class DiscoverPlaceEvent extends Events {
@@ -18,9 +19,9 @@ public class DiscoverPlaceEvent extends Events {
     }
     
     @Override
-    public void execute(Personnage player, HUD menuForDisplay) {
+    public void act(Personnage player) {
         
-        //lancer vue 
+        
         // récupérer le résultat si y en a un 
         // lancer l'event suivant
         
@@ -40,10 +41,5 @@ public class DiscoverPlaceEvent extends Events {
                 menuForDisplay.showPlayer("\n L'objet est ajouté au sac à dos !");
             }
         }
-    }
-
-    @Override
-    public void act(model.Personnage perso) {
-        
     }
 }

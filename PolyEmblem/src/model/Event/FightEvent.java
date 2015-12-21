@@ -22,7 +22,7 @@ public class FightEvent extends Events {
     }
 
     @Override
-    public void execute(Personnage player, HUD menuForDisplay) {
+    public void act(Personnage player) {
         
         menuForDisplay.showPlayer("\n" + getDescriptionEvent() + "\n");
         
@@ -60,9 +60,4 @@ public class FightEvent extends Events {
     public void act(model.Personnage perso) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }*/
-
-    @Override
-    public void act(Personnage perso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
 }
