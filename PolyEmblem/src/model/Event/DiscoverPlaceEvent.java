@@ -21,6 +21,10 @@ public class DiscoverPlaceEvent extends Events {
     @Override
     public void execute(Personnage player, HUD menuForDisplay) {
         
+        //lancer vue 
+        // récupérer le résultat si y en a un 
+        // lancer l'event suivant
+        
         menuForDisplay.showPlayer(getDescriptionEvent());
         menuForDisplay.showPlayer("\n Vous obtenez : " + zeTreasure.getName() 
             + ". \n" + zeTreasure.getDescription());
