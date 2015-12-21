@@ -1,57 +1,45 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
-import java.util.Scanner;
+import model.Personnage;
 
 /**
  *
- * @author Darkos
+ * @author lhopital
  */
-public class SelectItem implements HUD{
-
-    private model.Personnage perso;
-    private String enteredText;
+public class ErrorItemView implements HUD {
     
-    public SelectItem(model.Personnage perso){
+    private Personnage perso;
+    private String itemToDelete;
+    
+    public ErrorItemView(Personnage perso){
         this.perso = perso;
     }
-    
+
     @Override
     public void loadHUD() {
-       
-        System.out.println("Vuillez choisir un Item:");
+        System.out.println("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
+        System.out.println("\n Quel objet souhaitez-vous laisser sur place ?");
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
             
             if(o.equiped){
-                System.out.println(" est équipé.");
+                System.out.println(" qui est équipé.");
             }else
             {
                 System.out.println();
             }
             i++;
         }
-        
-        Scanner sc = new Scanner(System.in);
         do{
-            enteredText = sc.nextLine();            
+            itemToDelete = scanner.nextLine();
         }while(!isValid());
-    }
-    
-    public void canAddItem() {
-        System.out.println("\n L'objet a correctement été ajouté au sac à dos !");
-        loadHUD();
     }
 
     @Override
     public Object getResponse() {
         try{
-            return perso.getItems().get(Integer.parseInt(enteredText) -1);
+            return perso.getItems().get(Integer.parseInt(itemToDelete) -1);
         }catch(Exception e){
             
         }
@@ -60,14 +48,14 @@ public class SelectItem implements HUD{
     
     private boolean isValid(){
         boolean valid = true;
-        if(enteredText.isEmpty()){
+        if(itemToDelete.isEmpty()){
             System.out.println("Veuillez entrer une valeur.");
             valid = false;
             return valid;
         }
         int i;
         try{
-            i = Integer.parseInt(enteredText);         
+            i = Integer.parseInt(itemToDelete);         
         }catch(Exception e){
             System.out.println("Veuillez entrer un chiffre.");
             valid = false;
@@ -78,10 +66,8 @@ public class SelectItem implements HUD{
             System.out.println("Veuillez entrer un chiffre compris entre 1 et "+perso.getItems().size()+".");
             valid = false;
             return valid;
-        }
-        
-        
+        }        
         return valid;
     }
-    
+
 }

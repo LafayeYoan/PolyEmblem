@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import controller.ItemController;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
@@ -74,10 +70,12 @@ public class EventView implements HUD {
         if(currentEvent.getClass() == DiscoverPlaceEvent.class) {
             
             DiscoverPlaceEvent event = (DiscoverPlaceEvent) currentEvent;
+            ItemController itemController = new ItemController();
+            
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
-                    + ". \n" + event.getTreasure().getDescription());
+                    + ". \n" + event.getTreasure().getDescription());     
             
-            
+            itemController.addItem(player, event.getTreasure());       
         } else {
             
             FightEvent event = (FightEvent) currentEvent;            

@@ -58,6 +58,7 @@ public abstract class Personnage {
         this.initSkills();
         
         this.maxHealth = calcMaxHealth();
+        this.allItems = new LinkedList<>();
         this.level = new Level();
         this.actualLife = this.calcMaxHealth();
         this.maxHealth = calcMaxHealth();
@@ -91,6 +92,11 @@ public abstract class Personnage {
                 unequipArmor();
             allItems.remove(item);
         }    
+    }
+    
+    public void addItem(Item item) {
+        allItems.add(item);
+        actualInUseWeight = actualInUseWeight + item.getWeight();
     }
     
     public void equipWeapon(model.Items.WeaponItem weaponItem){
