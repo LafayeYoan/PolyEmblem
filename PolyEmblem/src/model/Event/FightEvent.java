@@ -19,5 +19,16 @@ public class FightEvent extends Events {
         zeBadGuy = badGuy;
         zeSecondBadGuy = otherBadGuy;
     }
+
+    @Override
+    public Events execute(Personnage player) {
+        //TODO
+        //Mise en forme de la description
+        //Combat : 
+            //tant que vivant : combat 
+            //A la fin, mise à jour xp
+            //Joueur regagne un peu de sa vie
+        return this;
+    }
     
 }

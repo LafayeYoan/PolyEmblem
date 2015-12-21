@@ -9,12 +9,14 @@ import model.Items.WeaponItem;
 
 public abstract class Personnage {  
     
+    public static final int MAX_WEIGHT = 100;
+    
     private String name;
     private Level level;
-    private int maxWeight;
     private int maxHealth;
     
     private int actualLife;
+    private int actualInUseWeight;
     
     private List<Item> allItems;
     private WeaponItem weapon;
@@ -27,16 +29,16 @@ public abstract class Personnage {
     public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
-        //this.maxWeight = maxWeight;
         
         this.initCharacteristics();
         this.initSkills();
-        
+     
         this.maxHealth = calcMaxHealth();
         this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.actualLife = this.calcMaxHealth();
+        this.actualInUseWeight = 0;
     }
 
     public Personnage(String name) {
@@ -126,5 +128,9 @@ public abstract class Personnage {
     
     public List<Skill> getSkills(){
         return this.skills;
+    }
+    
+    public int getActualInUseWeight() {
+        return actualInUseWeight;
     }
 }

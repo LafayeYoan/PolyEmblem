@@ -31,7 +31,16 @@ public class Effect {
     public void applicateEffect(model.Personnage charactere){
         //todo
     }
+    
     public void removeEffect(model.Personnage charactere){
         //todo
+    }
+    
+    public String toString() {
+        String effectString = "";
+        if(value > 0) {
+            effectString = "+";
+        } 
+        return effectString + value + " " + characteristicEffect.toString();
     }
 }

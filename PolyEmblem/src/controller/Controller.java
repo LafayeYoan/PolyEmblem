@@ -8,19 +8,23 @@ import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
-import model.Fight;
 import model.Items.EdibleItem;
 import model.Level;
+import model.Personnage;
 import view.HUD;
 
 public class Controller {
-    
+
     private HUD zeMenu;
-    private Character player;
     private static List<Events> event;
     
     public static void main(String[] args) {
+        
+        Personnage player = new Info("YoaN"); //For Tests ONLY 
+        
         generateEvents();
+        runEvents(player);
+        
     }
     
     /* Generate alls events for the current story */
@@ -36,7 +40,8 @@ public class Controller {
                 + "Vous vous appretez à le saisir lorsque la voix suave du tram annonce votre arrêt :"
                 + "Vous vous jetez dessus et passez la porte pile attend. "
                 + "Une chance qu'il reste des tics tacs dans la boite...",
-                new EdibleItem("Boite de tic tac entamée", 1, new Effect(Characteristic.STRENGHT, 2, 0))));
+                new EdibleItem("Boite de tic tac entamée", 1, new Effect(Characteristic.STRENGHT, -2, 0),
+                                                            new Effect(Characteristic.HEALTH, 2, 0))));
         
         event.add(new FightEvent("En route vers Polytech, votre très chère école, "
                 + "vous vous retrouvez au milieu de tous les autres étudiants du campus "
@@ -54,10 +59,10 @@ public class Controller {
         System.out.println("---------------------------------------------------");
     }
     
-    //TO REMOVE ?
-    private Fight act() {
-        //TODO
-        return null;
-    }
-    
+    private static void runEvents(Personnage player) {
+        for(Events currentEvent : event) {
+            currentEvent.execute(player);
+            //Quand event fini, proposer le menu contextuel OU next event.
+        }
+    }    
 }
