@@ -1,5 +1,5 @@
 package controller;
 
-public class UserController extends EventController {
+public class UserController extends Controller {
     
 }
