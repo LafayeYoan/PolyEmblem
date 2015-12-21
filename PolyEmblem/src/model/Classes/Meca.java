@@ -13,19 +13,19 @@ import model.Level;
  *
  * @author Darkos
  */
-public class Meca extends model.Character{
+public class Meca extends model.Personnage{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 1;
     public static int BASIC_INTELIGENCE = 1;
     
-    public Meca(String name, int maxWeight, int maxHealth){
-        super(name,maxWeight,maxHealth);
+    public Meca(String name){
+        super(name);
     }
     
-    public Meca(String name, Level level, int maxWeight, int maxHealth){
-        super(name, level, maxWeight,maxHealth);
+    public Meca(String name, Level level){
+        super(name, level);
     }
     
     @Override

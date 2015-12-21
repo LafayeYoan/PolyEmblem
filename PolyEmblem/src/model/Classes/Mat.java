@@ -4,19 +4,19 @@ import java.util.HashMap;
 import model.Characteristic;
 import model.Level;
 
-public class Mat extends model.Character{
+public class Mat extends model.Personnage{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 1;
     public static int BASIC_INTELIGENCE = 1;
     
-    public Mat(String name, int maxWeight, int maxHealth){
-        super(name,maxWeight,maxHealth);
+    public Mat(String name){
+        super(name);
     }
     
-    public Mat(String name, Level level, int maxWeight, int maxHealth){
-        super(name, level, maxWeight,maxHealth);
+    public Mat(String name, Level level){
+        super(name, level);
     }
 
     @Override
