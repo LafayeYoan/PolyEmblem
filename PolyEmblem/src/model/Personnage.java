@@ -133,4 +133,8 @@ public abstract class Personnage {
     public int getActualInUseWeight() {
         return actualInUseWeight;
     }
+    
+    public String getName() {
+        return name;
+    }
 }

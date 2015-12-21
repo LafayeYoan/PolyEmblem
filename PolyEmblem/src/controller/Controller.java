@@ -11,19 +11,20 @@ import model.Events;
 import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
+import view.EventView;
 import view.HUD;
 
 public class Controller {
 
-    private HUD zeMenu;
     private static List<Events> event;
     
     public static void main(String[] args) {
         
         Personnage player = new Info("YoaN"); //For Tests ONLY 
+        HUD zeMenu = new EventView(player);
         
         generateEvents();
-        runEvents(player);
+        runEvents(player, zeMenu);
         
     }
     
@@ -59,10 +60,10 @@ public class Controller {
         System.out.println("---------------------------------------------------");
     }
     
-    private static void runEvents(Personnage player) {
+    private static void runEvents(Personnage player, HUD menuForDisplay) {
         for(Events currentEvent : event) {
-            currentEvent.execute(player);
-            //Quand event fini, proposer le menu contextuel OU next event.
+            currentEvent.execute(player, menuForDisplay);
+            menuForDisplay.loadHUD();
         }
     }    
 }
