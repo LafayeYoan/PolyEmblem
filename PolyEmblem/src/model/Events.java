@@ -13,5 +13,5 @@ public abstract class Events {
         return descriptionEvent;
     }   
     
-    public abstract Events execute();
+    public abstract Events execute(Personnage player);
 }

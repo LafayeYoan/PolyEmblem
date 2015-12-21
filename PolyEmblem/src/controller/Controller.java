@@ -8,21 +8,22 @@ import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
-import model.Fight;
 import model.Items.EdibleItem;
 import model.Level;
+import model.Personnage;
 import view.HUD;
 
 public class Controller {
 
     private HUD zeMenu;
-    private Character player;
     private static List<Events> event;
     
     public static void main(String[] args) {
         
+        Personnage player = new Info("YoaN"); //For Tests ONLY 
+        
         generateEvents();
-        runEvents();
+        runEvents(player);
         
     }
     
@@ -58,18 +59,10 @@ public class Controller {
         System.out.println("---------------------------------------------------");
     }
     
-    private static void runEvents() {
+    private static void runEvents(Personnage player) {
         for(Events currentEvent : event) {
-            currentEvent.execute();
+            currentEvent.execute(player);
             //Quand event fini, proposer le menu contextuel OU next event.
         }
-    }
-    
-    
-    //TO REMOVE ?
-    private Fight act() {
-        //TODO
-        return null;
-    }
-    
+    }    
 }

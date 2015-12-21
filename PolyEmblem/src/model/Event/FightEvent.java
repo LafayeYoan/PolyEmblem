@@ -21,7 +21,7 @@ public class FightEvent extends Events {
     }
 
     @Override
-    public Events execute() {
+    public Events execute(Personnage player) {
         //TODO
         //Mise en forme de la description
         //Combat : 

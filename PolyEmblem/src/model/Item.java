@@ -38,10 +38,12 @@ public class Item {
             effectString = effectString + "\n >> " + anEffect.toString();
         }
         
-        String description = "\n" + name.toUpperCase() + " : " 
+        return "\n" + name.toUpperCase() + " : " 
                 + "\n POIDS : " + weight + " g"
                 + "\n EFFETS : " + effectString;
-        
-        return description;
+    }
+
+    public int getWeight() {
+        return weight;
     }
 }
