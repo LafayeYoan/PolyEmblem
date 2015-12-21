@@ -1,9 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Item {
     
@@ -28,5 +26,22 @@ public class Item {
     private Item addEffect(Characteristic effectToAdd) {
         //TODO
         return this;
+    }
+    
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        String effectString = "";
+        for (Effect anEffect : allEffects) {
+            effectString = effectString + "\n * " + anEffect.toString();
+        }
+        
+        String description = name.toUpperCase() + " : " 
+                + "\n POIDS : " + weight
+                + "\n EFFETS : " + effectString;
+        
+        return description;
     }
 }

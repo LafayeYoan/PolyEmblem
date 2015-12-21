@@ -19,7 +19,8 @@ public class DiscoverPlaceEvent extends Events {
         //Mise en forme de la description
         ActionChoix.showPlayer(getDescriptionEvent());
         //Découverte de l'item :
-            //Description de l'item 
+            ActionChoix.showPlayer("\n Vous obtenez : " + zeTreasure.getName() 
+                    + ". \n" + zeTreasure.getDescription());
             //Ajout dans le sac ou sur le personnage (si équipable, proposer de l'équiper)
         return this;
     }
