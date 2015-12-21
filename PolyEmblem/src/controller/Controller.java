@@ -58,6 +58,7 @@ public class Controller {
             
             switch(Integer.parseInt(eventView.getResponse())){
                 case 1 : /* Poursuivre le jeu */
+                    eventView.showPlayer(currentEvent); 
                     currentEvent.act(player);
                     break;
                 case 2 : /* Utiliser un consommable */

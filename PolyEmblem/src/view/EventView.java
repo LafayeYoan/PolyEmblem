@@ -5,6 +5,9 @@
  */
 package view;
 
+import model.Event.DiscoverPlaceEvent;
+import model.Event.FightEvent;
+import model.Events;
 import model.Personnage;
 
 /**
@@ -63,5 +66,25 @@ public class EventView implements HUD {
     @Override
     public String getResponse() {
         return nextAction;
+    }
+
+    public void showPlayer(Events currentEvent) {
+        System.out.println("\n >> " + currentEvent.getDescriptionEvent() + " << \n");
+        
+        if(currentEvent.getClass() == DiscoverPlaceEvent.class) {
+            
+            DiscoverPlaceEvent event = (DiscoverPlaceEvent) currentEvent;
+            System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
+                    + ". \n" + event.getTreasure().getDescription());
+            
+            
+        } else {
+            
+            FightEvent event = (FightEvent) currentEvent;            
+            for(Personnage badGuy : event.getAllBadGuys()) {
+                System.out.println(badGuy.getName() + " "); 
+            }
+            System.out.println(" veulent se battre !"); 
+        }
     }
 }

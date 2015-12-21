@@ -5,8 +5,6 @@ import model.Item;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 import model.Personnage;
-import view.EventView;
-import view.HUD;
 
 public class DiscoverPlaceEvent extends Events {
     
@@ -18,27 +16,23 @@ public class DiscoverPlaceEvent extends Events {
         zeTreasure = treasure;
     }
     
+    public Item getTreasure() {
+        return zeTreasure;
+    }
+    
     @Override
     public void act(Personnage player) {
-        
-        
-        // récupérer le résultat si y en a un 
-        // lancer l'event suivant
-        
-        menuForDisplay.showPlayer(getDescriptionEvent());
-        menuForDisplay.showPlayer("\n Vous obtenez : " + zeTreasure.getName() 
-            + ". \n" + zeTreasure.getDescription());
       
         if(zeTreasure.getClass() == ArmorItem.class 
                 || zeTreasure.getClass() == WeaponItem.class) {
             //TODO : Proposer au joueur de l'équiper.
         } else { 
             if(player.getActualInUseWeight() + zeTreasure.getWeight() > Personnage.MAX_WEIGHT) {
-                menuForDisplay.showPlayer("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
+                System.out.println("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
                 //TODO : proposer de supprimer un objet de l'inventaire
             } else  {
                 //TODO : ajouter l'item dans le sac à dos
-                menuForDisplay.showPlayer("\n L'objet est ajouté au sac à dos !");
+                System.out.println("\n L'objet est ajouté au sac à dos !");
             }
         }
     }

@@ -20,16 +20,13 @@ public class FightEvent extends Events {
             allBadGuys.add(badGuys[i]);
         }
     }
+    
+    public List<Personnage> getAllBadGuys() {
+        return allBadGuys;
+    }
 
     @Override
     public void act(Personnage player) {
-        
-        menuForDisplay.showPlayer("\n" + getDescriptionEvent() + "\n");
-        
-        for(Personnage badGuy : allBadGuys) {
-            menuForDisplay.showPlayer(badGuy.getName() + " "); 
-        }
-        menuForDisplay.showPlayer(" veulent se battre !"); 
         
         //Combat : 
         //Weird Implémentation ???
@@ -38,26 +35,4 @@ public class FightEvent extends Events {
         //A la fin, mise à jour xp
         //Joueur regagne un peu de sa vie
     }
-    
-    /* OLD Version 
-    
-    /* Character who wants to fight !
-    private model.Personnage zeBadGuy;
-    private model.Personnage zeSecondBadGuy;
-    
-    public FightEvent(String description, model.Personnage badGuy) {
-        super (description);
-        zeBadGuy = badGuy;
-    }
-    
-    public FightEvent(String description, model.Personnage badGuy, model.Personnage otherBadGuy) {
-        super (description);
-        zeBadGuy = badGuy;
-        zeSecondBadGuy = otherBadGuy;
-    }
-
-    @Override
-    public void act(model.Personnage perso) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }*/
 }
