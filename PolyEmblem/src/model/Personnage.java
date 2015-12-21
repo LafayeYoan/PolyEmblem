@@ -9,7 +9,15 @@ import model.Items.WeaponItem;
 
 public abstract class Personnage {  
     
-    public static final int MAX_WEIGHT = 100;
+    public static final int MAX_WEIGHT = 100;  
+
+        public enum Classes{
+            GBM,
+            INFO,
+            MAM,
+            MAT,
+            MECA,
+        }
     
     private String name;
     private Level level;
@@ -44,6 +52,7 @@ public abstract class Personnage {
     public Personnage(String name) {
         this.name = name;
         //this.maxWeight = maxWeight;
+        this.level = new Level();
         
         this.initCharacteristics();
         this.initSkills();
@@ -51,7 +60,7 @@ public abstract class Personnage {
         this.maxHealth = calcMaxHealth();
         this.level = new Level();
         this.actualLife = this.calcMaxHealth();
-        
+        this.maxHealth = calcMaxHealth();
     }
     
     protected abstract void initCharacteristics();    
@@ -136,5 +145,37 @@ public abstract class Personnage {
     
     public String getName() {
         return name;
+    }
+
+    public List<Item> getItems(){
+        return this.allItems;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public int getActualLife() {
+        return actualLife;
+    }
+    
+    public int getMaxHealth(){
+        return this.maxHealth;
+    }
+
+    public WeaponItem getWeapon() {
+        return weapon;
+    }
+
+    public ArmorItem getArmor() {
+        return armor;
+    }
+
+    public Map<Characteristic, Integer> getCharacteritics() {
+        return characteritics;
+    }
+
+    public List<Effect> getEffects() {
+        return effects;
     }
 }

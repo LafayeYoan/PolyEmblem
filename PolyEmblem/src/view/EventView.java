@@ -25,7 +25,7 @@ public class EventView implements HUD {
     @Override 
     public void loadHUD() {
         System.out.println("\n Quelle est votre prochaine action ?");
-        showPlayer("\n 1 : Poursuivre ma route "
+        System.out.println("\n 1 : Poursuivre ma route "
                 + "\n 2 : Utiliser un consommable"
                 + "\n 3 : Voir les détails de mon personnage"
                 + "\n 4 : Sauvegarder"
@@ -64,10 +64,5 @@ public class EventView implements HUD {
         }
         
         return valid;
-    }
-
-    @Override
-    public void showPlayer(String message) {
-        System.out.println(message.toString());
     }
 }

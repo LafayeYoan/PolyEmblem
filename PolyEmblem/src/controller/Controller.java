@@ -15,8 +15,11 @@ import view.EventView;
 import view.HUD;
 
 public class Controller {
+    
+    public static int NUMBER_OF_PLAYER = 3;
 
     private static List<Events> event;
+    public static List <Personnage> players;
     
     public static void main(String[] args) {
         
@@ -29,7 +32,7 @@ public class Controller {
     }
     
     /* Generate alls events for the current story */
-    private static void generateEvents() {
+    public static void generateEvents() {
         
         event = new ArrayList<Events>();
         
