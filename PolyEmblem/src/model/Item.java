@@ -35,11 +35,11 @@ public class Item {
     public String getDescription() {
         String effectString = "";
         for (Effect anEffect : allEffects) {
-            effectString = effectString + "\n * " + anEffect.toString();
+            effectString = effectString + "\n >> " + anEffect.toString();
         }
         
-        String description = name.toUpperCase() + " : " 
-                + "\n POIDS : " + weight
+        String description = "\n" + name.toUpperCase() + " : " 
+                + "\n POIDS : " + weight + " g"
                 + "\n EFFETS : " + effectString;
         
         return description;

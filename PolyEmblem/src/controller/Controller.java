@@ -39,7 +39,8 @@ public class Controller {
                 + "Vous vous appretez à le saisir lorsque la voix suave du tram annonce votre arrêt :"
                 + "Vous vous jetez dessus et passez la porte pile attend. "
                 + "Une chance qu'il reste des tics tacs dans la boite...",
-                new EdibleItem("Boite de tic tac entamée", 1, new Effect(Characteristic.STRENGHT, 2, 0))));
+                new EdibleItem("Boite de tic tac entamée", 1, new Effect(Characteristic.STRENGHT, -2, 0),
+                                                            new Effect(Characteristic.HEALTH, 2, 0))));
         
         event.add(new FightEvent("En route vers Polytech, votre très chère école, "
                 + "vous vous retrouvez au milieu de tous les autres étudiants du campus "
