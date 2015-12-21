@@ -11,12 +11,10 @@ import model.Event;
 import model.Fight;
 import model.Items.EdibleItem;
 import model.Personnage;
-import view.HUD;
 
 public class Controller {
-    public static int NUMBER_OF_PLAYER;
-    private HUD zeMenu;
-    private List <Personnage> players;
+    public static int NUMBER_OF_PLAYER = 3;
+    public static List <Personnage> players;
     private static List<Event> event;
     
     public static void main(String[] args) {
@@ -52,9 +50,4 @@ public class Controller {
         System.out.println("---------- GENERATION DES EVENTS TERMINES ---------");
         System.out.println("---------------------------------------------------");
     }
-    
-    private void run(){
-        
-    }
-    
 }

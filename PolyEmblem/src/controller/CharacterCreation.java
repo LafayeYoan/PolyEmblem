@@ -5,12 +5,13 @@ import java.util.List;
 import model.Personnage;
 import view.PersonnageNom;
 import view.PersonnageClasse;
+import view.PersonnageDisplay;
 
 /**
  *
  * @author Darkos
  */
-public class CharacterCreation {
+public class CharacterCreation extends Controller{
     public static List<Personnage> start(){
         ArrayList<Personnage> players = new ArrayList<>();
         for(int i = 0 ; i< Controller.NUMBER_OF_PLAYER; i++){
@@ -38,6 +39,7 @@ public class CharacterCreation {
                     //DO Nothing
                     //The player loose a character
             }
+            new PersonnageDisplay(players.get(i)).loadHUD();            
         }
         return players;
     }

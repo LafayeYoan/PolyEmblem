@@ -5,6 +5,8 @@
  */
 package main;
 
+import controller.CharacterCreation;
+
 /**
  *
  * @author Darkos
@@ -18,6 +20,7 @@ public class PolyEmblem {
     
     public static void run(){
         controller.Controller.generateEvents();
+        controller.Controller.players = CharacterCreation.start();
     }
     
     

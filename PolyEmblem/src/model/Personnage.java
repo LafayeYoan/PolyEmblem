@@ -7,7 +7,16 @@ import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
-public abstract class Personnage {     
+public abstract class Personnage {   
+    
+    public enum Classes{
+        GBM,
+        INFO,
+        MAM,
+        MAT,
+        MECA
+    }
+    
     private String name;
     private Level level;
     private int maxWeight;
@@ -26,24 +35,22 @@ public abstract class Personnage {
     public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
-        //this.maxWeight = maxWeight;
-        this.maxHealth = calcMaxHealth();
         this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.initCharacteristics();
         this.initSkills();
+        this.maxHealth = calcMaxHealth();
         this.actualLife = this.calcMaxHealth();
     }
 
     public Personnage(String name) {
         this.name = name;
-        //this.maxWeight = maxWeight;
-        this.maxHealth = calcMaxHealth();
         this.level = new Level();
         this.initCharacteristics();
         this.initSkills();
         this.actualLife = this.calcMaxHealth();
+        this.maxHealth = calcMaxHealth();
         
     }
     
@@ -126,4 +133,38 @@ public abstract class Personnage {
     public List<Item> getItems(){
         return this.allItems;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public Level getLevel() {
+        return level;
+    }
+
+    public int getActualLife() {
+        return actualLife;
+    }
+    
+    public int getMaxHealth(){
+        return this.maxHealth;
+    }
+
+    public WeaponItem getWeapon() {
+        return weapon;
+    }
+
+    public ArmorItem getArmor() {
+        return armor;
+    }
+
+    public Map<Characteristic, Integer> getCharacteritics() {
+        return characteritics;
+    }
+
+    public List<Effect> getEffects() {
+        return effects;
+    }
+    
+    
 }
