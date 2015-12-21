@@ -11,7 +11,7 @@ import model.Events;
 import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
-import view.ActionChoix;
+import view.EventView;
 import view.HUD;
 
 public class Controller {
@@ -21,7 +21,7 @@ public class Controller {
     public static void main(String[] args) {
         
         Personnage player = new Info("YoaN"); //For Tests ONLY 
-        HUD zeMenu = new ActionChoix(player);
+        HUD zeMenu = new EventView(player);
         
         generateEvents();
         runEvents(player, zeMenu);
@@ -63,7 +63,7 @@ public class Controller {
     private static void runEvents(Personnage player, HUD menuForDisplay) {
         for(Events currentEvent : event) {
             currentEvent.execute(player, menuForDisplay);
-            //Quand event fini, proposer le menu contextuel OU next event.
+            menuForDisplay.loadHUD();
         }
     }    
 }
