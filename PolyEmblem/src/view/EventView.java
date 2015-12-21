@@ -63,7 +63,6 @@ public class EventView implements HUD {
             return valid;
         }
         
-        
         return valid;
     }
 

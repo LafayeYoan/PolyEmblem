@@ -5,7 +5,6 @@ import java.util.List;
 import model.Events;
 import model.Personnage;
 import model.Fight;
-import view.ActionChoix;
 import view.HUD;
 
 public class FightEvent extends Events {
