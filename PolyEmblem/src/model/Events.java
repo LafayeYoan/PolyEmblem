@@ -1,5 +1,7 @@
 package model;
 
+import view.HUD;
+
 public abstract class Events {
     
     /* Describe the event for the player */
@@ -13,5 +15,5 @@ public abstract class Events {
         return descriptionEvent;
     }   
     
-    public abstract Events execute(Personnage player);
+    public abstract void execute(Personnage player, HUD menuForDisplay);
 }

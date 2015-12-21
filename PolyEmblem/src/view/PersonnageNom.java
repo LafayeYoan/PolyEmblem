@@ -5,8 +5,6 @@
  */
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Darkos
@@ -30,6 +28,11 @@ public class PersonnageNom implements HUD{
     @Override
     public String getResponse() {
         return nom;
+    }
+
+    @Override
+    public void showPlayer(String message) {
+        System.out.println(message.toString());
     }
     
 }

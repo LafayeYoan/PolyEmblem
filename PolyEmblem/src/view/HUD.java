@@ -11,5 +11,7 @@ public interface HUD {
     public Object getResponse();
     
     public Scanner scanner = new Scanner(System.in);
+    
+    public void showPlayer(String message);
 
 }

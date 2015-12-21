@@ -6,6 +6,7 @@ import model.Events;
 import model.Personnage;
 import model.Fight;
 import view.ActionChoix;
+import view.HUD;
 
 public class FightEvent extends Events {
     
@@ -22,14 +23,14 @@ public class FightEvent extends Events {
     }
 
     @Override
-    public Events execute(Personnage player) {
+    public void execute(Personnage player, HUD menuForDisplay) {
         
-        ActionChoix.showPlayer("\n" + getDescriptionEvent() + "\n");
+        menuForDisplay.showPlayer("\n" + getDescriptionEvent() + "\n");
         
         for(Personnage badGuy : allBadGuys) {
-            ActionChoix.showPlayer(badGuy.getName() + " "); 
+            menuForDisplay.showPlayer(badGuy.getName() + " "); 
         }
-        ActionChoix.showPlayer(" veulent se battre !"); 
+        menuForDisplay.showPlayer(" veulent se battre !"); 
         
         //Combat : 
         //Weird Implémentation ???
@@ -37,7 +38,6 @@ public class FightEvent extends Events {
         //zeFight.run();
         //A la fin, mise à jour xp
         //Joueur regagne un peu de sa vie
-        return this;
     }
     
 }

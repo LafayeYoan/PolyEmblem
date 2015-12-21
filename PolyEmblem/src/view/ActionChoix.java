@@ -1,22 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Scanner;
 
-/**
- *
- * @author Darkos
- */
 public class ActionChoix implements HUD{
     
     private model.Personnage personnage;
     private String enteredText;
     
-    ActionChoix(model.Personnage chararcter){
+    public ActionChoix(model.Personnage chararcter){
         this.personnage = chararcter;
     }
     
@@ -70,8 +61,9 @@ public class ActionChoix implements HUD{
         
         return valid;
     }
-    
-    public static void showPlayer(String message) {
+
+    @Override
+    public void showPlayer(String message) {
         System.out.println(message.toString());
     }
 }
