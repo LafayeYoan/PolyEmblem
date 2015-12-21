@@ -2,7 +2,9 @@ package model;
 
 public interface Skill {
     
-    Effect[] useAbility(Character srcCharacter, Character targetCharacter);
+    Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter);
     
-    double successProbability(Character srcCharacter);
+    double successProbability(Personnage srcCharacter);
+    
+    public String getName();
 }

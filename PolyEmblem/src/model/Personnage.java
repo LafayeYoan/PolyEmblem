@@ -1,21 +1,21 @@
+
 package model;
 
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
-public abstract class Character {     
+public abstract class Personnage {     
     private String name;
     private Level level;
     private int maxWeight;
     private int maxHealth;
-    private int maxDext;
     
     private int actualLife;
     
-    private Map <Integer,Item> allItems;
+    private List<Item> allItems;
     private WeaponItem weapon;
     private ArmorItem armor;
     
@@ -23,32 +23,31 @@ public abstract class Character {
     protected List<Skill> skills;
     private List<Effect> effects;
 
-    public Character(String name,Level level, int maxWeight, int maxHealth, int maxDext) {
+    public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
-        this.maxWeight = maxWeight;
-        this.maxHealth = maxHealth;
-        this.maxDext = maxDext;
-        this.allItems = new HashMap<>();
+        //this.maxWeight = maxWeight;
+        this.maxHealth = calcMaxHealth();
+        this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.initCharacteristics();
+        this.initSkills();
         this.actualLife = this.calcMaxHealth();
     }
 
-    public Character(String name, int maxWeight, int maxHealth, int maxDext) {
+    public Personnage(String name) {
         this.name = name;
-        this.maxWeight = maxWeight;
-        this.maxHealth = maxHealth;
-        this.maxDext = maxDext;
+        //this.maxWeight = maxWeight;
+        this.maxHealth = calcMaxHealth();
         this.level = new Level();
         this.initCharacteristics();
+        this.initSkills();
         this.actualLife = this.calcMaxHealth();
         
     }
     
-    protected abstract void initCharacteristics();
-    
+    protected abstract void initCharacteristics();    
     
     public void addEffect(Effect effect){
         this.effects.add(effect);
@@ -67,26 +66,43 @@ public abstract class Character {
         }
     }
     
+    public void removeItem(Item item){
+        if(allItems.contains(item)) {
+            if(item==this.weapon){
+                unequipWeapon();
+            }
+            else if(item==this.armor)
+                unequipArmor();
+            allItems.remove(item);
+        }    
+    }
+    
     public void equipWeapon(model.Items.WeaponItem weaponItem){
         if(!this.weapon.equals(null)){
-            //enlever effet de l'arme déja équipé
+            unequipWeapon();
         }
-        
         //equiper
         this.weapon = weaponItem;
-        
         //code pour les effets de l'arme
+    }
+   
+    public void unequipWeapon(){
+        //enlever effet
+        this.weapon=null;
     }
     
     public void equipArmor(model.Items.ArmorItem armorItem){
         if(!this.armor.equals(null)){
-            //enlever effet de l'armure déja équipé
+            unequipArmor();
         }
-        
         //equiper
-        this.armor = armorItem;
-        
+        this.armor = armorItem; 
         //code pour les effets de l'armure
+    } 
+    
+     public void unequipArmor(){
+         //enlever effet
+         this.armor=null;
     }
     
     public int calcMaxHealth(){
@@ -94,5 +110,16 @@ public abstract class Character {
             return this.characteritics.get(Characteristic.HEALTH);
         }
         return 20;
+    }
+    
+    public void initSkills(){
+        this.skills = new LinkedList<>();
+        this.skills.add(new model.Skills.AttackSkill());
+        this.skills.add(new model.Skills.HealSkill());
+        this.skills.add(new model.Skills.ParadeSkill());
+    }
+    
+    public List<Skill> getSkills(){
+        return this.skills;
     }
 }

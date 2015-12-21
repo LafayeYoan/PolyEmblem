@@ -7,22 +7,27 @@ package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Level;
 
 /**
  *
  * @author Darkos
  */
-public class Meca extends model.Character{
+public class Meca extends model.Personnage{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 1;
     public static int BASIC_INTELIGENCE = 1;
     
-    public Meca(String name, int maxWeight, int maxHealth, int maxDext){
-        super(name,maxWeight,maxHealth,maxDext);
+    public Meca(String name){
+        super(name);
     }
-
+    
+    public Meca(String name, Level level){
+        super(name, level);
+    }
+    
     @Override
     protected void initCharacteristics() {
         this.characteritics=new HashMap<>();

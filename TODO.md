@@ -24,21 +24,58 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * Gérer la sauvegarde EN BINAIRE (Sérialisation + déserialisation). 
 
-* Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. 
+* Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes.
 
+* Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
+
+* La vie du joueur se met à jour quand il est attaqué pendant un combat.
+
+* Chaque classe possède deux capacités (parmi attaque, parade et soin)
+
+* Utilisation d'une capacité : 
+    1. Vérifier qu'elle est réussite (proba de réussite). Cette probabilité dépend des caractéristiques du personnage (?) et de ses points de compétences. 
+    2. Si la capacité est réussie : 
+        - Calculer les dégats occasionés (force de l'attaquant + valeur de dégats de l'arme) : DEG
+        - Calculer la défense du personnage attaqué (Défense + résistance des armures) : DEF
+        - Calculer les dommages (DEG - DEF)
+        - Soustraire les dommages subis à la santé du personnage attaqué
+Attention, une parade augmente la défense quand le personnage subis une attaque. Le soin augmente la santé du personnage.
+
+* Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
+
+* Actions disponibles pendant un combat : 
+    - Capacité(s)
+    - Utiliser un consomable
+    
+* Si le personnage arrive à 0 de vie, la partie est terminée (cd. View).
+
+* A la fin du combat (et en cas de victoire), le joueur gagne de l'xp. 
+
+* Un combat oppose plusieurs personnages à plusieurs personnages.
+
+* [EN COURS PAR SACHA] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
+    - Combat contre un enemis ([OPTION] ou plusieurs)
+    - Découverte d'un endroit avec du stuff
+    - Autres (?)
 
 # Developpement View
 
 * [OPTION] "help" : donne toutes les commandes possibles au joueur. 
 
-* [OPTION] "moi" : affiche le détail du personnage que joue le joueur. 
+* [OPTION] "moi" : affiche le détail du personnage que joue le joueur.
 
 * Prévoir "une fenêtre" pour attribuer un point de compétence lors du gars de niveau.
 
 * Prévoir "une fenêtre" pour visualiser et gérer le contenu du sac à dos.  
 
+* Prévoir "une fenêtre" pour visualiser un combat au tour par tour.
+
 * [OPTION] Si le joueur tape une commande qui n'est pas prise en charge, "commande non reconnue" apparait et le jeu se poursuit. 
+
+* [OPTION] Prévoir "une fenêtre" pour visualiser la mort du personnage, et la fin de la partie.
 
 # Autres
 
 * Créer un fichier UML Complet et à jour du projet
+
+* Prévoir une "présentation" du jeu pour le 14 JAN 2016

@@ -5,11 +5,11 @@ package model;
 public class Fight {
     
     private Round zeRound;
-    private Character player;
-    private Character aICharacter;
+    private Personnage player;
+    private Personnage aICharacter;
     private Skill abilityToUse;
     
-    private Fight(Character player, Character aICharacter, Skill abilityToUse) {
+    private Fight(Personnage player, Personnage aICharacter, Skill abilityToUse) {
         this.zeRound = new Round(); //To increment ? 
         this.player = player;
         this.aICharacter = aICharacter;
