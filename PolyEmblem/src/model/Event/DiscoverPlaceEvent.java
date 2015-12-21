@@ -2,6 +2,7 @@ package model.Event;
 
 import model.Events;
 import model.Item;
+import view.ActionChoix;
 
 public class DiscoverPlaceEvent extends Events {
     
@@ -15,6 +16,11 @@ public class DiscoverPlaceEvent extends Events {
     
     @Override
     public Events execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //Mise en forme de la description
+        ActionChoix.showPlayer(getDescriptionEvent());
+        //Découverte de l'item :
+            //Description de l'item 
+            //Ajout dans le sac ou sur le personnage (si équipable, proposer de l'équiper)
+        return this;
     }
 }

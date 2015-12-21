@@ -60,6 +60,7 @@ public class Controller {
     private static void runEvents() {
         for(Events currentEvent : event) {
             currentEvent.execute();
+            //Quand event fini, proposer le menu contextuel OU next event.
         }
     }
     

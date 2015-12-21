@@ -22,7 +22,13 @@ public class FightEvent extends Events {
 
     @Override
     public Events execute() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        //TODO
+        //Mise en forme de la description
+        //Combat : 
+            //tant que vivant : combat 
+            //A la fin, mise à jour xp
+            //Joueur regagne un peu de sa vie
+        return this;
     }
     
 }

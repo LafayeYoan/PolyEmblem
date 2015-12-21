@@ -15,9 +15,11 @@ public class ActionChoix implements HUD{
     
     private model.Personnage personnage;
     private String enteredText;
+    
     ActionChoix(model.Personnage chararcter){
         this.personnage = chararcter;
     }
+    
     @Override 
     public void loadHUD() {
         System.out.println("Vuillez choisir une action à faire pendant ce tour:");
@@ -67,5 +69,9 @@ public class ActionChoix implements HUD{
         
         
         return valid;
+    }
+    
+    public static void showPlayer(String message) {
+        System.out.println(message.toString());
     }
 }
