@@ -7,7 +7,8 @@ import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
-public abstract class Personnage {     
+public abstract class Personnage {  
+    
     private String name;
     private Level level;
     private int maxWeight;
@@ -27,22 +28,26 @@ public abstract class Personnage {
         this.name = name;
         this.level = level;
         //this.maxWeight = maxWeight;
+        
+        this.initCharacteristics();
+        this.initSkills();
+        
         this.maxHealth = calcMaxHealth();
         this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
-        this.initCharacteristics();
-        this.initSkills();
         this.actualLife = this.calcMaxHealth();
     }
 
     public Personnage(String name) {
         this.name = name;
         //this.maxWeight = maxWeight;
-        this.maxHealth = calcMaxHealth();
-        this.level = new Level();
+        
         this.initCharacteristics();
         this.initSkills();
+        
+        this.maxHealth = calcMaxHealth();
+        this.level = new Level();
         this.actualLife = this.calcMaxHealth();
         
     }
@@ -105,7 +110,7 @@ public abstract class Personnage {
          this.armor=null;
     }
     
-    public int calcMaxHealth(){
+    private int calcMaxHealth(){
         if(this.characteritics.containsKey(Characteristic.HEALTH)){
             return this.characteritics.get(Characteristic.HEALTH);
         }

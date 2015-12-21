@@ -13,7 +13,8 @@ public class DiscoverPlaceEvent extends Events {
         zeTreasure = treasure;
     }
     
-    private Events execute() {
+    @Override
+    public Events execute() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

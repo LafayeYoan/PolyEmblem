@@ -14,5 +14,5 @@ public abstract class Events {
         return descriptionEvent;
     }   
     
-    abstract Events execute();
+    public abstract Events execute();
 }

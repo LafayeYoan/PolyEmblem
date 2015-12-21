@@ -23,6 +23,7 @@ public class Controller {
         
         generateEvents();
         runEvents();
+        
     }
     
     /* Generate alls events for the current story */
@@ -47,9 +48,10 @@ public class Controller {
                 + "\n Serré contre la porte, vous distinguez un paquet de tic tac au sol."
                 + "Vous vous appretez à le saisir lorsque la voix suave du tram annonce votre arrêt :"
                 + "Vous vous jetez dessus et passez la porte pile attend. "
-                + "Une chance qu'il reste des tics tacs dans la boite...", new Info("Charlie le Kaid", new Level(), 0, 10)));
+                + "Une chance qu'il reste des tics tacs dans la boite...", new Info("Charlie le Kaid", new Level(10))));
         
-        //TODO : add more events
+        //TODO : add story events here
+        
         System.out.println("---------------------------------------------------");
         System.out.println("---------- GENERATION DES EVENTS TERMINES ---------");
         System.out.println("---------------------------------------------------");
