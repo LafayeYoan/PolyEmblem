@@ -10,13 +10,13 @@ import model.Events.FightEvent;
 import model.Event;
 import model.Fight;
 import model.Items.EdibleItem;
-import model.Level;
+import model.Personnage;
 import view.HUD;
 
 public class Controller {
     public static int NUMBER_OF_PLAYER;
     private HUD zeMenu;
-    private Character player;
+    private List <Personnage> players;
     private static List<Event> event;
     
     public static void main(String[] args) {
@@ -53,10 +53,8 @@ public class Controller {
         System.out.println("---------------------------------------------------");
     }
     
-    //TO REMOVE ?
-    private Fight act() {
-        //TODO
-        return null;
+    private void run(){
+        
     }
     
 }

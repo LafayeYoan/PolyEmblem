@@ -122,4 +122,8 @@ public abstract class Personnage {
     public List<Skill> getSkills(){
         return this.skills;
     }
+    
+    public List<Item> getItems(){
+        return this.allItems;
+    }
 }

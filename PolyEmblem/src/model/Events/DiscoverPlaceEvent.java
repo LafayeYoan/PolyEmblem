@@ -12,4 +12,11 @@ public class DiscoverPlaceEvent extends Event {
         super(description);
         zeTreasure = treasure;
     }
+
+    @Override
+    public void act(model.Personnage perso) {
+        
+    }
+    
+    
 }

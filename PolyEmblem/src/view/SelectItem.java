@@ -11,19 +11,29 @@ import java.util.Scanner;
  *
  * @author Darkos
  */
-public class ActionChoix implements HUD{
-    
-    private model.Personnage personnage;
+public class SelectItem implements HUD{
+
+    private model.Personnage perso;
     private String enteredText;
-    ActionChoix(model.Personnage perso){
-        this.personnage = perso;
+    
+    public SelectItem(model.Personnage perso){
+        this.perso = perso;
     }
-    @Override 
+    
+    @Override
     public void loadHUD() {
-        System.out.println("Vuillez choisir une action à faire pendant ce tour:");
+       
+        System.out.println("Vuillez choisir un Item:");
         int i = 1;
-        for(model.Skill s:personnage.getSkills()){
-            System.out.println( i + ":" + s.getName());
+        for(model.Item o:perso.getItems()){
+            System.out.print( i + ":" + o.getName());
+            
+            if(o.equiped){
+                System.out.println(" est équipé.");
+            }else
+            {
+                System.out.println();
+            }
             i++;
         }
         
@@ -36,7 +46,7 @@ public class ActionChoix implements HUD{
     @Override
     public Object getResponse() {
         try{
-            return personnage.getSkills().get(Integer.parseInt(enteredText) -1);
+            return perso.getItems().get(Integer.parseInt(enteredText) -1);
         }catch(Exception e){
             
         }
@@ -59,8 +69,8 @@ public class ActionChoix implements HUD{
             return valid;
         }
         
-        if(i>=personnage.getSkills().size()||i <=0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+personnage.getSkills().size()+".");
+        if(i>=perso.getSkills().size()||i <=0){
+            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+perso.getItems().size()+".");
             valid = false;
             return valid;
         }
@@ -68,4 +78,5 @@ public class ActionChoix implements HUD{
         
         return valid;
     }
+    
 }
