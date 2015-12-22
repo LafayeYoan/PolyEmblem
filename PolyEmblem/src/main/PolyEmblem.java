@@ -1,6 +1,5 @@
 package main;
 
-import controller.CharacterCreation;
 import controller.StoryController;
 import model.Classes.Info;
 

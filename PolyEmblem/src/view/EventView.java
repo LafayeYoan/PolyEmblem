@@ -23,6 +23,7 @@ public class EventView implements HUD {
     
     @Override 
     public void loadHUD() {
+        System.out.println("----------------------------------------");
         System.out.println("\n Quelle est votre prochaine action ?");
         System.out.println("\n 1 : Poursuivre ma route "
                 + "\n 2 : Utiliser un consommable"
@@ -65,7 +66,10 @@ public class EventView implements HUD {
     }
 
     public void showPlayer(Events currentEvent) {
-        System.out.println("\n >> " + currentEvent.getDescriptionEvent() + " << \n");
+        System.out.println("----------------------------------------");
+        System.out.println("------ Un Evènement se produit ! -------");
+        System.out.println("----------------------------------------");
+        System.out.println("\n " + currentEvent.getDescriptionEvent() + " \n");
         
         if(currentEvent.getClass() == DiscoverPlaceEvent.class) {
             
@@ -75,14 +79,21 @@ public class EventView implements HUD {
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.addItem(player, event.getTreasure());       
+            itemController.findItem(player, event.getTreasure());       
         } else {
             
-            FightEvent event = (FightEvent) currentEvent;            
+            FightEvent event = (FightEvent) currentEvent; 
+            
             for(Personnage badGuy : event.getAllBadGuys()) {
                 System.out.println(badGuy.getName() + " "); 
             }
-            System.out.println(" veulent se battre !"); 
+            
+            if(event.getAllBadGuys().get(1) == null) {
+                System.out.println(" veux se battre !"); 
+            } else {
+                System.out.println(" veulent se battre !"); 
+            }
         }
+        System.out.println("----------------------------------------");
     }
 }

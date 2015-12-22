@@ -3,11 +3,13 @@ package controller;
 import model.Item;
 import model.Personnage;
 import view.ErrorItemView;
+import view.EventView;
+import view.ItemDisplayView;
 import view.SelectItem;
 
 public class ItemController {
 
-    public void addItem(Personnage player, Item treasure) {
+    public void findItem(Personnage player, Item treasure) {
         
         SelectItem itemView = new SelectItem(player);
         
@@ -35,6 +37,24 @@ public class ItemController {
                 }
                 player.addItem(treasure);
                 itemView.canAddItem();
+                manageItemBag(player, itemView);
+        }
+    }
+
+    private void manageItemBag(Personnage player, SelectItem itemView) {
+        
+        EventView eventView = new EventView(player);
+        
+        switch(itemView.getResponse().getClass().toString()) {
+            
+            case  "class java.lang.Integer" : /* Retour au menu principal */
+                eventView.loadHUD();
+                break;
+            
+            default : /* Afficher le détail d'un objet */
+                ItemDisplayView itemDisplayView = new ItemDisplayView((Item) itemView.getResponse());
+                itemDisplayView.loadHUD();  
+                eventView.loadHUD();
         }
     }
     

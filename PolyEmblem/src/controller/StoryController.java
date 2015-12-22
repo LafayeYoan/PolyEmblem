@@ -3,7 +3,6 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.Characteristic;
-import model.Classes.Info;
 import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
@@ -13,6 +12,7 @@ import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
+import view.PersonnageDisplay;
 
 public class StoryController {
 
@@ -66,16 +66,17 @@ public class StoryController {
                     //TODO
                     break;
                 case 3 : /* Voir les détails du personnage */
-                    //TODO
+                    PersonnageDisplay playerView = new PersonnageDisplay(player);
+                    playerView.loadHUD();
                     break;
                 case 4 : /* Sauvegarder */ 
                     //TODO
                     break;
                 case 5 : /* Quitter le jeu */
-                    //TODO
+                    System.exit(0);
                     break;
-                default: /* Proposer de nouveau le menu event */
-                    //TODO
+                default: /* Proposer de nouveau le menu */
+                    eventView.loadHUD();
             }
         }
     }    
