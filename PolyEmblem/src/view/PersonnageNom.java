@@ -5,8 +5,6 @@
  */
 package view;
 
-import java.util.Scanner;
-
 /**
  *
  * @author Darkos
@@ -18,9 +16,8 @@ public class PersonnageNom implements HUD{
     @Override
     public void loadHUD() {
         System.out.println("Veullez entrez votre nom de personnage.");
-        Scanner sc = new Scanner(System.in);
         do{
-            nom = sc.nextLine();            
+            nom = scanner.nextLine();            
             if(nom.isEmpty()){
                 System.out.println("Le nom est vide, veuillez le reentrer.");
             }
@@ -32,5 +29,4 @@ public class PersonnageNom implements HUD{
     public String getResponse() {
         return nom;
     }
-    
 }

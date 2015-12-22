@@ -3,8 +3,9 @@ package model.Classes;
 import java.util.HashMap;
 import model.Characteristic;
 import model.Level;
+import model.Personnage;
 
-public class Info extends model.Personnage {
+public class Info extends Personnage {
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;

@@ -22,8 +22,11 @@ public class SelectItem implements HUD{
     
     @Override
     public void loadHUD() {
-       
-        System.out.println("Vuillez choisir un Item:");
+        System.out.println("----------------------------------------");
+        System.out.println("-------- Contenu de votre sac ----------");
+        System.out.println("----------------------------------------");
+        System.out.println("Choisissez un objet pour voir son détail : ");
+        System.out.println("(Appuyez sur 0 pour revenir au menu principal) \n");
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
@@ -42,9 +45,19 @@ public class SelectItem implements HUD{
             enteredText = sc.nextLine();            
         }while(!isValid());
     }
+    
+    public void canAddItem() {
+        System.out.println("\n L'objet a correctement été ajouté au sac à dos ! \n");
+        loadHUD();
+    }
 
     @Override
     public Object getResponse() {
+        
+        if(enteredText.equals("0")) {
+            return 0;
+        } 
+        
         try{
             return perso.getItems().get(Integer.parseInt(enteredText) -1);
         }catch(Exception e){
@@ -69,8 +82,8 @@ public class SelectItem implements HUD{
             return valid;
         }
         
-        if(i>=perso.getSkills().size()||i <=0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+perso.getItems().size()+".");
+        if(i>=perso.getSkills().size()||i < 0){
+            System.out.println("Veuillez entrer un chiffre compris entre 0 et "+perso.getItems().size()+".");
             valid = false;
             return valid;
         }

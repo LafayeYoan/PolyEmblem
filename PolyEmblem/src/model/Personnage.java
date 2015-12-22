@@ -7,22 +7,24 @@ import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
-public abstract class Personnage {   
+public abstract class Personnage {  
     
-    public enum Classes{
-        GBM,
-        INFO,
-        MAM,
-        MAT,
-        MECA
-    }
+    public static final int MAX_WEIGHT = 100;  
+
+        public enum Classes{
+            GBM,
+            INFO,
+            MAM,
+            MAT,
+            MECA,
+        }
     
     private String name;
     private Level level;
-    private int maxWeight;
     private int maxHealth;
     
     private int actualLife;
+    private int actualInUseWeight;
     
     private List<Item> allItems;
     private WeaponItem weapon;
@@ -35,23 +37,31 @@ public abstract class Personnage {
     public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
+        
+        this.initCharacteristics();
+        this.initSkills();
+     
+        this.maxHealth = calcMaxHealth();
         this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
-        this.initCharacteristics();
-        this.initSkills();
-        this.maxHealth = calcMaxHealth();
         this.actualLife = this.calcMaxHealth();
+        this.actualInUseWeight = 0;
     }
 
     public Personnage(String name) {
         this.name = name;
+        //this.maxWeight = maxWeight;
         this.level = new Level();
+        
         this.initCharacteristics();
         this.initSkills();
+        
+        this.maxHealth = calcMaxHealth();
+        this.allItems = new LinkedList<>();
+        this.level = new Level();
         this.actualLife = this.calcMaxHealth();
         this.maxHealth = calcMaxHealth();
-        
     }
     
     protected abstract void initCharacteristics();    
@@ -79,6 +89,11 @@ public abstract class Personnage {
                 unequipArmor();
             allItems.remove(item);
         }    
+    }
+    
+    public void addItem(Item item) {
+        allItems.add(item);
+        actualInUseWeight = actualInUseWeight + item.getWeight();
     }
     
     public void equipWeapon(model.Items.WeaponItem weaponItem){
@@ -109,7 +124,7 @@ public abstract class Personnage {
          this.armor=null;
     }
     
-    public int calcMaxHealth(){
+    private int calcMaxHealth(){
         if(this.characteritics.containsKey(Characteristic.HEALTH)){
             return this.characteritics.get(Characteristic.HEALTH);
         }
@@ -127,12 +142,16 @@ public abstract class Personnage {
         return this.skills;
     }
     
-    public List<Item> getItems(){
-        return this.allItems;
+    public int getActualInUseWeight() {
+        return actualInUseWeight;
     }
-
+    
     public String getName() {
         return name;
+    }
+
+    public List<Item> getItems(){
+        return this.allItems;
     }
 
     public Level getLevel() {
@@ -162,6 +181,4 @@ public abstract class Personnage {
     public List<Effect> getEffects() {
         return effects;
     }
-    
-    
 }

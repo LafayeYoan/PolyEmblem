@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Scanner;
@@ -18,6 +13,7 @@ public class CombatActionChoice implements HUD{
     CombatActionChoice(model.Personnage perso){
         this.personnage = perso;
     }
+    
     @Override 
     public void loadHUD() {
         System.out.println("Veuillez choisir une action à faire pendant ce tour:");

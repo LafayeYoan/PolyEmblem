@@ -1,9 +1,7 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Item {
     
@@ -31,8 +29,24 @@ public class Item {
         //TODO
         return this;
     }
-    
-    public String getName(){
-        return this.name;
+
+    public String getName() {
+        return name;
     }
+
+    public String getDescription() {
+        String effectString = "";
+        for (Effect anEffect : allEffects) {
+            effectString = effectString + "\n >> " + anEffect.toString();
+        }
+        
+        return "\n" + name.toUpperCase() + " : " 
+                + "\n POIDS : " + weight + " g"
+                + "\n EFFETS : " + effectString;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    
 }

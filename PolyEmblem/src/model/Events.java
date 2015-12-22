@@ -1,12 +1,13 @@
 package model;
 
+import view.HUD;
 
-public abstract class Event {
+public abstract class Events {
     
     /* Describe the event for the player */
     private String descriptionEvent;
     
-    public Event(String description) {
+    public Events(String description) {
         descriptionEvent = description;
     }
     
@@ -19,5 +20,6 @@ public abstract class Event {
      * 
      * @param perso Perosnage conserned by the event
      */
-    public abstract void act(model.Personnage perso);
+    public abstract void act(Personnage perso);
+
 }

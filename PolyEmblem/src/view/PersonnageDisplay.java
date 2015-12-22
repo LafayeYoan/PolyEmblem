@@ -6,7 +6,6 @@
 package view;
 
 import java.util.Map;
-import java.util.Scanner;
 /**
  *
  * @author Darkos
@@ -53,5 +52,6 @@ public class PersonnageDisplay implements HUD{
     public Object getResponse() {
         return null;
     }
+
     
 }
