@@ -46,10 +46,5 @@ public class PersonnageClasse implements HUD {
     public String getResponse() {
         return className;
     }
-
-    @Override
-    public void showPlayer(String message) {
-        System.out.println(message.toString());
-    }
     
 }

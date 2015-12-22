@@ -1,10 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
+import controller.ItemController;
+import model.Event.DiscoverPlaceEvent;
+import model.Event.FightEvent;
+import model.Events;
 import model.Personnage;
 
 /**
@@ -16,7 +15,7 @@ public class EventView implements HUD {
     private static final int NB_OPTIONS = 6;
     
     private Personnage player;
-    private String enteredText;
+    private String nextAction;
     
     public EventView(Personnage player){
         this.player = player;
@@ -24,33 +23,28 @@ public class EventView implements HUD {
     
     @Override 
     public void loadHUD() {
+        System.out.println("----------------------------------------");
         System.out.println("\n Quelle est votre prochaine action ?");
-        showPlayer("\n 1 : Poursuivre ma route "
+        System.out.println("\n 1 : Poursuivre ma route "
                 + "\n 2 : Utiliser un consommable"
                 + "\n 3 : Voir les détails de mon personnage"
                 + "\n 4 : Sauvegarder"
                 + "\n 5 : Quitter" );
         do{
-            enteredText = scanner.nextLine();            
+            nextAction = scanner.nextLine();
         }while(!isValid());
-    }
-
-    @Override
-    public Object getResponse() {
-        
-        return null;
     }
     
     private boolean isValid(){
         boolean valid = true;
-        if(enteredText.isEmpty()){
+        if(nextAction.isEmpty()){
             System.out.println("Veuillez entrer une valeur.");
             valid = false;
             return valid;
         }
         int i;
         try{
-            i = Integer.parseInt(enteredText);         
+            i = Integer.parseInt(nextAction);         
         }catch(Exception e){
             System.out.println("Veuillez entrer un chiffre.");
             valid = false;
@@ -65,9 +59,41 @@ public class EventView implements HUD {
         
         return valid;
     }
-
+    
     @Override
-    public void showPlayer(String message) {
-        System.out.println(message.toString());
+    public String getResponse() {
+        return nextAction;
+    }
+
+    public void showPlayer(Events currentEvent) {
+        System.out.println("----------------------------------------");
+        System.out.println("------ Un Evènement se produit ! -------");
+        System.out.println("----------------------------------------");
+        System.out.println("\n " + currentEvent.getDescriptionEvent() + " \n");
+        
+        if(currentEvent.getClass() == DiscoverPlaceEvent.class) {
+            
+            DiscoverPlaceEvent event = (DiscoverPlaceEvent) currentEvent;
+            ItemController itemController = new ItemController();
+            
+            System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
+                    + ". \n" + event.getTreasure().getDescription());     
+            
+            itemController.findItem(player, event.getTreasure());       
+        } else {
+            
+            FightEvent event = (FightEvent) currentEvent; 
+            
+            for(Personnage badGuy : event.getAllBadGuys()) {
+                System.out.println(badGuy.getName() + " "); 
+            }
+            
+            if(event.getAllBadGuys().get(1) == null) {
+                System.out.println(" veux se battre !"); 
+            } else {
+                System.out.println(" veulent se battre !"); 
+            }
+        }
+        System.out.println("----------------------------------------");
     }
 }

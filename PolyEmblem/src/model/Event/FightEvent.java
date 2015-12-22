@@ -20,16 +20,13 @@ public class FightEvent extends Events {
             allBadGuys.add(badGuys[i]);
         }
     }
+    
+    public List<Personnage> getAllBadGuys() {
+        return allBadGuys;
+    }
 
     @Override
-    public void execute(Personnage player, HUD menuForDisplay) {
-        
-        menuForDisplay.showPlayer("\n" + getDescriptionEvent() + "\n");
-        
-        for(Personnage badGuy : allBadGuys) {
-            menuForDisplay.showPlayer(badGuy.getName() + " "); 
-        }
-        menuForDisplay.showPlayer(" veulent se battre !"); 
+    public void act(Personnage player) {
         
         //Combat : 
         //Weird Implémentation ???
@@ -38,5 +35,4 @@ public class FightEvent extends Events {
         //A la fin, mise à jour xp
         //Joueur regagne un peu de sa vie
     }
-    
 }

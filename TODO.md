@@ -60,6 +60,8 @@ Attention, une parade augmente la défense quand le personnage subis une attaque
 
 # Developpement View
 
+* Refactoring de l'ensemble des vues (principalement isValid et le Scanner...)
+
 * [OPTION] "help" : donne toutes les commandes possibles au joueur. 
 
 * [OPTION] "moi" : affiche le détail du personnage que joue le joueur.

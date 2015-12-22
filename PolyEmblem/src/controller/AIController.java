@@ -1,6 +1,6 @@
 package controller;
 
-public class AIController extends Controller {
+public class AIController extends StoryController {
      
     
 }
