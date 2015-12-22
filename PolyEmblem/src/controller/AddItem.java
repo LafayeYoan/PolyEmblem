@@ -3,16 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package model;
+package controller;
 
 /**
  *
  * @author Darkos
  */
-public enum Characteristic {
-    STRENGHT,
-    HEALTH,
-    DEXTIRITY,
-    DEFENCE,
-    INTELIGENCE,
+public class AddItem {
+    
 }
