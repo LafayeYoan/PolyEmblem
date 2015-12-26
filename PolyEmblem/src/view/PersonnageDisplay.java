@@ -36,6 +36,8 @@ public class PersonnageDisplay implements HUD{
             System.out.println("MECA");
         }
         System.out.println("Points de Vie: "+perso.getActualLife() + "/" + perso.getMaxHealth());
+        //Niveau
+        System.out.println("Niveau: " + perso.getLevel().getLevelValue());
         //Characteristiques
         System.out.println("--------- Caracteristiques -------------");
         Map <model.Characteristic,Integer> caract = perso.getCharacteritics();       
