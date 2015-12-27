@@ -1,5 +1,6 @@
 package view;
 
+import controller.KeyboardInput;
 import java.util.Scanner;
 
 /**
@@ -22,10 +23,8 @@ public class CombatActionChoice implements HUD{
             System.out.println( i + ":" + s.getName());
             i++;
         }
-        
-        Scanner sc = new Scanner(System.in);
         do{
-            enteredText = sc.nextLine();            
+            enteredText = KeyboardInput.getInput();            
         }while(!isValid());
     }
 

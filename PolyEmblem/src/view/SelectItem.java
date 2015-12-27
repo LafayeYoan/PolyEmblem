@@ -5,7 +5,7 @@
  */
 package view;
 
-import java.util.Scanner;
+import controller.KeyboardInput;
 
 /**
  *
@@ -39,10 +39,8 @@ public class SelectItem implements HUD{
             }
             i++;
         }
-        
-        Scanner sc = new Scanner(System.in);
         do{
-            enteredText = sc.nextLine();            
+            enteredText = KeyboardInput.getInput();
         }while(!isValid());
     }
     

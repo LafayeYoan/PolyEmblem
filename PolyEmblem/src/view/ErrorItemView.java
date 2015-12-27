@@ -1,5 +1,6 @@
 package view;
 
+import controller.KeyboardInput;
 import model.Personnage;
 
 /**
@@ -32,7 +33,7 @@ public class ErrorItemView implements HUD {
             i++;
         }
         do{
-            itemToDelete = scanner.nextLine();
+            itemToDelete = KeyboardInput.getInput();
         }while(!isValid());
     }
 
