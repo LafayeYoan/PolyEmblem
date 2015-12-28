@@ -47,7 +47,7 @@ public class SelectItem implements HUD{
     }
 
     /***
-     * Show the onfirmation message when adding to the bag. Then go back to the 
+     * Show the confirmation message when adding to the bag. Then go back to the 
      * SelectItem global menu.
      */
     public void canAddItem() {

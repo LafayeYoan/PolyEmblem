@@ -1,5 +1,6 @@
 package model.Skills;
 
+import java.util.List;
 import model.Skill;
 import model.Personnage;
 import model.Effect;
@@ -7,7 +8,7 @@ import model.Effect;
 public class AttackSkill implements Skill {
 
     @Override
-    public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
+    public Effect[] useAbility(Personnage srcCharacter, List<Personnage> targetCharacter) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
