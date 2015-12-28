@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package view;
+import controller.KeyboardInput;
 import java.util.Scanner;
 
 /**
@@ -21,9 +22,8 @@ public class PersonnageClasse implements HUD {
         System.out.println("3 - MAM, Mathematique Appliquee et Modelisation : Mage");
         System.out.println("4 - MAT, Materiaux : Distance");
         System.out.println("5 - MECA, Mecannique : Brute de decofrage");
-        Scanner sc = new Scanner(System.in);
         do{
-            className = sc.nextLine();            
+            className = KeyboardInput.getInput();           
         }while(!isValid());
     }
     

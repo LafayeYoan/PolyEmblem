@@ -5,6 +5,8 @@
  */
 package view;
 
+import controller.KeyboardInput;
+
 /**
  *
  * @author Darkos
@@ -17,7 +19,7 @@ public class PersonnageNom implements HUD{
     public void loadHUD() {
         System.out.println("Veullez entrez votre nom de personnage.");
         do{
-            nom = scanner.nextLine();            
+            nom = KeyboardInput.getInput();         
             if(nom.isEmpty()){
                 System.out.println("Le nom est vide, veuillez le reentrer.");
             }

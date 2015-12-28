@@ -2,6 +2,7 @@ package view;
 
 import controller.FightController;
 import controller.ItemController;
+import controller.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
@@ -33,7 +34,7 @@ public class EventView implements HUD {
                 + "\n 5 : Sauvegarder"
                 + "\n 6 : Quitter" );
         do{
-            nextAction = scanner.nextLine();
+            nextAction = KeyboardInput.getInput();
         }while(!isValid());
     }
     

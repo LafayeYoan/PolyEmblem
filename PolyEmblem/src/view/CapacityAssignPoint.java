@@ -6,7 +6,7 @@
 package view;
 
 import java.util.Map;
-import java.util.Scanner;
+import controller.KeyboardInput;
 
 /**
  *
@@ -37,8 +37,8 @@ public class CapacityAssignPoint implements HUD{
 
         do{
         System.out.println("Veuillez selectionner une caracteristique à modifier (1-5).");
-        Scanner sc = new Scanner(System.in);
-        enteredText = sc.nextLine();
+        
+        enteredText = KeyboardInput.getInput();
         }while(!isValid());
         
         System.out.println("--------------------------------------------------");
