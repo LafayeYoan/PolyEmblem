@@ -57,7 +57,7 @@ public class ItemController {
         switch(itemView.getResponse().getClass().toString()) {
             
             case  "class java.lang.Integer" : /* Retour au menu principal */
-                eventView.loadHUD();
+                
                 break;
             
             default : /* Afficher le détail d'un objet */

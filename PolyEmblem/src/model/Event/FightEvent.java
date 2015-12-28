@@ -4,11 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Events;
 import model.Personnage;
-import model.Fight;
 
 public class FightEvent extends Events {
     
-    /* Character who wants to fight !*/
+    /* Characters who wants to fight !*/
     private List<Personnage> allBadGuys;
     
     public FightEvent(String description, Personnage... badGuys) {

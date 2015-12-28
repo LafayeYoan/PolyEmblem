@@ -2,7 +2,6 @@ package model.Event;
 
 import model.Events;
 import model.Item;
-import model.Personnage;
 
 public class DiscoverPlaceEvent extends Events {
     
