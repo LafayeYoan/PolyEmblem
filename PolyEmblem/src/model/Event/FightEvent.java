@@ -22,11 +22,4 @@ public class FightEvent extends Events {
     public List<Personnage> getAllBadGuys() {
         return allBadGuys;
     }
-    
-    //TODO Sacha :
-    //Combat : 
-    //Weird Implémentation ???
-    //zeFight.run();
-    //A la fin, mise à jour xp
-    //Joueur regagne un peu de sa vie
 }

@@ -10,7 +10,8 @@ public class CombatActionChoice implements HUD{
     
     private model.Personnage personnage;
     private String enteredText;
-    CombatActionChoice(model.Personnage perso){
+
+    public CombatActionChoice(model.Personnage perso){
         this.personnage = perso;
     }
     

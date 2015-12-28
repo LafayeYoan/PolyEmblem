@@ -61,7 +61,8 @@ public class StoryController {
     
     /***
      * Run the game. For each event (and as long as the event has not occurred),
-     * display to the player the global menu.  
+     * display to the player the global menu. Call the correct view for each action
+     * possible.
      * @param player the player
      */
     public static void runTheGame(Personnage player) {
@@ -76,17 +77,20 @@ public class StoryController {
                         eventView.showPlayer(currentEvent.getKey());
                         currentEvent.setValue(Boolean.TRUE);
                         break;
-                    case 2 : /* Utiliser un consommable */
+                    case 2 : /* Voir le contenu du sac */
                         //TODO
                         break;
                     case 3 : /* Voir les détails du personnage */
                         PersonnageDisplay playerView = new PersonnageDisplay(player);
                         playerView.loadHUD();
                         break;
-                    case 4 : /* Sauvegarder */ 
+                    case 4 : /* Charger une partie déjà existante */
                         //TODO
                         break;
-                    case 5 : /* Quitter le jeu */
+                    case 5 : /* Sauvegarder */ 
+                        //TODO
+                        break;
+                    case 6 : /* Quitter le jeu */
                         System.exit(0);
                         break;
                     default: /* Proposer de nouveau le menu */

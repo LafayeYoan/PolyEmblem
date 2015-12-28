@@ -3,7 +3,6 @@ package controller;
 import model.Item;
 import model.Personnage;
 import view.ErrorItemView;
-import view.EventView;
 import view.ItemDisplayView;
 import view.SelectItem;
 
@@ -52,8 +51,6 @@ public class ItemController {
      */
     private void manageItemBag(Personnage player, SelectItem itemView) {
         
-        EventView eventView = new EventView(player);
-        
         switch(itemView.getResponse().getClass().toString()) {
             
             case  "class java.lang.Integer" : /* Retour au menu principal */
@@ -63,7 +60,6 @@ public class ItemController {
             default : /* Afficher le détail d'un objet */
                 ItemDisplayView itemDisplayView = new ItemDisplayView((Item) itemView.getResponse());
                 itemDisplayView.loadHUD();  
-                eventView.loadHUD();
         }
     }
     
