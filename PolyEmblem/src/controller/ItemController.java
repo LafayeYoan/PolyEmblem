@@ -20,15 +20,13 @@ public class ItemController {
         
         switch (treasure.getClass().toString()) {
             
-            case "class model.Items.ArmorItem":
-                //TODO
-                //Equip if possible
-                break;
+            case "class model.Items.ArmorItem" :
                 
             case "class model.Items.WeaponItem":
                 //TODO
-                //Equip if possible
-                break;
+                //Demander au joueur s'il veut l'équiper. 
+                //Si oui on équipe mais on ajoute quand même au sac
+                //Sinon on l'ajoute juste. 
                 
             case "class model.Items.EdibleItem":
                 

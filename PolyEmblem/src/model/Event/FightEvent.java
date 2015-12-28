@@ -5,7 +5,6 @@ import java.util.List;
 import model.Events;
 import model.Personnage;
 import model.Fight;
-import view.HUD;
 
 public class FightEvent extends Events {
     
@@ -24,15 +23,11 @@ public class FightEvent extends Events {
     public List<Personnage> getAllBadGuys() {
         return allBadGuys;
     }
-
-    @Override
-    public void act(Personnage player) {
-        
-        //Combat : 
-        //Weird Implémentation ???
-        Fight zeFight = new Fight(player, allBadGuys.get(0), null);
-        //zeFight.run();
-        //A la fin, mise à jour xp
-        //Joueur regagne un peu de sa vie
-    }
+    
+    //TODO Sacha :
+    //Combat : 
+    //Weird Implémentation ???
+    //zeFight.run();
+    //A la fin, mise à jour xp
+    //Joueur regagne un peu de sa vie
 }
