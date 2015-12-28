@@ -45,7 +45,11 @@ public class SelectItem implements HUD{
             enteredText = sc.nextLine();            
         }while(!isValid());
     }
-    
+
+    /***
+     * Show the onfirmation message when adding to the bag. Then go back to the 
+     * SelectItem global menu.
+     */
     public void canAddItem() {
         System.out.println("\n L'objet a correctement été ajouté au sac à dos ! \n");
         loadHUD();

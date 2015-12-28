@@ -65,6 +65,10 @@ public class EventView implements HUD {
         return nextAction;
     }
 
+    /***
+     * Display to the player an Event and redirects to the proper controller.
+     * @param currentEvent the event to display
+     */
     public void showPlayer(Events currentEvent) {
         System.out.println("----------------------------------------");
         System.out.println("------ Un Evènement se produit ! -------");
@@ -79,7 +83,7 @@ public class EventView implements HUD {
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.findItem(player, event.getTreasure());       
+            itemController.itemFound(player, event.getTreasure());       
         } else if(currentEvent.getClass() == FightEvent.class){
             
             FightEvent event = (FightEvent) currentEvent; 

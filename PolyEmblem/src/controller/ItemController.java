@@ -9,7 +9,12 @@ import view.SelectItem;
 
 public class ItemController {
 
-    public void findItem(Personnage player, Item treasure) {
+    /***
+     * Arranges a treasure found in the bag
+     * @param player the player with the bag
+     * @param treasure the item to arrange
+     */
+    public void itemFound(Personnage player, Item treasure) {
         
         SelectItem itemView = new SelectItem(player);
         
@@ -41,6 +46,12 @@ public class ItemController {
         }
     }
 
+    /***
+     * Manage the bag of the player : displays items from the bag or go back to 
+     * the main menu if the itemView is 0. 
+     * @param player the player with the bag
+     * @param itemView the SelectItem view 
+     */
     private void manageItemBag(Personnage player, SelectItem itemView) {
         
         EventView eventView = new EventView(player);
