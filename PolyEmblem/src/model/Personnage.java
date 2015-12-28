@@ -158,6 +158,10 @@ public abstract class Personnage {
         return level;
     }
 
+    /***
+     * Return the current life of the character. 0 if he is dead.
+     * @return the current life of the character
+     */
     public int getActualLife() {
         return actualLife;
     }

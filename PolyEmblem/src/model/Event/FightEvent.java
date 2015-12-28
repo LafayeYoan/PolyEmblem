@@ -4,12 +4,10 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Events;
 import model.Personnage;
-import model.Fight;
-import view.HUD;
 
 public class FightEvent extends Events {
     
-    /* Character who wants to fight !*/
+    /* Characters who wants to fight !*/
     private List<Personnage> allBadGuys;
     
     public FightEvent(String description, Personnage... badGuys) {
@@ -23,16 +21,5 @@ public class FightEvent extends Events {
     
     public List<Personnage> getAllBadGuys() {
         return allBadGuys;
-    }
-
-    @Override
-    public void act(Personnage player) {
-        
-        //Combat : 
-        //Weird Implémentation ???
-        Fight zeFight = new Fight(player, allBadGuys.get(0), null);
-        //zeFight.run();
-        //A la fin, mise à jour xp
-        //Joueur regagne un peu de sa vie
     }
 }

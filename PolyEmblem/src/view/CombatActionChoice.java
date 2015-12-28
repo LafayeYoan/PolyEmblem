@@ -1,6 +1,7 @@
 package view;
 
 import java.util.Scanner;
+import model.Personnage;
 
 /**
  *
@@ -8,9 +9,10 @@ import java.util.Scanner;
  */
 public class CombatActionChoice implements HUD{
     
-    private model.Personnage personnage;
+    private Personnage personnage;
     private String enteredText;
-    CombatActionChoice(model.Personnage perso){
+
+    public CombatActionChoice(model.Personnage perso){
         this.personnage = perso;
     }
     
@@ -63,5 +65,13 @@ public class CombatActionChoice implements HUD{
         
         
         return valid;
+    }
+    
+    /***
+     * Show the confirmation message when win the fight. Then go back to the 
+     * global menu.
+     */
+    public void displayEndFight() {
+        System.out.println("Bravo ! Vous avez gagné ce combat !");
     }
 }

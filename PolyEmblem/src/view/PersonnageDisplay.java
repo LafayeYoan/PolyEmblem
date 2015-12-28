@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Map;
@@ -36,6 +31,8 @@ public class PersonnageDisplay implements HUD{
             System.out.println("MECA");
         }
         System.out.println("Points de Vie: "+perso.getActualLife() + "/" + perso.getMaxHealth());
+        //Niveau
+        System.out.println("Niveau: " + perso.getLevel().getLevelValue());
         //Characteristiques
         System.out.println("--------- Caracteristiques -------------");
         Map <model.Characteristic,Integer> caract = perso.getCharacteritics();       
