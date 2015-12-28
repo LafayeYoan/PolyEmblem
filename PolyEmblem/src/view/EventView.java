@@ -100,6 +100,8 @@ public class EventView implements HUD {
             } else {
                 System.out.println(" veulent se battre !"); 
             }
+            
+            fightController.runTheFight(player, event.getAllBadGuys());
         }
         System.out.println("----------------------------------------");
     }
