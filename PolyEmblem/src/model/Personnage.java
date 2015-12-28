@@ -78,9 +78,6 @@ public abstract class Personnage {
     }
     
     public void applicateEffect(Effect e){
-        if(Characteristic.LIFE.equals(e.getCharacteristicEffect())){
-            
-        }
     }
     
     public void removeItem(Item item){

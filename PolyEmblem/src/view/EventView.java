@@ -80,7 +80,7 @@ public class EventView implements HUD {
                     + ". \n" + event.getTreasure().getDescription());     
             
             itemController.findItem(player, event.getTreasure());       
-        } else {
+        } else if(currentEvent.getClass() == FightEvent.class){
             
             FightEvent event = (FightEvent) currentEvent; 
             
@@ -88,7 +88,7 @@ public class EventView implements HUD {
                 System.out.println(badGuy.getName() + " "); 
             }
             
-            if(event.getAllBadGuys().get(1) == null) {
+            if(event.getAllBadGuys().size()==1) {
                 System.out.println(" veux se battre !"); 
             } else {
                 System.out.println(" veulent se battre !"); 

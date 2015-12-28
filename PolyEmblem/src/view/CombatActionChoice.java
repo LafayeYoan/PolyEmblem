@@ -2,18 +2,21 @@ package view;
 
 import java.util.Scanner;
 
-public class ActionChoix implements HUD{
+/**
+ *
+ * @author Darkos
+ */
+public class CombatActionChoice implements HUD{
     
     private model.Personnage personnage;
     private String enteredText;
-    
-    public ActionChoix(model.Personnage chararcter){
-        this.personnage = chararcter;
+    CombatActionChoice(model.Personnage perso){
+        this.personnage = perso;
     }
     
     @Override 
     public void loadHUD() {
-        System.out.println("Vuillez choisir une action à faire pendant ce tour:");
+        System.out.println("Veuillez choisir une action à faire pendant ce tour:");
         int i = 1;
         for(model.Skill s:personnage.getSkills()){
             System.out.println( i + ":" + s.getName());
