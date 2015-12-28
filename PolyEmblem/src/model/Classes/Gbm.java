@@ -29,4 +29,9 @@ public class Gbm extends model.Personnage{
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
     }
 
+    @Override
+    public String getClassName() {
+        return "GBM";
+    }
+
 }

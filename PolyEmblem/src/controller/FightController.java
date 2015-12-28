@@ -78,6 +78,6 @@ public class FightController {
      * @return true if the player life equal 0. False otherwise.
      */
     private boolean isDead(Personnage player) {
-        return (player.getActualLife() == 0);
+        return (player.getActualLife() <= 0);
     }
 }

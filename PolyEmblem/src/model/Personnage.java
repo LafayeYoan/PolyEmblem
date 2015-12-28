@@ -185,4 +185,17 @@ public abstract class Personnage {
     public List<Effect> getEffects() {
         return effects;
     }
+    
+    public abstract String getClassName();
+    
+    public String getBasicDescription(){
+        String description = "";
+        
+        description += "Nom: " + this.name + "\n";
+        description += "Classe: " + this.getClassName() + "\n";
+        description += "Vie: " + this.actualLife + "/" + this.maxHealth + "\n"; 
+        description += "Niveau: " + level.getLevelValue() + "\n";
+        
+        return description;
+    }
 }
