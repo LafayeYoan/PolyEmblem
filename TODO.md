@@ -70,7 +70,7 @@ Attention, une parade augmente la défense quand le personnage subis une attaque
 
 * [DONE]Prévoir "une fenêtre" pour visualiser et gérer le contenu du sac à dos.  
 
-* Prévoir "une fenêtre" pour visualiser un combat au tour par tour.
+* [DONE]Prévoir "une fenêtre" pour visualiser un combat au tour par tour.
 
 * [OPTION] Si le joueur tape une commande qui n'est pas prise en charge, "commande non reconnue" apparait et le jeu se poursuit. 
 
