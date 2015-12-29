@@ -181,6 +181,11 @@ public abstract class Personnage {
     public Map<Characteristic, Integer> getCharacteritics() {
         return characteritics;
     }
+    
+    public void increaseCharacteristic(model.Characteristic charac){
+        int val  = this.characteritics.getOrDefault(charac, 0);
+        this.characteritics.replace(charac, val+1);
+    }
 
     public List<Effect> getEffects() {
         return effects;
