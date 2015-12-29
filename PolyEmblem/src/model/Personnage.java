@@ -78,6 +78,11 @@ public abstract class Personnage {
     }
     
     public void applicateEffect(Effect e){
+        if(e.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
+            this.actualLife += e.getValue();
+        }else{
+           this.characteritics.replace(e.getCharacteristicEffect(), e.getValue() + this.characteritics.getOrDefault(e.getCharacteristicEffect(),0));
+        }
     }
     
     public void removeItem(Item item){
