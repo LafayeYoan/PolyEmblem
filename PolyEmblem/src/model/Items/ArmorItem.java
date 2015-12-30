@@ -12,4 +12,8 @@ public class ArmorItem extends Item {
         this.protection = protection;
     }
     
+    public int getProtection(){
+        return this.protection;
+    }
+    
 }

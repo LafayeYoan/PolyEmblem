@@ -27,6 +27,14 @@ public class AttackSkill implements Skill {
             //On ajoute les degats de force
             damages += srcCharacter.getCharacteritics().getOrDefault(model.Characteristic.STRENGHT,0);
             
+            
+            //on retire les effets d'armure
+            model.Items.ArmorItem armor = p.getArmor();
+            if(armor!= null){
+                //on reduit les dégats de moitié de la protection
+                damages -= armor.getProtection()/2;
+            }
+            
             //on applique l'effet
             p.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,0));
             
