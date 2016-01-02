@@ -3,19 +3,20 @@ package controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import static jdk.nashorn.internal.objects.NativeArray.map;
-import static jdk.nashorn.internal.objects.NativeDebug.map;
 import model.Characteristic;
 import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
+import model.Item;
 import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
+import view.ItemDisplayView;
 import view.PersonnageDisplay;
+import view.SelectItem;
 
 public class StoryController {
 
@@ -68,32 +69,35 @@ public class StoryController {
     public static void runTheGame(Personnage player) {
         
         for(Map.Entry<Events, Boolean> currentEvent : event.entrySet()) {
+            
             while(currentEvent.getValue() == false) {
+                
                 EventView eventView = new EventView(player);
                 eventView.loadHUD();
 
                 switch(Integer.parseInt(eventView.getResponse())){
-                    case 1 : /* Poursuivre le jeu */
+                    case 1 : /* Execute the next event of the story */
                         eventView.showPlayer(currentEvent.getKey());
                         currentEvent.setValue(Boolean.TRUE);
                         break;
-                    case 2 : /* Voir le contenu du sac */
-                        //TODO
+                    case 2 : /* Manage the bag */
+                        SelectItem bagView = new SelectItem(player);
+                        bagView.loadHUD();
                         break;
-                    case 3 : /* Voir les détails du personnage */
+                    case 3 : /* Display characters details */
                         PersonnageDisplay playerView = new PersonnageDisplay(player);
                         playerView.loadHUD();
                         break;
-                    case 4 : /* Charger une partie déjà existante */
+                    case 4 : /* Load a game */
                         //TODO
                         break;
-                    case 5 : /* Sauvegarder */ 
+                    case 5 : /* Save the game */ 
                         //TODO
                         break;
-                    case 6 : /* Quitter le jeu */
+                    case 6 : /* Exit */
                         System.exit(0);
                         break;
-                    default: /* Proposer de nouveau le menu */
+                    default: /* Show the main menu */
                         eventView.loadHUD();
                 }
             }
