@@ -1,6 +1,8 @@
 package view;
 
-//HUD : s'occupe des printLn et scanf pour afficher à l'utilisateur
+/***
+ * Interface for all views of the program. 
+ */
 public interface HUD {
     
     public void loadHUD();

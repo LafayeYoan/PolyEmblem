@@ -9,14 +9,14 @@ import model.Events;
 import model.Personnage;
 
 /**
- *
- * @author lhopital
+ * View that manage the main menu of the game. 
+ * Give to the controller the next action of the player.
  */
 public class EventView implements HUD {
     
     private static final int NB_OPTIONS = 7;
     
-    private Personnage player;
+    private final Personnage player;
     private String nextAction;
     
     public EventView(Personnage player){
@@ -28,11 +28,11 @@ public class EventView implements HUD {
         System.out.println("----------------------------------------");
         System.out.println("\n Quelle est votre prochaine action ?");
         System.out.println("\n 1 : Poursuivre ma route "
-                + "\n 2 : Voir le contenu du sac"
-                + "\n 3 : Voir les détails de mon personnage"
-                + "\n 4 : Charger une partie déjà existante"
-                + "\n 5 : Sauvegarder"
-                + "\n 6 : Quitter" );
+                            + "\n 2 : Voir le contenu du sac"
+                            + "\n 3 : Voir les détails de mon personnage"
+                            + "\n 4 : Charger une partie déjà existante"
+                            + "\n 5 : Sauvegarder"
+                            + "\n 6 : Quitter" );
         do{
             nextAction = KeyboardInput.getInput();
         }while(!isValid());
@@ -69,7 +69,7 @@ public class EventView implements HUD {
     }
 
     /***
-     * Display to the player an Event and redirects to the proper controller.
+     * Display to the player an event and redirects to the proper controller.
      * @param currentEvent the event to display
      */
     public void showPlayer(Events currentEvent) {

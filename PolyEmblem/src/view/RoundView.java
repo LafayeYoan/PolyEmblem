@@ -1,15 +1,9 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.List;
 
 /**
- *
- * @author Darkos
+ * View that display the details of a fight.
  */
 public class RoundView implements HUD{
 

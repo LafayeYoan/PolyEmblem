@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.KeyboardInput;
@@ -10,8 +5,8 @@ import java.util.List;
 import model.Personnage;
 
 /**
- *
- * @author Darkos
+ * View that manage the target of a fight.
+ * Give to the controller the target choosen.
  */
 public class CombatOpponentChoice implements HUD{
     

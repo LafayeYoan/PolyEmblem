@@ -3,12 +3,11 @@ package view;
 import model.Item;
 
 /**
- *
- * @author lhopital
+ * View that display details of an item. 
  */
 public class ItemDisplayView implements HUD {
     
-    private Item item;
+    private final Item item;
     
     public ItemDisplayView(Item itemToDisplay){
         this.item = itemToDisplay;

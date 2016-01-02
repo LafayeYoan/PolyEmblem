@@ -3,13 +3,13 @@ package view;
 import controller.KeyboardInput;
 import model.Personnage;
 
-/**
- *
- * @author lhopital
+/***
+ * View that manage the error when we try to add an item in the bag and it's not possible. 
+ * Give to the controller the item to delete instead of the new one. 
  */
 public class ErrorItemView implements HUD {
     
-    private Personnage perso;
+    private final Personnage perso;
     private String itemToDelete;
     
     public ErrorItemView(Personnage perso){

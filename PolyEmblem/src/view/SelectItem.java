@@ -1,15 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.KeyboardInput;
 
 /**
- *
- * @author Darkos
+ * View that manage the bag of the player.
+ * Give to the controller the action to do next 
+ * (i.e : an item to display OR go back to the main menu).
  */
 public class SelectItem implements HUD{
 

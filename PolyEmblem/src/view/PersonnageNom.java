@@ -1,15 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import controller.KeyboardInput;
 
 /**
- *
- * @author Darkos
+ * View that manage the name of the character when created.
+ * Give to the controller the name choosen.
  */
 public class PersonnageNom implements HUD{
 

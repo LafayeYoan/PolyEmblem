@@ -1,22 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package view;
 
 import java.util.Map;
 import controller.KeyboardInput;
 
 /**
- *
- * @author Darkos
+ * View that manage "l'attribution d'un point de compétence" when level up.
+ * Give to the controller the field chosen.
  */
 public class CapacityAssignPoint implements HUD{
     
-    private model.Personnage  perso;
+    private final model.Personnage  perso;
     private String enteredText;
-    private boolean userHasValidated;
     
     public CapacityAssignPoint(model.Personnage perso){
         this.perso = perso;

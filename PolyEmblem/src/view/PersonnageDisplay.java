@@ -1,9 +1,9 @@
 package view;
 
 import java.util.Map;
+
 /**
- *
- * @author Darkos
+ * View that display in detail all characters of the player.
  */
 public class PersonnageDisplay implements HUD{
 
@@ -31,9 +31,11 @@ public class PersonnageDisplay implements HUD{
             System.out.println("MECA");
         }
         System.out.println("Points de Vie: "+perso.getActualLife() + "/" + perso.getMaxHealth());
-        //Niveau
+        
+        //Level
         System.out.println("Niveau: " + perso.getLevel().getLevelValue());
-        //Characteristiques
+        
+        //Caracteristics
         System.out.println("--------- Caracteristiques -------------");
         Map <model.Characteristic,Integer> caract = perso.getCharacteritics();       
         System.out.println("Force: "+ caract.getOrDefault(model.Characteristic.STRENGHT, 0));

@@ -1,16 +1,15 @@
 package view;
 
 import controller.KeyboardInput;
-import java.util.Scanner;
 import model.Personnage;
 
 /**
- *
- * @author Darkos
+ * View that manage all actions possibles by the character in a fight.
+ * Give to the controller the action choosen.
  */
 public class CombatActionChoice implements HUD{
     
-    private Personnage personnage;
+    private final Personnage personnage;
     private String enteredText;
 
     public CombatActionChoice(model.Personnage perso){
