@@ -9,24 +9,26 @@ import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
-import model.Item;
+import model.Items.ArmorItem;
 import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.ItemDisplayView;
 import view.PersonnageDisplay;
 import view.SelectItem;
 
+/***
+ * Main Controller : Run the game ! 
+ */
 public class StoryController {
 
-    /* Map with all events of the story and boolean. Boolean are setup at false.
-    They become true when the event is playing by the player. */
+    /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
+    It becomes true when the event is playing by the player. */
     private static Map<Events, Boolean> event;
     public static List<Personnage> players;
     
     /***
-     * Generate alls events for the current story.
+     * Generate all events for the game.
      * WARNING : when running the game, the last event of the map is reading first 
      */
     public static void generateEvents() {
@@ -34,6 +36,24 @@ public class StoryController {
         event = new HashMap<Events, Boolean>();
         
         //TODO : add story events here
+        
+        event.put(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre. \n"
+                + "En vous approchant, près de la machine à café située sous l'escalier, vous apercevez bientôt un groupe d'étudiants que vous connaissez bien. \n"
+                + "Vos cinq amis (car oui, ce sont vos amis) sont en train de discuter autour d'un boisson chaude. \n"
+                + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
+                + "Lorsque vous vous approchez, Esteban vous tend un café tout chaud : \n"
+                + " - Tien salut ! Bien dormis ? \n", 
+                new EdibleItem("Café (bien) chaud", 5, new Effect(Characteristic.DEXTIRITY, 5, 3))), false);
+        
+        event.put(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech. \n"
+                + "Il y a presque une demi-minute que vous vous frayez un chemin parmi les autres étudiants lorsque vous entendez un battement d'ailes au-dessus des arbres. \n"
+                + "Vous levez les yeux et vous distinguez la silhouette d'un membre du BDE qui accroche une affiche sur un prochain évènement alcoolisé. \n"
+                + "C'est l'un des amis de Charlie qui vous a attaqué plus tôt. \n"
+                + "Sur sa tête vous distinguez une casquette Polytech, faiblement retenue. \n"
+                + "C'est une relique, et lorsqu'elle tombe à vos pieds, vous ne vous faite pas prier pour la saisir. \n"
+                + "L'élève du BDE se tourne vers vous, et voyant votre sourir radieux, il s'exclame : \n"
+                + " - Ola camarade ! Tu peux garder ma casquette si tu veux, y en a plein d'autres dans la remise ! \n",
+                new ArmorItem("Poly'casquette", 10, 1)), false);
         
         event.put(new FightEvent("Heureux de cette nouvelle découverte,"
                 + "vous ne sentez pas tout de suite cette main moite qui se pose "
