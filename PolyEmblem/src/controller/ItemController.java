@@ -1,6 +1,8 @@
 package controller;
 
 import model.Item;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 import model.Personnage;
 import view.ErrorItemView;
 import view.ItemDisplayView;
@@ -16,16 +18,34 @@ public class ItemController {
     public void itemFound(Personnage player, Item treasure) {
         
         SelectItem itemView = new SelectItem(player);
+        ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
         
         switch (treasure.getClass().toString()) {
             
             case "class model.Items.ArmorItem" :
+                /**
+                TODO : NOT WORKING
+                
+                itemDisplayView.loadHUD();
+                
+                if(itemDisplayView.getResponse().equals(0)) {
+                    //Do nothing : go back to the main menu
+                } else {
+                    System.out.println(treasure.toString());
+                    player.equipArmor((ArmorItem) treasure);
+                }
+                break;*/
                 
             case "class model.Items.WeaponItem":
-                //TODO
-                //Demander au joueur s'il veut l'équiper. 
-                //Si oui on équipe mais on ajoute quand même au sac
-                //Sinon on l'ajoute juste. 
+                /**
+                itemDisplayView.loadHUD();
+                
+                if(itemDisplayView.getResponse().equals(0)) {
+                    //Do nothing : go back to the main menu
+                } else {
+                    player.equipWeapon((WeaponItem) treasure);
+                }
+                break;*/
                 
             case "class model.Items.EdibleItem":
                 

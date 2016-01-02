@@ -37,32 +37,6 @@ public class StoryController {
         
         //TODO : add story events here
         
-        event.put(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre. \n"
-                + "En vous approchant, près de la machine à café située sous l'escalier, vous apercevez bientôt un groupe d'étudiants que vous connaissez bien. \n"
-                + "Vos cinq amis (car oui, ce sont vos amis) sont en train de discuter autour d'un boisson chaude. \n"
-                + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
-                + "Lorsque vous vous approchez, Esteban vous tend un café tout chaud : \n"
-                + " - Tien salut ! Bien dormis ? \n", 
-                new EdibleItem("Café (bien) chaud", 5, new Effect(Characteristic.DEXTIRITY, 5, 3))), false);
-        
-        event.put(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech. \n"
-                + "Il y a presque une demi-minute que vous vous frayez un chemin parmi les autres étudiants lorsque vous entendez un battement d'ailes au-dessus des arbres. \n"
-                + "Vous levez les yeux et vous distinguez la silhouette d'un membre du BDE qui accroche une affiche sur un prochain évènement alcoolisé. \n"
-                + "C'est l'un des amis de Charlie qui vous a attaqué plus tôt. \n"
-                + "Sur sa tête vous distinguez une casquette Polytech, faiblement retenue. \n"
-                + "C'est une relique, et lorsqu'elle tombe à vos pieds, vous ne vous faite pas prier pour la saisir. \n"
-                + "L'élève du BDE se tourne vers vous, et voyant votre sourir radieux, il s'exclame : \n"
-                + " - Ola camarade ! Tu peux garder ma casquette si tu veux, y en a plein d'autres dans la remise ! \n",
-                new ArmorItem("Poly'casquette", 10, 1)), false);
-        
-        event.put(new FightEvent("Heureux de cette nouvelle découverte,"
-                + "vous ne sentez pas tout de suite cette main moite qui se pose "
-                + "fermement sur votre épaule. \n C'est Charlie (aka le Kaid), une vermine"
-                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard"
-                + "la haine qu'il éprouve pour vous : \n - Ce sont mes tic tac, vermine. \n"
-                + "Il va falloir vous battre pour conserver votre précieux butin... ",
-                new Meca("Charlie le Kaid", new Level(10))), false);
-        
         event.put(new DiscoverPlaceEvent("En route vers Polytech, votre très chère école, "
                 + "vous vous retrouvez au milieu de tous les autres étudiants du campus "
                 + "de l'université Lyon 1 dans le Tram menant à Condorcet. "
@@ -74,6 +48,33 @@ public class StoryController {
                 new EdibleItem("Boite de tic tac entamée", 1, 
                         new Effect(Characteristic.STRENGHT, -2, 0),
                         new Effect(Characteristic.HEALTH, 2, 0))), false);
+        
+        event.put(new FightEvent("Heureux de cette nouvelle découverte,"
+                + "vous ne sentez pas tout de suite cette main moite qui se pose "
+                + "fermement sur votre épaule. \n C'est Charlie (aka le Kaid), une vermine"
+                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard"
+                + "la haine qu'il éprouve pour vous : \n - Ce sont mes tic tac, vermine. \n"
+                + "Il va falloir vous battre pour conserver votre précieux butin... ",
+                new Meca("Charlie le Kaid", new Level(10))), false);
+        
+        event.put(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech. \n"
+                + "Il y a presque une demi-minute que vous vous frayez un chemin parmi les autres étudiants lorsque vous entendez un battement d'ailes au-dessus des arbres. \n"
+                + "Vous levez les yeux et vous distinguez la silhouette d'un membre du BDE qui accroche une affiche sur un prochain évènement alcoolisé. \n"
+                + "C'est l'un des amis de Charlie qui vous a attaqué plus tôt. \n"
+                + "Sur sa tête vous distinguez une casquette Polytech, faiblement retenue. \n"
+                + "C'est une relique, et lorsqu'elle tombe à vos pieds, vous ne vous faite pas prier pour la saisir. \n"
+                + "L'élève du BDE se tourne vers vous, et voyant votre sourir radieux, il s'exclame : \n"
+                + " - Ola camarade ! Tu peux garder ma casquette si tu veux, y en a plein d'autres dans la remise ! \n",
+                new ArmorItem("Poly'casquette", 10, 1)), false);
+        
+        event.put(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre. \n"
+                + "En vous approchant, près de la machine à café située sous l'escalier, vous apercevez bientôt un groupe d'étudiants que vous connaissez bien. \n"
+                + "Vos cinq amis (car oui, ce sont vos amis) sont en train de discuter autour d'un boisson chaude. \n"
+                + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
+                + "Lorsque vous vous approchez, Esteban vous tend un café tout chaud : \n"
+                + " - Tien salut ! Bien dormis ? \n", 
+                new EdibleItem("Café (bien) chaud", 5, new Effect(Characteristic.DEXTIRITY, 5, 3))), false);
+        
         
         System.out.println("---------------------------------------------------");
         System.out.println("---------- GENERATION DES EVENTS TERMINES ---------");

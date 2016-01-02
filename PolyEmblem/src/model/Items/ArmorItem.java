@@ -1,14 +1,15 @@
 package model.Items;
 
-import java.util.Map;
+import model.Characteristic;
+import model.Effect;
 import model.Item;
 
 public class ArmorItem extends Item {
     
-    private int protection;
+    private final int protection;
 
     public ArmorItem(String name, int weight, int protection) {
-        super(name, weight, null);
+        super(name, weight, new Effect(Characteristic.DEFENCE, protection, -1));
         this.protection = protection;
     }
     
