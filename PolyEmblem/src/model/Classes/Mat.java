@@ -28,4 +28,11 @@ public class Mat extends model.Personnage{
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
     }
+
+    @Override
+    public String getClassName() {
+        return "MAT";
+    }
+    
+    
 }

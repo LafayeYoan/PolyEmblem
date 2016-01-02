@@ -29,4 +29,9 @@ public class Info extends Personnage {
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
     }
+
+    @Override
+    public String getClassName() {
+        return "INFO";
+    }
 }

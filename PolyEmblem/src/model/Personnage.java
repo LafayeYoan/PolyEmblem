@@ -78,6 +78,11 @@ public abstract class Personnage {
     }
     
     public void applicateEffect(Effect e){
+        if(e.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
+            this.actualLife += e.getValue();
+        }else{
+           this.characteritics.replace(e.getCharacteristicEffect(), e.getValue() + this.characteritics.getOrDefault(e.getCharacteristicEffect(),0));
+        }
     }
     
     public void removeItem(Item item){
@@ -181,8 +186,26 @@ public abstract class Personnage {
     public Map<Characteristic, Integer> getCharacteritics() {
         return characteritics;
     }
+    
+    public void increaseCharacteristic(model.Characteristic charac){
+        int val  = this.characteritics.getOrDefault(charac, 0);
+        this.characteritics.replace(charac, val+1);
+    }
 
     public List<Effect> getEffects() {
         return effects;
+    }
+    
+    public abstract String getClassName();
+    
+    public String getBasicDescription(){
+        String description = "";
+        
+        description += "Nom: " + this.name + "\n";
+        description += "Classe: " + this.getClassName() + "\n";
+        description += "Vie: " + this.actualLife + "/" + this.maxHealth + "\n"; 
+        description += "Niveau: " + level.getLevelValue() + "\n";
+        
+        return description;
     }
 }

@@ -4,6 +4,7 @@ import java.util.List;
 import model.Personnage;
 import model.Skill;
 import view.CombatActionChoice;
+import view.CombatOpponentChoice;
 
 /**
  *
@@ -14,38 +15,41 @@ public class FightController {
     /***
      * Run the Fight between player and all bad guys.
      * Call the correct view for each action.
-     * @param player the player
+     * @param players the players
      * @param allBadGuys a list of bad guys (one or many)
      */
-    public void runTheFight(Personnage player, List<Personnage> allBadGuys) {
-        
+    public void runTheFight(/*List<Personnage> players*/ Personnage p, List<Personnage> allBadGuys) {
         boolean isPlayerTurn = true;
-        CombatActionChoice playerTurn = new CombatActionChoice(player);
+        CombatActionChoice fightChoice;
+        CombatOpponentChoice opponentChoice;
         
         while(true) {
-            
-            if(theFightIsOver(player, allBadGuys)) {
-                if(isDead(player)) {
-                    //Afficher la vue de fin de partie (la partie est perdu !)
-                } else {
-                    playerTurn.displayEndFight();
-                    //A la fin, mise à jour xp : appelle vue xp
-                    //Joueur regagne un peu de sa vie : appelle vue détail perso
-                }                
+            int fightResult = theFightIsOver(/*players*/ p, allBadGuys);
+            //le joueur a perdu
+            if(fightResult == 1) {
+                //Afficher la vue de fin de partie (la partie est perdu !)
                 break;
-            }            
+            } else if(fightResult == -1){ // le joueur à gagné
+                //Dire que que joueur a gagné
+                //A la fin, mise à jour xp : appelle vue xp
+                //Joueur regagne un peu de sa vie : appelle vue détail perso
+                break;
+            }                
             
-            if(isPlayerTurn) {
-                playerTurn.loadHUD();
-                Skill skillToUse = (Skill) playerTurn.getResponse();
-                skillToUse.useAbility(player, allBadGuys);
-                //Tour du joueur
-                isPlayerTurn = false;
-            } else {
-                //Tour IA
+            //for(Personnage p: players){
+            opponentChoice = new CombatOpponentChoice(allBadGuys);
+            opponentChoice.loadHUD();
+            Personnage badGuy = opponentChoice.getResponse();
+
+            fightChoice = new CombatActionChoice(p);
+            fightChoice.loadHUD();
+            Skill skillToUse = fightChoice.getResponse();
+            skillToUse.useAbility(p, allBadGuys);
+            //}
+            
+            for(Personnage aBadGuy: allBadGuys){
+                //TODO IA stuff
             }
-            
-            break; //To remove, c'est pour ne pas bloquer tant que la méthode n'est pas finie. 
         }
     }        
 
@@ -54,22 +58,33 @@ public class FightController {
      * OR bad guys is/are dead.
      * @param player the player
      * @param allBadGuys a list of bad guys (one or many)
-     * @return true if player life equal 0. true if all bad guys life equal 0. false if the player is alive and at least one of the bad guys is alive
+     * @return 1 if player life equal 0. -1 if all bad guys life equal 0. 0 if one player is alive and at least one of the bad guys is alive
      */
-    private boolean theFightIsOver(Personnage player, List<Personnage> allBadGuys) {
+    private int theFightIsOver(/*List<Personnage> players*/ Personnage p, List<Personnage> allBadGuys) {
         
-        if(isDead(player)) { 
-            return true;
+        boolean onePlayerAlive = false;
+        boolean oneBadGuyAlive = false;
+        //for(Personnage p: players){
+            if(!isDead(p)){
+                onePlayerAlive = true;
+                //break;
+            }
+        //}
+        
+        if(!onePlayerAlive){
+            return 1;
         }
         
         for(Personnage aBadGuy : allBadGuys) {
-            if(isDead(aBadGuy)) {
-                
-            } else {
-                return false;
+            if(!isDead(aBadGuy)) {
+                oneBadGuyAlive = true;
+                break;
             }
+        }       
+        if(!oneBadGuyAlive){
+            return -1;
         }
-        return true;
+        return 0;
     }    
     
     /***
@@ -78,6 +93,6 @@ public class FightController {
      * @return true if the player life equal 0. False otherwise.
      */
     private boolean isDead(Personnage player) {
-        return (player.getActualLife() == 0);
+        return (player.getActualLife() <= 0);
     }
 }
