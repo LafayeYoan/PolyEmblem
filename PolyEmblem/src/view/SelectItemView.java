@@ -11,12 +11,12 @@ import controller.KeyboardInput;
  *
  * @author Darkos
  */
-public class SelectItem implements HUD{
+public class SelectItemView implements HUD{
 
     private model.Personnage perso;
     private String enteredText;
     
-    public SelectItem(model.Personnage perso){
+    public SelectItemView(model.Personnage perso){
         this.perso = perso;
     }
     

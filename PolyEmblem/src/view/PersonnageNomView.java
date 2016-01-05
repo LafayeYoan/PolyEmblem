@@ -11,7 +11,7 @@ import controller.KeyboardInput;
  *
  * @author Darkos
  */
-public class PersonnageNom implements HUD{
+public class PersonnageNomView implements HUD{
 
     private String nom;
 

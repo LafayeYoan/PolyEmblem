@@ -15,7 +15,7 @@ import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.PersonnageDisplay;
+import view.PersonnageDisplayView;
 
 public class StoryController {
 
@@ -81,7 +81,7 @@ public class StoryController {
                         //TODO
                         break;
                     case 3 : /* Voir les détails du personnage */
-                        PersonnageDisplay playerView = new PersonnageDisplay(player);
+                        PersonnageDisplayView playerView = new PersonnageDisplayView(player);
                         playerView.loadHUD();
                         break;
                     case 4 : /* Charger une partie déjà existante */

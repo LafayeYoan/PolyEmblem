@@ -12,13 +12,13 @@ import controller.KeyboardInput;
  *
  * @author Darkos
  */
-public class CapacityAssignPoint implements HUD{
+public class CapacityAssignPointView implements HUD{
     
     private model.Personnage  perso;
     private String enteredText;
     private boolean userHasValidated;
     
-    public CapacityAssignPoint(model.Personnage perso){
+    public CapacityAssignPointView(model.Personnage perso){
         this.perso = perso;
     }
     @Override

@@ -11,7 +11,7 @@ import java.util.Scanner;
  *
  * @author Darkos
  */
-public class PersonnageClasse implements HUD {
+public class PersonnageClasseView implements HUD {
 
     private String className;
     @Override
