@@ -9,14 +9,13 @@ import model.Effect;
 public class HealSkill implements Skill {
 
     @Override
-    public Effect[] useAbility(Personnage srcCharacter, List<Personnage> targetCharacter) {
+    public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
         
-        for(Personnage p:targetCharacter){
             //test si l'action est success
             if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
-                continue;
+                return null;
             }
             int heal = 0;
             if(weapon!= null){
@@ -25,9 +24,7 @@ public class HealSkill implements Skill {
             }
             
             //on applique l'effet
-            p.applicateEffect(new Effect(model.Characteristic.LIFE, heal,1));
-            
-        }
+            targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, heal,1));
         return null;
     }
 

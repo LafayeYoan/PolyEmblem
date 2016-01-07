@@ -1,8 +1,9 @@
-package view;
+package view.Personnage;
 
 import java.util.List;
 import java.util.Map;
 import model.Personnage;
+import view.HUD;
 
 /**
  * View that display in detail all characters of the player.

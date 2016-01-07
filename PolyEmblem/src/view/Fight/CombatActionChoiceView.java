@@ -1,8 +1,9 @@
-package view;
+package view.Fight;
 
 import utils.KeyboardInput;
 import model.Personnage;
 import utils.Validator;
+import view.HUD;
 
 /**
  * View that manage all actions possibles by the character in a fight.

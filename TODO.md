@@ -50,10 +50,10 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * A la fin du combat (en cas de victoire), le joueur gagne de l'xp. 
 
-* [EN COURS PAR SACHA] Un combat oppose plusieurs personnages à plusieurs personnages.
+* [DONE] Un combat oppose plusieurs personnages à plusieurs personnages.
 
 * [EN COURS PAR SACHA] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
-    - [EN COURS] Combat contre un enemis ([OPTION] ou plusieurs)
+    - [EN COURS] Combat contre un enemis ([A TESTER] plusieurs)
     - [DONE] Découverte d'un endroit avec du stuff
     - Autres (?)
     
@@ -73,7 +73,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [OPTION] Si le joueur tape une commande qui n'est pas prise en charge, "commande non reconnue" apparait et le jeu se poursuit. 
 
-* Prévoir "une fenêtre" pour visualiser la mort du personnage, et la fin de la partie.
+* [EN COURS PAR SACHA] Prévoir "une fenêtre" pour visualiser la mort du personnage, et la fin de la partie.
 
 # Autres
 

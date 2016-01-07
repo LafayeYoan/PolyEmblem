@@ -1,15 +1,12 @@
 package controller;
 
-import java.util.ArrayList;
 import java.util.List;
 import model.Bag;
 import model.Item;
-import model.Items.ArmorItem;
-import model.Items.WeaponItem;
 import model.Personnage;
-import view.ErrorItemView;
-import view.ItemDisplayView;
-import view.SelectItemView;
+import view.Item.ErrorItemView;
+import view.Item.ItemDisplayView;
+import view.Item.SelectItemView;
 
 public class ItemController {
 

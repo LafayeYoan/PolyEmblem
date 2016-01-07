@@ -1,6 +1,7 @@
-package view;
+package view.Personnage;
 
 import utils.KeyboardInput;
+import view.HUD;
 
 /**
  * View that manage the name of the character when created.

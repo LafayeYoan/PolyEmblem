@@ -4,21 +4,23 @@ import java.util.LinkedList;
 import java.util.List;
 import model.Bag;
 import model.Characteristic;
-import model.Classes.Meca;
+import model.Classes.Mat;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
+import model.IA.IAPersonnage;
 import model.Item;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
 import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
+import view.EndOfGameView;
 import view.EventView;
-import view.ItemDisplayView;
-import view.PersonnageDisplayView;
-import view.SelectItemView;
+import view.Item.ItemDisplayView;
+import view.Personnage.PersonnageDisplayView;
+import view.Item.SelectItemView;
 
 /***
  * Main Controller : Run the game ! 
@@ -57,7 +59,11 @@ public class StoryController {
                 + "en Méca, qui sème la terreur et le chaos dans tout le réseau.\nVous sentez dans son regard "
                 + "la haine qu'il éprouve pour vous : \n- Ce sont mes tic tac, vermine."
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
-                new Meca("Charlie le Kaid", new Level(10))));
+                new IAPersonnage(
+                        new Mat("Charlie le Kaid",new Level(3))
+                        ,1)
+                    )
+        );
         
         event.add(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech."
                 + "\nIl y a presque une demi-minute que vous vous frayez un chemin parmi les autres étudiants lorsque vous entendez un battement d'ailes au-dessus des arbres."
@@ -139,5 +145,7 @@ public class StoryController {
                 }
             }
         }
+        
+        EndOfGameView.loadWinnerEnding();
     }    
 }
