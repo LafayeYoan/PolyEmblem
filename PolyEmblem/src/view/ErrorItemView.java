@@ -20,6 +20,8 @@ public class ErrorItemView implements HUD {
     public void loadHUD() {
         System.out.println("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
         System.out.println("\n Quel objet souhaitez-vous laisser sur place ?");
+        System.out.println("(Saisir -1 si vous ne souhaitez pas supprimer d'objet et laisser le trésor ici)");
+        
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
@@ -39,6 +41,9 @@ public class ErrorItemView implements HUD {
 
     @Override
     public Object getResponse() {
+        if(itemToDelete.equals("-1")) {
+            return "-1";
+        }
         try{
             return perso.getItems().get(Integer.parseInt(itemToDelete) -1);
         }catch(Exception e){
@@ -48,27 +53,29 @@ public class ErrorItemView implements HUD {
     }
     
     private boolean isValid(){
-        boolean valid = true;
+        
         if(itemToDelete.isEmpty()){
             System.out.println("Veuillez entrer une valeur.");
-            valid = false;
-            return valid;
+            return false;
         }
         int i;
         try{
             i = Integer.parseInt(itemToDelete);         
         }catch(Exception e){
             System.out.println("Veuillez entrer un chiffre.");
-            valid = false;
-            return valid;
+            return false;
+        }
+        
+        if(i == -1) {
+            return true;
         }
         
         if(i>=perso.getSkills().size()||i <=0){
             System.out.println("Veuillez entrer un chiffre compris entre 1 et "+perso.getItems().size()+".");
-            valid = false;
-            return valid;
+            return false;
         }        
-        return valid;
+        
+        return true;
     }
 
 }

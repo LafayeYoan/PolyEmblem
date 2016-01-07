@@ -7,7 +7,7 @@ import model.Level;
 public class Gbm extends model.Personnage{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 25;
-    public static int BASIC_DEXTIRITY = 5;
+    public static int BASIC_DEXTIRITY = 10;
     public static int BASIC_DEFENCE = 3;
     public static int BASIC_INTELIGENCE = 10;
     
