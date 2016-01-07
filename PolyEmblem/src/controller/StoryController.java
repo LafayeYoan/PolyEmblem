@@ -9,12 +9,14 @@ import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
+import model.Item;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
 import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
+import view.ItemDisplayView;
 import view.PersonnageDisplayView;
 import view.SelectItemView;
 
@@ -107,6 +109,12 @@ public class StoryController {
                     case 2 : /* Manage the bag */
                         SelectItemView bagView = new SelectItemView(bag);
                         bagView.loadHUD();
+                        if(bagView.getResponse().getClass().toString().equals("class java.lang.Integer")) {
+                            //Do nothing, go back in the main menu
+                        } else {
+                            ItemDisplayView itemDisplayView = new ItemDisplayView((Item) bagView.getResponse());
+                            itemDisplayView.loadHUD(); 
+                        }
                         break;
                         
                     case 3 : /* Display characters details */

@@ -79,6 +79,14 @@ public abstract class Personnage {
         }
     }
     
+    public void removeEffect(Effect e){
+        if(e.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
+            this.actualLife -= e.getValue();
+        }else{
+           this.characteritics.replace(e.getCharacteristicEffect(), this.characteritics.getOrDefault(e.getCharacteristicEffect(),0) - e.getValue());
+        }
+    }
+    
     public void equipWeapon(model.Items.WeaponItem weaponItem){
         if(this.weapon != null){
             unequipWeapon();
@@ -86,13 +94,23 @@ public abstract class Personnage {
         //equiper
         this.weapon = weaponItem;
         this.weapon.equiped = true;
-        //code pour les effets de l'arme
+        //appliquer effet
+        for(Effect anEffect : weapon.getAllEffects()){
+            applicateEffect(anEffect);
+        }
     }
-   
+  
     public void unequipWeapon(){
+        if(this.weapon == null){
+            System.out.println("\nAucune arme équipée !");
+        }
         //enlever effet
+        for(Effect anEffect : weapon.getAllEffects()){
+            removeEffect(anEffect);
+        //enlever l'arme
         this.weapon.equiped = false;
-        this.weapon=null;
+        this.weapon=null;   
+        }
     }
     
     public void equipArmor(model.Items.ArmorItem armorItem){
@@ -102,20 +120,30 @@ public abstract class Personnage {
         //equiper
         this.armor = armorItem; 
         this.armor.equiped = true;
-        //code pour les effets de l'armure
-    } 
+        //appliquer effet
+        for(Effect anEffect : armor.getAllEffects()){
+            applicateEffect(anEffect);
+        }
+    }
     
      public void unequipArmor(){
-         //enlever effet
-         this.armor.equiped = false;
-         this.armor = null;
+        if(this.armor == null){
+            System.out.println("\nAucune armure équipée !");
+        }
+        //enlever effet
+        for(Effect anEffect : armor.getAllEffects()){
+            removeEffect(anEffect);
+        //enlever l'armure
+        this.armor.equiped = false;
+        this.armor=null;   
+        }
     }
     
     private int calcMaxHealth(){
         if(this.characteritics.containsKey(Characteristic.HEALTH)){
             return this.characteritics.get(Characteristic.HEALTH);
         }
-        return 20;
+        return 50;
     }
     
     public void initSkills(){
