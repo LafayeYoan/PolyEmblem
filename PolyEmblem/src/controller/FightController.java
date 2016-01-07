@@ -3,8 +3,8 @@ package controller;
 import java.util.List;
 import model.Personnage;
 import model.Skill;
-import view.CombatActionChoiceView;
-import view.CombatOpponentChoiceView;
+import view.Fight.CombatActionChoiceView;
+import view.Fight.CombatOpponentChoiceView;
 
 /**
  *

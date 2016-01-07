@@ -1,10 +1,11 @@
 
-package view;
+package view.Personnage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import utils.KeyboardInput;
 import utils.Validator;
+import view.HUD;
 
 /**
  * View that manage the class of the character when created. 

@@ -1,7 +1,8 @@
-package view;
+package view.Personnage;
 
 import java.util.Map;
 import utils.KeyboardInput;
+import view.HUD;
 
 /**
  * View that manage "l'attribution d'un point de compétence" when level up.

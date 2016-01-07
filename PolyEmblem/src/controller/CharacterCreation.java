@@ -3,9 +3,9 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.Personnage;
-import view.PersonnageNomView;
-import view.PersonnageClasseView;
-import view.PersonnageDisplayView;
+import view.Personnage.PersonnageNomView;
+import view.Personnage.PersonnageClasseView;
+import view.Personnage.PersonnageDisplayView;
 
 public class CharacterCreation {
     

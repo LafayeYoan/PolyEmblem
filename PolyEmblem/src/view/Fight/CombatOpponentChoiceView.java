@@ -1,8 +1,9 @@
-package view;
+package view.Fight;
 
 import utils.KeyboardInput;
 import java.util.List;
 import model.Personnage;
+import view.HUD;
 
 /**
  * View that manage the target of a fight.

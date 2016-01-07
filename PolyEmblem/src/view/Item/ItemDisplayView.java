@@ -1,7 +1,8 @@
-package view;
+package view.Item;
 
 import utils.KeyboardInput;
 import model.Item;
+import view.HUD;
 
 /**
  * View that display details of an item. 

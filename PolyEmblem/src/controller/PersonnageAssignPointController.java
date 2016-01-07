@@ -11,7 +11,7 @@ package controller;
  */
 public class PersonnageAssignPointController {
     public static void assignPoint(model.Personnage player){
-        view.CapacityAssignPointView view = new view.CapacityAssignPointView(player);
+        view.Personnage.CapacityAssignPointView view = new view.Personnage.CapacityAssignPointView(player);
         
         view.loadHUD();
         

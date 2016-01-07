@@ -1,6 +1,7 @@
-package view;
+package view.Fight;
 
 import java.util.List;
+import view.HUD;
 
 /**
  * View that display the details of a fight.

@@ -15,8 +15,8 @@ import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.PersonnageDisplayView;
-import view.SelectItemView;
+import view.Personnage.PersonnageDisplayView;
+import view.Item.SelectItemView;
 
 /***
  * Main Controller : Run the game ! 

@@ -1,10 +1,11 @@
-package view;
+package view.Item;
 
 import java.util.List;
 import model.Bag;
 import model.Item;
 import utils.KeyboardInput;
 import model.Personnage;
+import view.HUD;
 
 /***
  * View that manage the error when we try to add an item in the bag and it's not possible. 
