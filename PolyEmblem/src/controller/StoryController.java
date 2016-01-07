@@ -5,7 +5,6 @@ import java.util.List;
 import model.Bag;
 import model.Characteristic;
 import model.Classes.Mat;
-import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -22,13 +21,15 @@ import view.Personnage.PersonnageDisplayView;
 import view.Item.SelectItemView;
 
 /***
- * Main Controller : Run the game ! 
+ * Main Controller : Run the game !
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class StoryController {
 
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
-    It becomes true when the event is playing by the player. */
+    * It becomes true when the event is playing by the player. */
     private static List<Events> event;
+    /* List of all characters of the player. */
     public static List<Personnage> players;
     
     /***
@@ -82,16 +83,14 @@ public class StoryController {
                 + "\nLorsque vous vous approchez, Esteban vous tend son cahier de mathématique : "
                 + "\n- Tien salut ! Bien dormis ?", 
                 new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))));
-
-        
         
     }
     
     /***
      * Run the game. For each event (and as long as the event has not occurred),
      * display to the player the global menu. Call the correct view for each action
-     * possible.
-     * @param allPlayers a list of all players
+     * possible. At the end of the game, display the winning view.
+     * @param allPlayers a list of all characters of the player
      */
     public static void runTheGame(List<Personnage> allPlayers) {
         

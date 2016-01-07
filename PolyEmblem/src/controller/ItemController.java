@@ -8,15 +8,19 @@ import view.Item.ErrorItemView;
 import view.Item.ItemDisplayView;
 import view.Item.SelectItemView;
 
+/***
+ * Controller for items : 
+ * Manage the item found on a DiscoverPlaceEvent (and so manage the bag of the player)
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class ItemController {
 
     /***
      * Arranges a treasure found in the bag
-     * @param allPlayers list of all the players
      * @param treasure the item to arrange
      * @param bag the team's bag
      */
-    public void itemFound(List<Personnage> allPlayers, Item treasure, Bag bag) {
+    public void itemFound(Item treasure, Bag bag) {
         
         SelectItemView itemView = new SelectItemView(bag);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
@@ -69,8 +73,8 @@ public class ItemController {
     }
 
     /***
-     * Manage the bag of the team : displays items from the bag or go back to 
-     * the main menu if the itemView is 0. 
+     * Manage the bag of the team. 
+     * Displays items from the bag OR go back to the main menu 
      * @param bag the bag to display
      * @param itemView the SelectItem view 
      */

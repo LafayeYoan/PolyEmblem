@@ -73,7 +73,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [OPTION] Si le joueur tape une commande qui n'est pas prise en charge, "commande non reconnue" apparait et le jeu se poursuit. 
 
-* [EN COURS PAR SACHA] Prévoir "une fenêtre" pour visualiser la mort du personnage, et la fin de la partie.
+* [DONE] Prévoir "une fenêtre" pour visualiser la mort du personnage, et la fin de la partie.
 
 # Autres
 
