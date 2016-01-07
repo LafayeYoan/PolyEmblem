@@ -116,17 +116,19 @@ public abstract class Personnage {
     }
     
     public void equipArmor(model.Items.ArmorItem armorItem){
-        if(!this.armor.equals(null)){
+        if(this.armor != null){
             unequipArmor();
         }
         //equiper
         this.armor = armorItem; 
+        this.armor.equiped = true;
         //code pour les effets de l'armure
     } 
     
      public void unequipArmor(){
          //enlever effet
-         this.armor=null;
+         this.armor.equiped = false;
+         this.armor = null;
     }
     
     private int calcMaxHealth(){

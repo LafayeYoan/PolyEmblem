@@ -23,14 +23,15 @@ public class SelectItemView implements HUD{
         System.out.println("----------------------------------------");
         System.out.println("Choisissez un objet pour voir son détail : ");
         System.out.println("(Appuyez sur 0 pour revenir au menu principal) \n");
+        
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
             
             if(o.equiped){
+                
                 System.out.println(" est équipé.");
-            }else
-            {
+            } else {
                 System.out.println();
             }
             i++;
