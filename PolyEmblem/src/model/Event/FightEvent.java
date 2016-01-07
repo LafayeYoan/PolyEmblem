@@ -1,22 +1,25 @@
 package model.Event;
 
+import java.util.ArrayList;
+import java.util.List;
 import model.Events;
+import model.Personnage;
 
 public class FightEvent extends Events {
     
-    /* Character who wants to fight !*/
-    private Character zeBadGuy;
-    private Character zeSecondBadGuy;
+    /* Characters who wants to fight !*/
+    private List<Personnage> allBadGuys;
     
-    public FightEvent(String description, Character badGuy) {
+    public FightEvent(String description, Personnage... badGuys) {
         super (description);
-        zeBadGuy = badGuy;
+        
+        allBadGuys = new ArrayList<Personnage>();
+        for(int i = 0; i < badGuys.length; i ++) {
+            allBadGuys.add(badGuys[i]);
+        }
     }
     
-    public FightEvent(String description, Character badGuy, Character otherBadGuy) {
-        super (description);
-        zeBadGuy = badGuy;
-        zeSecondBadGuy = otherBadGuy;
+    public List<Personnage> getAllBadGuys() {
+        return allBadGuys;
     }
-    
 }

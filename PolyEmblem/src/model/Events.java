@@ -1,6 +1,5 @@
 package model;
 
-
 public class Events {
     
     /* Describe the event for the player */
@@ -12,5 +11,5 @@ public class Events {
     
     public String getDescriptionEvent() {
         return descriptionEvent;
-    }    
+    }
 }

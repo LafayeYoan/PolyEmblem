@@ -14,4 +14,12 @@ public class WeaponItem extends Item {
         this.heal = heal;
     }
     
+    public int getDamage(){
+        return this.damage;
+    }
+    
+    public int getHeal(){
+        return this.heal;
+    }
+    
 }

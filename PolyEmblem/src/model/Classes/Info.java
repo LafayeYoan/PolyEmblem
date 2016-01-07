@@ -3,20 +3,21 @@ package model.Classes;
 import java.util.HashMap;
 import model.Characteristic;
 import model.Level;
+import model.Personnage;
 
-public class Info extends model.Character {
+public class Info extends Personnage {
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 1;
     public static int BASIC_INTELIGENCE = 1;
     
-    public Info(String name, int maxWeight, int maxHealth){
-        super(name,maxWeight,maxHealth);
+    public Info(String name){
+        super(name);
     }
     
-    public Info(String name, Level level, int maxWeight, int maxHealth){
-        super(name, level, maxWeight,maxHealth);
+    public Info(String name, Level level){
+        super(name, level);
     }
 
     @Override
@@ -27,5 +28,10 @@ public class Info extends model.Character {
         this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
+    }
+
+    @Override
+    public String getClassName() {
+        return "INFO";
     }
 }

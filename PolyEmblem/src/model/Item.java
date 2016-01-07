@@ -1,15 +1,14 @@
 package model;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
 
 public class Item {
     
     private String name;
     private int weight; 
     private List<Effect> allEffects;
+    public boolean equiped;
     
     public Item(String name, int weight, Effect... effects) {
         this.name = name; 
@@ -18,6 +17,7 @@ public class Item {
         for (int i = 0; i < effects.length; i++) {
             this.allEffects.add(effects[i]);
         }
+        equiped = false;
     }
     
     private int getValueEffect(Characteristic characteristicEffect) {
@@ -29,4 +29,24 @@ public class Item {
         //TODO
         return this;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public String getDescription() {
+        String effectString = "";
+        for (Effect anEffect : allEffects) {
+            effectString = effectString + "\n >> " + anEffect.toString();
+        }
+        
+        return "\n" + name.toUpperCase() + " : " 
+                + "\n POIDS : " + weight + " g"
+                + "\n EFFETS : " + effectString;
+    }
+
+    public int getWeight() {
+        return weight;
+    }
+    
 }
