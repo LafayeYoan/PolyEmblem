@@ -20,8 +20,7 @@ public class PolyEmblem {
         //Controller.players = CharacterCreation.start();
         
         /* Run the game */
-        //Controller.runTheGame(Controller.players.get(0));
-        
+        //StoryController.runTheGame(Controller.players));
         StoryController.runTheGame(new Info("Sacha"));
     }
     

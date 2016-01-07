@@ -6,7 +6,7 @@ import model.Items.WeaponItem;
 import model.Personnage;
 import view.ErrorItemView;
 import view.ItemDisplayView;
-import view.SelectItem;
+import view.SelectItemView;
 
 public class ItemController {
 
@@ -17,7 +17,7 @@ public class ItemController {
      */
     public void itemFound(Personnage player, Item treasure) {
         
-        SelectItem itemView = new SelectItem(player);
+        SelectItemView itemView = new SelectItemView(player);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
         
         switch (treasure.getClass().toString()) {
@@ -69,7 +69,7 @@ public class ItemController {
      * @param player the player with the bag
      * @param itemView the SelectItem view 
      */
-    private void manageItemBag(Personnage player, SelectItem itemView) {
+    private void manageItemBag(Personnage player, SelectItemView itemView) {
         
         switch(itemView.getResponse().getClass().toString()) {
             

@@ -3,9 +3,9 @@ package controller;
 import java.util.ArrayList;
 import java.util.List;
 import model.Personnage;
-import view.PersonnageNom;
-import view.PersonnageClasse;
-import view.PersonnageDisplay;
+import view.PersonnageNomView;
+import view.PersonnageClasseView;
+import view.PersonnageDisplayView;
 
 /**
  *
@@ -18,9 +18,9 @@ public class CharacterCreation {
     public static List<Personnage> start(){
         ArrayList<Personnage> players = new ArrayList<>();
         for(int i = 0 ; i< NUMBER_OF_PLAYER; i++){
-            PersonnageNom nom = new PersonnageNom();
+            PersonnageNomView nom = new PersonnageNomView();
             nom.loadHUD();
-            PersonnageClasse classe = new PersonnageClasse();
+            PersonnageClasseView classe = new PersonnageClasseView();
             classe.loadHUD();            
             switch(classe.getResponse()){
                 case "GBM":
@@ -42,7 +42,7 @@ public class CharacterCreation {
                     //DO Nothing
                     //The player loose a character
             }
-            new PersonnageDisplay(players.get(i)).loadHUD();            
+            new PersonnageDisplayView(players.get(i)).loadHUD();            
         }
         return players;
     }

@@ -6,7 +6,7 @@ import controller.KeyboardInput;
  * View that manage the class of the character when created. 
  * Give to the controller the class choosen.
  */
-public class PersonnageClasse implements HUD {
+public class PersonnageClasseView implements HUD {
 
     private String className;
     @Override
