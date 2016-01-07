@@ -54,7 +54,7 @@ public class StoryController {
         event.add(new FightEvent("Heureux de cette nouvelle découverte,"
                 + "vous ne sentez pas tout de suite cette main moite qui se pose "
                 + "fermement sur votre épaule. \n C'est Charlie (aka le Kaid), une vermine"
-                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard"
+                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard "
                 + "la haine qu'il éprouve pour vous : \n - Ce sont mes tic tac, vermine. \n"
                 + "Il va falloir vous battre pour conserver votre précieux butin... ",
                 new Meca("Charlie le Kaid", new Level(10))));
