@@ -1,9 +1,7 @@
 package controller;
 
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import model.Characteristic;
 import model.Classes.Meca;
 import model.Effect;
@@ -35,7 +33,7 @@ public class StoryController {
      */
     public static void generateEvents() {
         
-        event = new LinkedList<Events>();
+        event = new LinkedList<>();
         
         //TODO : add story events here
         
