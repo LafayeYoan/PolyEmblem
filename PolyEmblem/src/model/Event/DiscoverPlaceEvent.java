@@ -12,4 +12,9 @@ public class DiscoverPlaceEvent extends Events {
         super(description);
         zeTreasure = treasure;
     }
+    
+    public Item getTreasure() {
+        return zeTreasure;
+    }
+    
 }

@@ -1,27 +1,22 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Level;
 
-/**
- *
- * @author Darkos
- * */
-public class Gbm extends model.Character{
+public class Gbm extends model.Personnage{
     public static int BASIC_STRENGHT = 1;
     public static int BASIC_HEALTH = 20;
-    public static int BASIC_DEXTIRITY = 1;
-    public static int BASIC_DEFENCE = 1;
-    public static int BASIC_INTELIGENCE = 1;
+    public static int BASIC_DEXTIRITY = 5;
+    public static int BASIC_DEFENCE = 3;
+    public static int BASIC_INTELIGENCE = 10;
     
-    public Gbm(String name, int maxWeight, int maxHealth){
-        super(name,maxWeight,maxHealth);
+    public Gbm(String name){
+        super(name);
+    }
+    
+    public Gbm(String name, Level level){
+        super(name, level);
     }
 
     @Override
@@ -32,6 +27,11 @@ public class Gbm extends model.Character{
         this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
+    }
+
+    @Override
+    public String getClassName() {
+        return "GBM";
     }
 
 }
