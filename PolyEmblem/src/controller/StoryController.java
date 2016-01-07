@@ -29,7 +29,7 @@ public class StoryController {
     
     /***
      * Generate all events for the game.
-     * WARNING : when running the game, the last event of the map is reading first 
+     * WARNING : when running the game, don't know what is the first event to be running ?...
      */
     public static void generateEvents() {
         
