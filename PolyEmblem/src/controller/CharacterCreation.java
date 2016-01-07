@@ -7,10 +7,6 @@ import view.PersonnageNomView;
 import view.PersonnageClasseView;
 import view.PersonnageDisplayView;
 
-/**
- *
- * @author Darkos
- */
 public class CharacterCreation {
     
     private static final int NUMBER_OF_PLAYER = 3;
@@ -42,7 +38,7 @@ public class CharacterCreation {
                     //DO Nothing
                     //The player loose a character
             }
-            new PersonnageDisplayView(players.get(i)).loadHUD();            
+            new PersonnageDisplayView(players).loadHUD();            
         }
         return players;
     }

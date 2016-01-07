@@ -1,5 +1,8 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
+import model.Bag;
 import model.Item;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
@@ -12,20 +15,21 @@ public class ItemController {
 
     /***
      * Arranges a treasure found in the bag
-     * @param player the player with the bag
+     * @param allPlayers list of all the players
      * @param treasure the item to arrange
+     * @param bag the team's bag
      */
-    public void itemFound(Personnage player, Item treasure) {
+    public void itemFound(List<Personnage> allPlayers, Item treasure, Bag bag) {
         
-        SelectItemView itemView = new SelectItemView(player);
+        SelectItemView itemView = new SelectItemView(bag);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
-        ErrorItemView errorItemView = new ErrorItemView(player);
+        ErrorItemView errorItemView = new ErrorItemView(bag);
         
-        String treasureClass = treasure.getClass().toString();
         boolean abandonTreasure = false;
+        String treasureClass = treasure.getClass().toString();
         
         /* Try to put the item in the bag */
-        while(player.getActualInUseWeight() + treasure.getWeight() > Personnage.MAX_WEIGHT) {
+        while(bag.getActualInUseWeight() + treasure.getWeight() > bag.maxWeight) {
             errorItemView.loadHUD();
             
             try{
@@ -33,21 +37,22 @@ public class ItemController {
                 abandonTreasure = true;
                 break;
             }catch(ClassCastException e){
-                player.removeItem((Item) errorItemView.getResponse());
+                bag.removeItem((Item) errorItemView.getResponse());
             }
         }
         
         if(abandonTreasure) {
             //Do nothing, we leave the treasure
         } else {
-            player.addItem(treasure);
+            bag.addItem(treasure);
             
             if(treasureClass.equals("class model.Items.ArmorItem")) {
                 itemDisplayView.loadHUD();
                 if(itemDisplayView.getResponse().equals(0)) {
                     //Do nothing : go back to the main menu
                 } else {
-                    player.equipArmor((ArmorItem) treasure);
+                    //TODO
+                    //player.equipArmor((ArmorItem) treasure);
                 }
             }
         
@@ -56,22 +61,23 @@ public class ItemController {
                 if(itemDisplayView.getResponse().equals(0)) {
                     //Do nothing : go back to the main menu
                 } else {
-                    player.equipWeapon((WeaponItem) treasure);
+                    //TODO
+                    //player.equipWeapon((WeaponItem) treasure);
                 }
             }
 
             itemView.canAddItem();
-            manageItemBag(player, itemView);
+            manageItemBag(bag, itemView);
         }   
     }
 
     /***
-     * Manage the bag of the player : displays items from the bag or go back to 
+     * Manage the bag of the team : displays items from the bag or go back to 
      * the main menu if the itemView is 0. 
-     * @param player the player with the bag
+     * @param bag the bag to display
      * @param itemView the SelectItem view 
      */
-    private void manageItemBag(Personnage player, SelectItemView itemView) {
+    private void manageItemBag(Bag bag, SelectItemView itemView) {
         
         switch(itemView.getResponse().getClass().toString()) {
             
