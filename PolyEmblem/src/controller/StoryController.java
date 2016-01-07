@@ -88,6 +88,7 @@ public class StoryController {
      * @param player the player
      */
     public static void runTheGame(Personnage player) {
+        //TODO : passer une liste de personnage en paramètre
         
         for(Map.Entry<Events, Boolean> currentEvent : event.entrySet()) {
             
