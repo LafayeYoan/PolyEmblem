@@ -14,11 +14,11 @@ import model.Level;
  * @author Darkos
  */
 public class Meca extends model.Personnage{
-    public static int BASIC_STRENGHT = 1;
+    public static int BASIC_STRENGHT = 2;
     public static int BASIC_HEALTH = 20;
-    public static int BASIC_DEXTIRITY = 1;
-    public static int BASIC_DEFENCE = 1;
-    public static int BASIC_INTELIGENCE = 1;
+    public static int BASIC_DEXTIRITY = 20;
+    public static int BASIC_DEFENCE = 2;
+    public static int BASIC_INTELIGENCE = 5;
     
     public Meca(String name){
         super(name);
