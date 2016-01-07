@@ -56,17 +56,17 @@ public class SelectItemView implements HUD{
 
     @Override
     public Object getResponse() {
-        
-        if(enteredText.equals("0")) {
-            return 0;
-        } 
-        
+        int i = 0;
         try{
-            return bag.allItems.get(Integer.parseInt(enteredText) -1);
-        }catch(Exception e){
-            
+            i = Integer.parseInt(enteredText);
+        }catch(Exception e){    
         }
-        return null;
+        if(i==0){
+            return 0;
+        }
+        else{
+            return bag.allItems.get(i -1);
+        }
     }
     
     private boolean isValid(){
