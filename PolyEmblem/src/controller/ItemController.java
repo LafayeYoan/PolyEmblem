@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.ArrayList;
+import java.util.List;
 import model.Item;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
@@ -12,12 +14,12 @@ public class ItemController {
 
     /***
      * Arranges a treasure found in the bag
-     * @param player the player with the bag
+     * @param allPlayers list of all the players
      * @param treasure the item to arrange
      */
-    public void itemFound(Personnage player, Item treasure) {
+    public void itemFound(List<Personnage> allPlayers, Item treasure) {
         
-        SelectItemView itemView = new SelectItemView(player);
+        SelectItemView itemView = new SelectItemView(getAllItemsOf(allPlayers));
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
         ErrorItemView errorItemView = new ErrorItemView(player);
         
@@ -83,6 +85,20 @@ public class ItemController {
                 ItemDisplayView itemDisplayView = new ItemDisplayView((Item) itemView.getResponse());
                 itemDisplayView.loadHUD();  
         }
+    }
+
+    /***
+     * Get all items of the team. 
+     * @param allPlayers a list of all characters which we want items
+     * @return a list of item
+     */
+    private List<Item> getAllItemsOf(List<Personnage> allPlayers) {
+        
+        List<Item> allItems = new ArrayList<Item>();
+        for(Personnage player : allPlayers) {
+            allItems.addAll(player.getItems());
+        }
+        return allItems;
     }
     
 }

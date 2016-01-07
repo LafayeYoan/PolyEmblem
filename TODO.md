@@ -14,7 +14,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [DONE] Implémenter les containtes et caractéristiques des différentes classes lors de la création du personnage par le joueur. 
 
-* Réequilibrer les valeurs concernants les caractéristiques des différentes classes.
+* [EN COURS PAR LOICK] Réequilibrer les valeurs concernants les caractéristiques des différentes classes.
 
 * La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne. <<< Base implémenté, mais il faut pofiner l'algorithme et le mettre en place >>> 
 
@@ -26,7 +26,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * Gérer la sauvegarde EN BINAIRE (Sérialisation + déserialisation). 
 
-* [EN COURS PAR SACHA] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
+* [DONE] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
 
 * [OPTION PRINCIPALE] Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
 
@@ -39,7 +39,6 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
         - Calculer la défense du personnage attaqué (Défense + résistance des armures) : DEF
         - Calculer les dommages (DEG - DEF)
         - Soustraire les dommages subis à la santé du personnage attaqué
-[OPTION ?] Attention, une parade augmente la défense quand le personnage subis une attaque. Le soin augmente la santé du personnage.
 
 * Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
 
@@ -51,7 +50,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * A la fin du combat (en cas de victoire), le joueur gagne de l'xp. 
 
-* Un combat oppose plusieurs personnages à plusieurs personnages.
+* [EN COURS PAR SACHA] Un combat oppose plusieurs personnages à plusieurs personnages.
 
 * [EN COURS PAR SACHA] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
     - [EN COURS] Combat contre un enemis ([OPTION] ou plusieurs)

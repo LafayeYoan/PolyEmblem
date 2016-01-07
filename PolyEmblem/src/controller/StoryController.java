@@ -29,7 +29,6 @@ public class StoryController {
     
     /***
      * Generate all events for the game.
-     * WARNING : when running the game, don't know what is the first event to be running ?...
      */
     public static void generateEvents() {
         
@@ -86,16 +85,15 @@ public class StoryController {
      * Run the game. For each event (and as long as the event has not occurred),
      * display to the player the global menu. Call the correct view for each action
      * possible.
-     * @param player the player
+     * @param allPlayers a list of all players
      */
-    public static void runTheGame(Personnage player) {
-        //TODO : passer une liste de personnage en paramètre
+    public static void runTheGame(List<Personnage> allPlayers) {
         
         for(Events currentEvent : event) {
             
             while(currentEvent.isDone == false) {
                 
-                EventView eventView = new EventView(player);
+                EventView eventView = new EventView(allPlayers);
                 eventView.loadHUD();
 
                 switch(Integer.parseInt(eventView.getResponse())){

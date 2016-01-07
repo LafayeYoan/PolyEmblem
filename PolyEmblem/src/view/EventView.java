@@ -2,6 +2,7 @@ package view;
 
 import controller.FightController;
 import controller.ItemController;
+import java.util.List;
 import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -16,11 +17,11 @@ public class EventView implements HUD {
     
     private static final int NB_OPTIONS = 7;
     
-    private final Personnage player;
+    private final List<Personnage> allPlayers;
     private String nextAction;
     
-    public EventView(Personnage player){
-        this.player = player;
+    public EventView(List<Personnage> players){
+        this.allPlayers = players;
     }
     
     @Override 
@@ -29,7 +30,7 @@ public class EventView implements HUD {
         System.out.println("\n Quelle est votre prochaine action ?");
         System.out.println("\n 1 : Poursuivre ma route "
                             + "\n 2 : Voir le contenu du sac"
-                            + "\n 3 : Voir les détails de mon personnage"
+                            + "\n 3 : Voir les détails de l'équipe"
                             + "\n 4 : Charger une partie déjà existante"
                             + "\n 5 : Sauvegarder"
                             + "\n 6 : Quitter" );
@@ -86,7 +87,7 @@ public class EventView implements HUD {
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.itemFound(player, event.getTreasure()); 
+            itemController.itemFound(allPlayers, event.getTreasure()); 
             
         } else if(currentEvent.getClass() == FightEvent.class){
             
