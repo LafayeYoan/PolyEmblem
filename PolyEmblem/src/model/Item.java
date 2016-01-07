@@ -49,4 +49,8 @@ public class Item {
         return weight;
     }
     
+    public List<Effect> getAllEffects() {
+        return allEffects;
+    }
+    
 }

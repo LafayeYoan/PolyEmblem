@@ -10,6 +10,7 @@ import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
 import model.IA.IAPersonnage;
+import model.Item;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
 import model.Items.WeaponItem;
@@ -17,6 +18,7 @@ import model.Level;
 import model.Personnage;
 import view.EndOfGameView;
 import view.EventView;
+import view.Item.ItemDisplayView;
 import view.Personnage.PersonnageDisplayView;
 import view.Item.SelectItemView;
 
@@ -61,7 +63,7 @@ public class StoryController {
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
                 new IAPersonnage(
                         new Mat("Charlie le Kaid",new Level(3))
-                        ,1)
+                        ,2)
                     )
         );
         
@@ -113,6 +115,12 @@ public class StoryController {
                     case 2 : /* Manage the bag */
                         SelectItemView bagView = new SelectItemView(bag);
                         bagView.loadHUD();
+                        if(bagView.getResponse().getClass().toString().equals("class java.lang.Integer")) {
+                            //Do nothing, go back in the main menu
+                        } else {
+                            ItemDisplayView itemDisplayView = new ItemDisplayView((Item) bagView.getResponse());
+                            itemDisplayView.loadHUD(); 
+                        }
                         break;
                         
                     case 3 : /* Display characters details */
