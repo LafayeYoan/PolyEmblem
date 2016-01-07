@@ -53,25 +53,22 @@ public class ErrorItemView implements HUD {
     }
     
     private boolean isValid(){
-        
-        if(itemToDelete.isEmpty()){
-            System.out.println("Veuillez entrer une valeur.");
+        if(!utils.Validator.checkEmpty(itemToDelete)){
             return false;
         }
-        int i;
+        int i = 0;
+        if(!utils.Validator.checkIsInteger(itemToDelete)){
+            return false;
+        }
         try{
             i = Integer.parseInt(itemToDelete);         
         }catch(Exception e){
-            System.out.println("Veuillez entrer un chiffre.");
-            return false;
-        }
-        
+        }        
         if(i == -1) {
             return true;
         }
         
-        if(i>=perso.getSkills().size()||i <=0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+perso.getItems().size()+".");
+        if(!utils.Validator.checkRange(i, 0, perso.getSkills().size())){
             return false;
         }        
         
