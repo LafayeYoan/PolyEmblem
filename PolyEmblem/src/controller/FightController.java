@@ -63,8 +63,9 @@ public class FightController {
                 Skill skillToUse = aBadGuy.getSkill();
                 Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);                
                 skillToUse.useAbility(aBadGuy.getPersonnage(), perso);
-                RoundView.IAAttackDisplay(aBadGuy, perso);
-                
+                if(skillToUse != null){
+                    RoundView.IAAttackDisplay(aBadGuy, perso);
+                }
                 if(perso.getActualLife()<= 0){
                     allPlayers.remove(perso);
                     if(theFightIsOver(allPlayers, allBadGuys)==1){

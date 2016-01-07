@@ -6,13 +6,16 @@ import model.Level;
 
 public class Mat extends model.Personnage{
     public static int BASIC_STRENGHT = 8;
-    public static int BASIC_HEALTH = 25;
+    public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 4;
     public static int BASIC_INTELIGENCE = 1;
     
+    private boolean tired;
+    
     public Mat(String name){
         super(name);
+        tired = false;
     }
     
     public Mat(String name, Level level){
@@ -34,5 +37,12 @@ public class Mat extends model.Personnage{
         return "MAT";
     }
     
+    public boolean isTired(){
+        return tired;
+    }
+    
+    public void setTired(boolean tired){
+        this.tired = tired;
+    }
     
 }
