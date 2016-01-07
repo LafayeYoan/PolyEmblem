@@ -13,7 +13,18 @@ import java.util.List;
  */
 public class Validator {
     
-    public static boolean checkRange(int val, int max, int min){
+    
+    public static boolean checkIsInteger(String input){
+        try{
+            Integer.parseInt(input);
+        }catch(Exception e){
+            System.out.println("La valeur entrée doit être un entier.");
+            return false;
+        }
+        return true;
+    }
+    
+    public static boolean checkRange(int val, int min, int max){
         boolean valid = true;
         if(val< min){
             System.out.println("La valeur entrée doit être supérieure à "+ min+ ".");
