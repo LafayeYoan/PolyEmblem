@@ -98,10 +98,12 @@ public class StoryController {
                 eventView.loadHUD();
 
                 switch(Integer.parseInt(eventView.getResponse())){
+                    
                     case 1 : /* Execute the next event of the story */
                         eventView.showPlayer(currentEvent.getKey());
                         currentEvent.setValue(Boolean.TRUE);
                         break;
+                        
                     case 2 : /* Manage the bag */
                         SelectItemView bagView = new SelectItemView(player);
                         bagView.loadHUD();
