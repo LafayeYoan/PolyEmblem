@@ -34,7 +34,7 @@ public class ItemController {
                 int i = Integer.parseInt((String) errorItemView.getResponse());
                 abandonTreasure = true;
                 break;
-            }catch(NumberFormatException e){
+            }catch(ClassCastException e){
                 player.removeItem((Item) errorItemView.getResponse());
             }
         }

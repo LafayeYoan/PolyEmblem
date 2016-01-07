@@ -14,8 +14,7 @@ public class AttackSkill implements Skill {
         
         for(Personnage p:targetCharacter){
             //test si l'action est success
-            Random r = new Random();
-            if(r.nextFloat() > this.successProbability(srcCharacter)){
+            if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
                 System.out.println("Miss !");
                 continue;
@@ -39,9 +38,8 @@ public class AttackSkill implements Skill {
             }
             
             //test d'esquive
-            Random d = new Random();
             double dext = p.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
-            if(d.nextFloat() > dext){
+            if(Math.random() < dext){
                 //le personnage a esquivé
                 System.out.println("Le personnage "+p.getName()+" esquive !");
                 continue;

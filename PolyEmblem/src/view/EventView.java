@@ -15,7 +15,7 @@ import model.Personnage;
  */
 public class EventView implements HUD {
     
-    private static final int NB_OPTIONS = 7;
+    private static final int NB_OPTIONS = 6;
     
     private final List<Personnage> allPlayers;
     private String nextAction;
@@ -40,28 +40,18 @@ public class EventView implements HUD {
     }
     
     private boolean isValid(){
-        boolean valid = true;
-        if(nextAction.isEmpty()){
-            System.out.println("Veuillez entrer une valeur.");
-            valid = false;
-            return valid;
+        if(!utils.Validator.checkEmpty(nextAction)){
+            return false;
         }
-        int i;
+        int i = 0;
         try{
             i = Integer.parseInt(nextAction);         
         }catch(Exception e){
-            System.out.println("Veuillez entrer un chiffre.");
-            valid = false;
-            return valid;
         }
-        
-        if(i >= NB_OPTIONS ||i <= 0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et " + NB_OPTIONS + ".");
-            valid = false;
-            return valid;
+        if(!utils.Validator.checkRange(i, 1, NB_OPTIONS)){
+            return false;
         }
-        
-        return valid;
+        return true;
     }
     
     @Override

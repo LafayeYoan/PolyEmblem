@@ -62,14 +62,18 @@ public class CapacityAssignPointView implements HUD{
     
     private boolean isValid(){
         int selected = 0;
+        if(!utils.Validator.checkEmpty(enteredText)){
+            return false;
+        }
+        if(!utils.Validator.checkIsInteger(enteredText)){
+            return false;
+        }
         try{
             selected = Integer.parseInt(enteredText);
         }catch(Exception e){
-            System.out.println("Veuillez entrer un chiffre");
-            return false;
         }
-        if(selected < 1 || selected >5){
-            System.out.println("Veuillez entrer un chiffre entre 0 et 5");
+        
+        if(!utils.Validator.checkRange(selected, 1, 5)){
             return false;
         }        
         return true;
