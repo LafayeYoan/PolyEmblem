@@ -11,6 +11,7 @@ import model.Event.FightEvent;
 import model.Events;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
+import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
@@ -71,9 +72,9 @@ public class StoryController {
                 + "En vous approchant, près de la machine à café située sous l'escalier, vous apercevez bientôt un groupe d'étudiants que vous connaissez bien. \n"
                 + "Vos cinq amis (car oui, ce sont vos amis) sont en train de discuter autour d'un boisson chaude. \n"
                 + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
-                + "Lorsque vous vous approchez, Esteban vous tend un café tout chaud : \n"
+                + "Lorsque vous vous approchez, Esteban vous tend son cahier de mathématique : \n"
                 + " - Tien salut ! Bien dormis ? \n", 
-                new EdibleItem("Café (bien) chaud", 5, new Effect(Characteristic.DEXTIRITY, 5, 3))), false);
+                new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))), false);
         
         
         System.out.println("---------------------------------------------------");
@@ -98,10 +99,12 @@ public class StoryController {
                 eventView.loadHUD();
 
                 switch(Integer.parseInt(eventView.getResponse())){
+                    
                     case 1 : /* Execute the next event of the story */
                         eventView.showPlayer(currentEvent.getKey());
                         currentEvent.setValue(Boolean.TRUE);
                         break;
+                        
                     case 2 : /* Manage the bag */
                         SelectItemView bagView = new SelectItemView(player);
                         bagView.loadHUD();
