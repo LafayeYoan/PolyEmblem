@@ -81,7 +81,7 @@ public class EventView implements HUD {
             System.out.println("Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.itemFound(allPlayers, event.getTreasure(), bag); 
+            itemController.itemFound(event.getTreasure(), bag); 
             
         } else if(currentEvent.getClass() == FightEvent.class){
             

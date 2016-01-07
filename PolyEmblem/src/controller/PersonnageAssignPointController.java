@@ -1,15 +1,16 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package controller;
 
 /**
- *
- * @author Darkos
+ * Helper for assign a capacity point to a character when level up.
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class PersonnageAssignPointController {
+    
+    /***
+     * Asks the player to assign a capacity point to his character. 
+     * Then update the character. 
+     * @param player the character who level up
+     */
     public static void assignPoint(model.Personnage player){
         view.Personnage.CapacityAssignPointView view = new view.Personnage.CapacityAssignPointView(player);
         

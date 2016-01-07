@@ -10,13 +10,13 @@ import view.Fight.CombatOpponentChoiceView;
 import view.Fight.RoundView;
 
 /**
- *
- * @author lhopital
+ * Controller for Fights : run the fight and check when it's over. 
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class FightController {
 
     /***
-     * Run the Fight between player and all bad guys.
+     * Run the Fight between the team of the player and all bad guys.
      * Call the correct view for each action.
      * @param allPlayers a list of all players who will fight (one or many)
      * @param allBadGuys a list of bad guys (one or many)
@@ -61,10 +61,10 @@ public class FightController {
             
             for(IAPersonnage aBadGuy: allBadGuys){
                 Skill skillToUse = aBadGuy.getSkill();
-                Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);                
-                skillToUse.useAbility(aBadGuy.getPersonnage(), perso);
-                RoundView.IAAttackDisplay(aBadGuy, perso);
-                
+                Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);
+                if(skillToUse.useAbility(aBadGuy.getPersonnage(), perso) != null){
+                    RoundView.IAAttackDisplay(aBadGuy, perso);
+                }
                 if(perso.getActualLife()<= 0){
                     allPlayers.remove(perso);
                     if(theFightIsOver(allPlayers, allBadGuys)==1){
@@ -80,8 +80,8 @@ public class FightController {
     }        
 
     /***
-     * Check if it's the end of the fight. Fight stop when the player
-     * OR bad guys is/are dead.
+     * Check if it's the end of the fight. 
+     * Fight stop when the player OR bad guys is/are dead.
      * @param allPlayers a list of all players who fight (one or many)
      * @param allBadGuys a list of bad guys (one or many)
      * @return 1 if player life equal 0. -1 if all bad guys life equal 0. 0 if one player is alive and at least one of the bad guys is alive

@@ -25,6 +25,8 @@ public class ItemDisplayView implements HUD {
         System.out.println("----------------------------------------");
         System.out.println(item.getDescription());
         
+        enteredText = "0";
+        
         /* If the item is equipable */
         if(item.getClass().toString().equals("class model.Items.ArmorItem")
                 || item.getClass().toString().equals("class model.Items.WeaponItem")) {
@@ -37,8 +39,6 @@ public class ItemDisplayView implements HUD {
                 
                 enteredText = KeyboardInput.getInput();
                                   
-            } else {
-                enteredText = "0";
             }
         }
     }

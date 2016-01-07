@@ -11,6 +11,19 @@ public class AttackSkill implements Skill {
     @Override
     public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
+            
+            //Test si c'est un Mat fatigué
+            if(srcCharacter instanceof model.Classes.Mat){
+                model.Classes.Mat m = (model.Classes.Mat)srcCharacter;
+                if(m.isTired()){
+                    m.setTired(false);
+                    System.out.println("\n----------------------------------------");
+                    System.out.println(srcCharacter.getName()+ " est fatigué !");
+                    System.out.println("----------------------------------------");
+                    return null;
+                }
+                m.setTired(true);
+            }
         
             //test si l'action est success
             if(Math.random() > this.successProbability(srcCharacter)){
@@ -40,8 +53,8 @@ public class AttackSkill implements Skill {
             }
             
             //On évite les dégats négatifs...
-            if(damages<0)
-                damages = 0;
+            if(damages<1)
+                damages = 1;
             
             //test d'esquive
             double dext = targetCharacter.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;

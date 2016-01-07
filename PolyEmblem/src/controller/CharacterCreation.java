@@ -7,13 +7,23 @@ import view.Personnage.PersonnageNomView;
 import view.Personnage.PersonnageClasseView;
 import view.Personnage.PersonnageDisplayView;
 
+/***
+ * Helper for create the player team. 
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class CharacterCreation {
     
-    private static final int NUMBER_OF_PLAYER = 3;
+    /* Max number of characters in the team */
+    private static final int NUMBER_OF_CHARACTERS = 3;
     
+    /***
+     * Start the helper for create the team. 
+     * Asks the player (using PersonnageClasseView) to generate characters.
+     * @return all created characters (as list)
+     */
     public static List<Personnage> start(){
         ArrayList<Personnage> players = new ArrayList<>();
-        for(int i = 0 ; i< NUMBER_OF_PLAYER; i++){
+        for(int i = 0 ; i< NUMBER_OF_CHARACTERS; i++){
             PersonnageNomView nom = new PersonnageNomView();
             nom.loadHUD();
             PersonnageClasseView classe = new PersonnageClasseView();

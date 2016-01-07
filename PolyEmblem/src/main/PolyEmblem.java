@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Classes.Info;
 import model.Classes.Mam;
+import model.Classes.Meca;
 import model.Personnage;
 
 public class PolyEmblem {
@@ -31,7 +32,7 @@ public class PolyEmblem {
         //To remove : 
         List<Personnage> testList = new ArrayList<Personnage>();
         testList.add(new Info("Sacha"));
-        testList.add(new Mam("Pierre-Yves"));
+        testList.add(new Meca("Pierre-Yves"));
         
         StoryController.runTheGame(testList);
     }

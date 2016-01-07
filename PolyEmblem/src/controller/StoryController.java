@@ -5,12 +5,12 @@ import java.util.List;
 import model.Bag;
 import model.Characteristic;
 import model.Classes.Mat;
-import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
 import model.IA.IAPersonnage;
+import model.Item;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
 import model.Items.WeaponItem;
@@ -18,17 +18,20 @@ import model.Level;
 import model.Personnage;
 import view.EndOfGameView;
 import view.EventView;
+import view.Item.ItemDisplayView;
 import view.Personnage.PersonnageDisplayView;
 import view.Item.SelectItemView;
 
 /***
- * Main Controller : Run the game ! 
+ * Main Controller : Run the game !
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class StoryController {
 
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
-    It becomes true when the event is playing by the player. */
+    * It becomes true when the event is playing by the player. */
     private static List<Events> event;
+    /* List of all characters of the player. */
     public static List<Personnage> players;
     
     /***
@@ -60,7 +63,7 @@ public class StoryController {
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
                 new IAPersonnage(
                         new Mat("Charlie le Kaid",new Level(3))
-                        ,1)
+                        ,2)
                     )
         );
         
@@ -82,16 +85,14 @@ public class StoryController {
                 + "\nLorsque vous vous approchez, Esteban vous tend son cahier de mathématique : "
                 + "\n- Tien salut ! Bien dormis ?", 
                 new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))));
-
-        
         
     }
     
     /***
      * Run the game. For each event (and as long as the event has not occurred),
      * display to the player the global menu. Call the correct view for each action
-     * possible.
-     * @param allPlayers a list of all players
+     * possible. At the end of the game, display the winning view.
+     * @param allPlayers a list of all characters of the player
      */
     public static void runTheGame(List<Personnage> allPlayers) {
         
@@ -114,6 +115,12 @@ public class StoryController {
                     case 2 : /* Manage the bag */
                         SelectItemView bagView = new SelectItemView(bag);
                         bagView.loadHUD();
+                        if(bagView.getResponse().getClass().toString().equals("class java.lang.Integer")) {
+                            //Do nothing, go back in the main menu
+                        } else {
+                            ItemDisplayView itemDisplayView = new ItemDisplayView((Item) bagView.getResponse());
+                            itemDisplayView.loadHUD(); 
+                        }
                         break;
                         
                     case 3 : /* Display characters details */
