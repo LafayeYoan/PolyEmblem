@@ -92,7 +92,9 @@ public abstract class Personnage {
             }
             else if(item==this.armor)
                 unequipArmor();
+            
             allItems.remove(item);
+            actualInUseWeight = actualInUseWeight - item.getWeight();
         }    
     }
     

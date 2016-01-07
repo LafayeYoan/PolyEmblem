@@ -19,15 +19,13 @@ public class ItemController {
         
         SelectItemView itemView = new SelectItemView(player);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
+        ErrorItemView errorItemView = new ErrorItemView(player);
         String treasureClass = treasure.getClass().toString();
         
         /* Try to put the item in the bag */
-        if(player.getActualInUseWeight() + treasure.getWeight() < Personnage.MAX_WEIGHT) {
-                    
-        } else {
-            ErrorItemView errorItemView = new ErrorItemView(player);
+        while(player.getActualInUseWeight() + treasure.getWeight() > Personnage.MAX_WEIGHT) {
             errorItemView.loadHUD();
-            player.removeItem(player.getItems().get((int) errorItemView.getResponse()));
+            player.removeItem((Item) errorItemView.getResponse());
         }
         
         player.addItem(treasure);

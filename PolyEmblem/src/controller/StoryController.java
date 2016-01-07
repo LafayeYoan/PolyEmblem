@@ -74,7 +74,7 @@ public class StoryController {
                 + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
                 + "Lorsque vous vous approchez, Esteban vous tend son cahier de mathématique : \n"
                 + " - Tien salut ! Bien dormis ? \n", 
-                new WeaponItem("Cahier de mathématiques très Rigide", 10, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))), false);
+                new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))), false);
         
         
         System.out.println("---------------------------------------------------");

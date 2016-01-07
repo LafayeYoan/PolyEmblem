@@ -20,6 +20,7 @@ public class ErrorItemView implements HUD {
     public void loadHUD() {
         System.out.println("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
         System.out.println("\n Quel objet souhaitez-vous laisser sur place ?");
+        
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
