@@ -12,14 +12,17 @@ public class CombatOpponentChoiceView implements HUD{
     
     private List<Personnage> opponents;
     private String enteredText;
+    private Personnage actualPersonnage;
 
-    public CombatOpponentChoiceView(List <Personnage> opponents){
+    public CombatOpponentChoiceView(Personnage actualPersonnage, List <Personnage> opponents){
         this.opponents = opponents;
+        this.actualPersonnage = actualPersonnage;
     }
     
     @Override 
     public void loadHUD() {
-        System.out.println("\nVeuillez choisir le personage à attaquer:");
+        System.out.println("\nAu tour de " + actualPersonnage.getName());
+        System.out.println("Veuillez choisir le personage à attaquer:");
         int i = 1;
         for(Personnage p:opponents){
             System.out.println(i + ":" + p.getBasicDescription());

@@ -9,17 +9,16 @@ import model.Effect;
 public class AttackSkill implements Skill {
 
     @Override
-    public Effect[] useAbility(Personnage srcCharacter, List<Personnage> targetCharacter) {
+    public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
         
-        for(Personnage p:targetCharacter){
             //test si l'action est success
             if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
                 System.out.println("\n----------------------------------------");
                 System.out.println(" Miss !");
                 System.out.println("----------------------------------------");
-                continue;
+                return null;
             }
             int damages = 0;
             if(weapon!= null){
@@ -30,11 +29,11 @@ public class AttackSkill implements Skill {
             damages += srcCharacter.getCharacteritics().getOrDefault(model.Characteristic.STRENGHT,0);
             
             //On reduit les degat de la defence
-            damages -= p.getCharacteritics().getOrDefault(model.Characteristic.DEFENCE,0);
+            damages -= targetCharacter.getCharacteritics().getOrDefault(model.Characteristic.DEFENCE,0);
            
             
             //on retire les effets d'armure
-            model.Items.ArmorItem armor = p.getArmor();
+            model.Items.ArmorItem armor = targetCharacter.getArmor();
             if(armor!= null){
                 //on reduit les dégats par la protection
                 damages -= armor.getProtection();
@@ -45,19 +44,18 @@ public class AttackSkill implements Skill {
                 damages = 0;
             
             //test d'esquive
-            double dext = p.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
+            double dext = targetCharacter.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
             if(Math.random() < dext){
                 //le personnage a esquivé
                 System.out.println("\n----------------------------------------");
-                System.out.println(p.getName()+" esquive !");
+                System.out.println(targetCharacter.getName()+" esquive !");
                 System.out.println("----------------------------------------");
-                continue;
+                return null;
            
             }
             //on applique l'effet
-            p.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,1));
+            targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,1));
             
-        }
         return null;
         
     }

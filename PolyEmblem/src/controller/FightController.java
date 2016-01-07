@@ -40,14 +40,22 @@ public class FightController {
             }                
             
             for(Personnage p: allPlayers){
-                opponentChoice = new CombatOpponentChoiceView(allBadGuys);
+                opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
                 opponentChoice.loadHUD();
                 Personnage badGuy = opponentChoice.getResponse();
 
                 fightChoice = new CombatActionChoiceView(p);
                 fightChoice.loadHUD();
                 Skill skillToUse = fightChoice.getResponse();
-                skillToUse.useAbility(p, allBadGuys);
+                skillToUse.useAbility(p, badGuy);
+                
+                if(badGuy.getActualLife()<= 0){
+                    allBadGuys.remove(badGuy);
+                    if(theFightIsOver(allPlayers, allBadGuys)==-1){
+                        //player win
+                        break;
+                    }
+                }
             }
             
             for(Personnage aBadGuy: allBadGuys){
