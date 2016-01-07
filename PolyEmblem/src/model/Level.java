@@ -8,7 +8,7 @@ public class Level {
     private int step;
     
     public Level(){
-        level = 0;
+        level = 1;
         exp = 0;
         step = this.getStep();
     }

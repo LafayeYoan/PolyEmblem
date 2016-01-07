@@ -16,7 +16,7 @@ public class AttackSkill implements Skill {
             if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
                 System.out.println("\n----------------------------------------");
-                System.out.println(" Miss !");
+                System.out.println(srcCharacter.getName()+ " a fait un échec critique !");
                 System.out.println("----------------------------------------");
                 return null;
             }

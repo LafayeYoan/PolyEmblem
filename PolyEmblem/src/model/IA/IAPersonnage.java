@@ -21,7 +21,7 @@ public class IAPersonnage{
     
     private String lastAction;
     
-    public IAPersonnage(model.Personnage personnnage, int levelIA) {
+    public IAPersonnage(model.Personnage personnage, int levelIA) {
         this.personnage = personnage;
         if(levelIA<LEVEL_IA_MIN){
             levelIA = LEVEL_IA_MIN;

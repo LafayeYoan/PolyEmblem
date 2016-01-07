@@ -8,6 +8,7 @@ import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
+import model.IA.IAPersonnage;
 import model.Personnage;
 
 /**
@@ -87,8 +88,8 @@ public class EventView implements HUD {
             FightEvent event = (FightEvent) currentEvent;
             FightController fightController = new FightController();
             
-            for(Personnage badGuy : event.getAllBadGuys()) {
-                System.out.println(badGuy.getName() + " "); 
+            for(IAPersonnage badGuy : event.getAllBadGuys()) {
+                System.out.println(badGuy.getPersonnage().getName() + " "); 
             }
             
             if(event.getAllBadGuys().size() == 1) {
