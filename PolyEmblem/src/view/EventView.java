@@ -25,14 +25,13 @@ public class EventView implements HUD {
     
     @Override 
     public void loadHUD() {
-        System.out.println("----------------------------------------");
-        System.out.println("\n Quelle est votre prochaine action ?");
-        System.out.println("\n 1 : Poursuivre ma route "
-                            + "\n 2 : Voir le contenu du sac"
-                            + "\n 3 : Voir les détails de mon personnage"
-                            + "\n 4 : Charger une partie déjà existante"
-                            + "\n 5 : Sauvegarder"
-                            + "\n 6 : Quitter" );
+        System.out.println("\nQuelle est votre prochaine action ?");
+        System.out.println("\n1 : Poursuivre ma route "
+                            + "\n2 : Voir le contenu du sac"
+                            + "\n3 : Voir les détails de mon personnage"
+                            + "\n4 : Charger une partie déjà existante"
+                            + "\n5 : Sauvegarder"
+                            + "\n6 : Quitter" );
         do{
             nextAction = KeyboardInput.getInput();
         }while(!isValid());
@@ -63,17 +62,17 @@ public class EventView implements HUD {
      * @param currentEvent the event to display
      */
     public void showPlayer(Events currentEvent) {
-        System.out.println("----------------------------------------");
+        System.out.println("\n----------------------------------------");
         System.out.println("------ Un Evènement se produit ! -------");
         System.out.println("----------------------------------------");
-        System.out.println("\n " + currentEvent.getDescriptionEvent() + " \n");
+        System.out.println("\n" + currentEvent.getDescriptionEvent() + "\n");
         
         if(currentEvent.getClass() == DiscoverPlaceEvent.class) {
             
             DiscoverPlaceEvent event = (DiscoverPlaceEvent) currentEvent;
             ItemController itemController = new ItemController();
             
-            System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
+            System.out.println("Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
             itemController.itemFound(player, event.getTreasure()); 
@@ -88,13 +87,13 @@ public class EventView implements HUD {
             }
             
             if(event.getAllBadGuys().size() == 1) {
-                System.out.println(" veux se battre !"); 
+                System.out.println("veux se battre !"); 
             } else {
-                System.out.println(" veulent se battre !"); 
+                System.out.println("veulent se battre !"); 
             }
             
             fightController.runTheFight(player, event.getAllBadGuys());
         }
-        System.out.println("----------------------------------------");
+        //System.out.println("----------------------------------------");
     }
 }

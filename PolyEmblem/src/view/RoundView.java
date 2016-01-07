@@ -12,7 +12,7 @@ public class RoundView implements HUD{
     
     @Override
     public void loadHUD() {
-        System.out.println("-------------------------------------------");
+        System.out.println("\n-------------------------------------------");
         System.out.println("-------- Un combat est en cours -----------");
         System.out.println("-------------------------------------------");
         

@@ -14,8 +14,7 @@ public class HealSkill implements Skill {
         
         for(Personnage p:targetCharacter){
             //test si l'action est success
-            Random r = new Random();
-            if(r.nextFloat() > this.successProbability(srcCharacter)){
+            if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
                 continue;
             }

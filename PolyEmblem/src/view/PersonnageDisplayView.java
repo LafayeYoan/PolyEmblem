@@ -14,7 +14,7 @@ public class PersonnageDisplayView implements HUD{
     }
     @Override
     public void loadHUD() {
-        System.out.println("----------------------------------------");
+        System.out.println("\n----------------------------------------");
         System.out.println("-------- Fiche de Personnage -----------");
         System.out.println("----------------------------------------");
         System.out.println("Nom: "+ perso.getName());

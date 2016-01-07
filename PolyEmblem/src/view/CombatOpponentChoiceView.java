@@ -19,10 +19,10 @@ public class CombatOpponentChoiceView implements HUD{
     
     @Override 
     public void loadHUD() {
-        System.out.println("Veuillez choisir le personage à attaquer:");
+        System.out.println("\nVeuillez choisir le personage à attaquer:");
         int i = 1;
         for(Personnage p:opponents){
-            System.out.println( i + ":" + p.getBasicDescription());
+            System.out.println(i + ":" + p.getBasicDescription());
             i++;
         }
         do{

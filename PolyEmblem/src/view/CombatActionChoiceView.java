@@ -19,7 +19,7 @@ public class CombatActionChoiceView implements HUD{
     
     @Override 
     public void loadHUD() {
-        System.out.println("Veuillez choisir une action à faire pendant ce tour:");
+        System.out.println("\nVeuillez choisir une action à faire pendant ce tour:");
         int i = 1;
         for(model.Skill s:personnage.getSkills()){
             System.out.println( i + ":" + s.getName());

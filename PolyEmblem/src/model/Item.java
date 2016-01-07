@@ -40,7 +40,7 @@ public class Item {
             effectString = effectString + "\n >> " + anEffect.toString();
         }
         
-        return "\n" + name.toUpperCase() + " : " 
+        return  name.toUpperCase() + " : " 
                 + "\n POIDS : " + weight + " g"
                 + "\n EFFETS : " + effectString;
     }

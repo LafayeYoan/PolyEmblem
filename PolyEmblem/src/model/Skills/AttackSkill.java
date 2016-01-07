@@ -16,7 +16,9 @@ public class AttackSkill implements Skill {
             //test si l'action est success
             if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
-                System.out.println("Miss !");
+                System.out.println("\n----------------------------------------");
+                System.out.println(" Miss !");
+                System.out.println("----------------------------------------");
                 continue;
             }
             int damages = 0;
@@ -29,6 +31,7 @@ public class AttackSkill implements Skill {
             
             //On reduit les degat de la defence
             damages -= p.getCharacteritics().getOrDefault(model.Characteristic.DEFENCE,0);
+           
             
             //on retire les effets d'armure
             model.Items.ArmorItem armor = p.getArmor();
@@ -37,11 +40,17 @@ public class AttackSkill implements Skill {
                 damages -= armor.getProtection();
             }
             
+            //On évite les dégats négatifs...
+            if(damages<0)
+                damages = 0;
+            
             //test d'esquive
             double dext = p.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
             if(Math.random() < dext){
                 //le personnage a esquivé
-                System.out.println("Le personnage "+p.getName()+" esquive !");
+                System.out.println("\n----------------------------------------");
+                System.out.println(p.getName()+" esquive !");
+                System.out.println("----------------------------------------");
                 continue;
            
             }

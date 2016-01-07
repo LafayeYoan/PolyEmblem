@@ -12,9 +12,7 @@ public class ParadeSkill implements Skill {
     public Effect[] useAbility(Personnage srcCharacter, List<Personnage> targetCharacter) {
          for(Personnage p:targetCharacter){
             //test si l'action est success
-            //EDIT : pour l'instant impoossible de raté
-            Random r = new Random();
-            if(r.nextFloat() > this.successProbability(srcCharacter)){
+            if(Math.random() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, la parade a ratée
                 continue;
             }
