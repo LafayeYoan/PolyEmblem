@@ -1,8 +1,8 @@
 package view;
 
 import java.util.List;
+import model.Bag;
 import model.Item;
-import model.Personnage;
 import utils.KeyboardInput;
 
 /**
@@ -12,11 +12,11 @@ import utils.KeyboardInput;
  */
 public class SelectItemView implements HUD{
 
-    private List<Item> allItemsOfTeam;
+    private Bag bag;
     private String enteredText;
     
-    public SelectItemView(List<Item> allItems){
-        this.allItemsOfTeam = allItems;
+    public SelectItemView(Bag bag){
+        this.bag = bag;
     }
     
     @Override
@@ -28,7 +28,7 @@ public class SelectItemView implements HUD{
         System.out.println("(Appuyez sur 0 pour revenir au menu principal) \n");
         
         int i = 1;
-        for(Item o: allItemsOfTeam){
+        for(Item o: bag.allItems){
             System.out.print( i + ":" + o.getName());
             
             if(o.equiped){
@@ -61,7 +61,7 @@ public class SelectItemView implements HUD{
         } 
         
         try{
-            return allItemsOfTeam.get(Integer.parseInt(enteredText) -1);
+            return bag.allItems.get(Integer.parseInt(enteredText) -1);
         }catch(Exception e){
             
         }
@@ -81,7 +81,7 @@ public class SelectItemView implements HUD{
         }catch(Exception e){
         }
         
-        if(!utils.Validator.checkRange(i, 0, perso.getItems().size())){
+        if(!utils.Validator.checkRange(i, 0, bag.allItems.size())){
             return false;
         } 
         return true;

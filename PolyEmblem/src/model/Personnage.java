@@ -24,9 +24,7 @@ public abstract class Personnage {
     private int maxHealth;
     
     private int actualLife;
-    private int actualInUseWeight;
     
-    private List<Item> allItems;
     private WeaponItem weapon;
     private ArmorItem armor;
     
@@ -42,23 +40,19 @@ public abstract class Personnage {
         this.initSkills();
      
         this.maxHealth = calcMaxHealth();
-        this.allItems = new LinkedList<>();
         this.weapon = null;
         this.armor = null;
         this.actualLife = this.calcMaxHealth();
-        this.actualInUseWeight = 0;
     }
 
     public Personnage(String name) {
         this.name = name;
-        //this.maxWeight = maxWeight;
         this.level = new Level();
         
         this.initCharacteristics();
         this.initSkills();
         
         this.maxHealth = calcMaxHealth();
-        this.allItems = new LinkedList<>();
         this.level = new Level();
         this.actualLife = this.calcMaxHealth();
         this.maxHealth = calcMaxHealth();
@@ -83,24 +77,6 @@ public abstract class Personnage {
         }else{
            this.characteritics.replace(e.getCharacteristicEffect(), e.getValue() + this.characteritics.getOrDefault(e.getCharacteristicEffect(),0));
         }
-    }
-    
-    public void removeItem(Item item){
-        if(allItems.contains(item)) {
-            if(item==this.weapon){
-                unequipWeapon();
-            }
-            else if(item==this.armor)
-                unequipArmor();
-            
-            allItems.remove(item);
-            actualInUseWeight = actualInUseWeight - item.getWeight();
-        }    
-    }
-    
-    public void addItem(Item item) {
-        allItems.add(item);
-        actualInUseWeight = actualInUseWeight + item.getWeight();
     }
     
     public void equipWeapon(model.Items.WeaponItem weaponItem){
@@ -153,16 +129,8 @@ public abstract class Personnage {
         return this.skills;
     }
     
-    public int getActualInUseWeight() {
-        return actualInUseWeight;
-    }
-    
     public String getName() {
         return name;
-    }
-
-    public List<Item> getItems(){
-        return this.allItems;
     }
 
     public Level getLevel() {

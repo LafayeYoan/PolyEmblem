@@ -38,7 +38,7 @@ public class CharacterCreation {
                     //DO Nothing
                     //The player loose a character
             }
-            new PersonnageDisplayView(players.get(i)).loadHUD();            
+            new PersonnageDisplayView(players).loadHUD();            
         }
         return players;
     }

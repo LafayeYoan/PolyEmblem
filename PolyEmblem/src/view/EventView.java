@@ -3,6 +3,7 @@ package view;
 import controller.FightController;
 import controller.ItemController;
 import java.util.List;
+import model.Bag;
 import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -17,11 +18,13 @@ public class EventView implements HUD {
     
     private static final int NB_OPTIONS = 6;
     
-    private final List<Personnage> allPlayers;
+    private Bag bag;
+    private List<Personnage> allPlayers;
     private String nextAction;
     
-    public EventView(List<Personnage> players){
-        this.allPlayers = players;
+    public EventView(Bag bag, List<Personnage> allPlayers){
+        this.bag = bag;
+        this.allPlayers = allPlayers;
     }
     
     @Override 
@@ -77,7 +80,7 @@ public class EventView implements HUD {
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.itemFound(allPlayers, event.getTreasure()); 
+            itemController.itemFound(allPlayers, event.getTreasure(), bag); 
             
         } else if(currentEvent.getClass() == FightEvent.class){
             
@@ -94,7 +97,7 @@ public class EventView implements HUD {
                 System.out.println(" veulent se battre !"); 
             }
             
-            fightController.runTheFight(player, event.getAllBadGuys());
+            fightController.runTheFight(allPlayers, event.getAllBadGuys());
         }
         System.out.println("----------------------------------------");
     }
