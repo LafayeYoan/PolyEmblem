@@ -6,9 +6,9 @@ import model.Level;
 
 public class Mam extends model.Personnage{
     public static int BASIC_STRENGHT = 2;
-    public static int BASIC_HEALTH = 25;
+    public static int BASIC_HEALTH = 20;
     public static int BASIC_DEXTIRITY = 5;
-    public static int BASIC_DEFENCE = 1;
+    public static int BASIC_DEFENCE = 2;
     public static int BASIC_INTELIGENCE = 15;
     
     public Mam(String name){

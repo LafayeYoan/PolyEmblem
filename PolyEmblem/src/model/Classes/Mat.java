@@ -6,7 +6,7 @@ import model.Level;
 
 public class Mat extends model.Personnage{
     public static int BASIC_STRENGHT = 8;
-    public static int BASIC_HEALTH = 30;
+    public static int BASIC_HEALTH = 50;
     public static int BASIC_DEXTIRITY = 1;
     public static int BASIC_DEFENCE = 5;
     public static int BASIC_INTELIGENCE = 1;
