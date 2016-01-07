@@ -1,11 +1,13 @@
 package controller;
 
 import java.util.List;
+import model.IA.IAPersonnage;
 import model.Personnage;
 import model.Skill;
 import view.EndOfGameView;
 import view.Fight.CombatActionChoiceView;
 import view.Fight.CombatOpponentChoiceView;
+import view.Fight.RoundView;
 
 /**
  *
@@ -19,7 +21,7 @@ public class FightController {
      * @param allPlayers a list of all players who will fight (one or many)
      * @param allBadGuys a list of bad guys (one or many)
      */
-    public void runTheFight(List<Personnage> allPlayers, List<Personnage> allBadGuys) {
+    public void runTheFight(List<Personnage> allPlayers, List<IAPersonnage> allBadGuys) {
         boolean isPlayerTurn = true;
         CombatActionChoiceView fightChoice;
         CombatOpponentChoiceView opponentChoice;
@@ -38,20 +40,42 @@ public class FightController {
                 break;
             }                
             
-            for(Personnage p : allPlayers){
-                opponentChoice = new CombatOpponentChoiceView(allBadGuys);
+            for(Personnage p: allPlayers){
+                opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
                 opponentChoice.loadHUD();
                 Personnage badGuy = opponentChoice.getResponse();
 
                 fightChoice = new CombatActionChoiceView(p);
                 fightChoice.loadHUD();
                 Skill skillToUse = fightChoice.getResponse();
-                skillToUse.useAbility(p, allBadGuys);
+                skillToUse.useAbility(p, badGuy);
+                
+                if(badGuy.getActualLife()<= 0){
+                    allBadGuys.remove(badGuy);
+                    if(theFightIsOver(allPlayers, allBadGuys)==-1){
+                        //player win
+                        break;
+                    }
+                }
             }
             
-            for(Personnage aBadGuy: allBadGuys){
-                //TODO IA stuff
+            for(IAPersonnage aBadGuy: allBadGuys){
+                Skill skillToUse = aBadGuy.getSkill();
+                Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);                
+                skillToUse.useAbility(aBadGuy.getPersonnage(), perso);
+                RoundView.IAAttackDisplay(aBadGuy, perso);
+                
+                if(perso.getActualLife()<= 0){
+                    allPlayers.remove(perso);
+                    if(theFightIsOver(allPlayers, allBadGuys)==1){
+                        //IA win
+                        break;
+                    }
+                }
             }
+            
+            RoundView roundView = new RoundView(allPlayers, allBadGuys);
+            roundView.loadHUD();
         }
     }        
 
@@ -62,7 +86,7 @@ public class FightController {
      * @param allBadGuys a list of bad guys (one or many)
      * @return 1 if player life equal 0. -1 if all bad guys life equal 0. 0 if one player is alive and at least one of the bad guys is alive
      */
-    private int theFightIsOver(List<Personnage> allPlayers, List<Personnage> allBadGuys) {
+    private int theFightIsOver(List<Personnage> allPlayers, List<IAPersonnage> allBadGuys) {
         
         boolean onePlayerAlive = false;
         boolean oneBadGuyAlive = false;
@@ -77,8 +101,8 @@ public class FightController {
             return 1;
         }
         
-        for(Personnage aBadGuy : allBadGuys) {
-            if(!isDead(aBadGuy)) {
+        for(IAPersonnage aBadGuy : allBadGuys) {
+            if(!isDead(aBadGuy.getPersonnage())) {
                 oneBadGuyAlive = true;
                 break;
             }

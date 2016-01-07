@@ -178,7 +178,7 @@ public abstract class Personnage {
         description += "Nom: " + this.name + "\n";
         description += "Classe: " + this.getClassName() + "\n";
         description += "Vie: " + this.actualLife + "/" + this.maxHealth + "\n"; 
-        description += "Niveau: " + level.getLevelValue() + "\n";
+        description += "Niveau: " + level.getLevelValue();
         
         return description;
     }

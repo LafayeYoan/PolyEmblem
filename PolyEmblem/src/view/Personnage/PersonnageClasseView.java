@@ -16,7 +16,7 @@ public class PersonnageClasseView implements HUD {
     private String className;
     @Override
     public void loadHUD() {
-        System.out.println("Veuillez selectionez la classe:");
+        System.out.println("\nVeuillez selectionez la classe:");
         System.out.println("1 - GBM, Genie Biomedical : Soin");
         System.out.println("2 - INFO, Informatitien : Voleur");
         System.out.println("3 - MAM, Mathematique Appliquee et Modelisation : Mage");

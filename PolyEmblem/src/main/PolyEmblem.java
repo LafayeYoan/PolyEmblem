@@ -11,8 +11,10 @@ public class PolyEmblem {
     
     public static void main(String [] args){
         
-        System.out.println("PolyEmblem, the Game TaTaTa!!! (comme les mignon)");
-        System.out.println("Soon on yours screens !!");     
+        System.out.println("\nPolyEmblem, created by "); 
+        System.out.println("Sacha Lhopital");
+        System.out.println("Yoan Lafaye De Micheaux");
+        System.out.println("Loïck Paccaud");
         
         run();        
     }

@@ -3,23 +3,23 @@ package model.Event;
 import java.util.ArrayList;
 import java.util.List;
 import model.Events;
-import model.Personnage;
+import model.IA.IAPersonnage;
 
 public class FightEvent extends Events {
     
     /* Characters who wants to fight !*/
-    private List<Personnage> allBadGuys;
+    private List<IAPersonnage> allBadGuys;
     
-    public FightEvent(String description, Personnage... badGuys) {
+    public FightEvent(String description, IAPersonnage... badGuys) {
         super (description);
         
-        allBadGuys = new ArrayList<Personnage>();
+        allBadGuys = new ArrayList<IAPersonnage>();
         for(int i = 0; i < badGuys.length; i ++) {
             allBadGuys.add(badGuys[i]);
         }
     }
     
-    public List<Personnage> getAllBadGuys() {
+    public List<IAPersonnage> getAllBadGuys() {
         return allBadGuys;
     }
 }

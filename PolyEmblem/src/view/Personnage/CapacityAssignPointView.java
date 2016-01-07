@@ -18,7 +18,7 @@ public class CapacityAssignPointView implements HUD{
     }
     @Override
     public void loadHUD() {
-        System.out.println("--------------------------------------------------");
+        System.out.println("\n--------------------------------------------------");
         System.out.println("------- Attribution du point de compétence -------");
         System.out.println("--------------------------------------------------");
         Map <model.Characteristic, Integer> caracts = perso.getCharacteritics();
