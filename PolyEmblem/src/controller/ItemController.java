@@ -20,36 +20,49 @@ public class ItemController {
         SelectItemView itemView = new SelectItemView(player);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
         ErrorItemView errorItemView = new ErrorItemView(player);
+        
         String treasureClass = treasure.getClass().toString();
+        boolean abandonTreasure = false;
         
         /* Try to put the item in the bag */
         while(player.getActualInUseWeight() + treasure.getWeight() > Personnage.MAX_WEIGHT) {
             errorItemView.loadHUD();
-            player.removeItem((Item) errorItemView.getResponse());
-        }
-        
-        player.addItem(treasure);
-        
-        if(treasureClass.equals("class model.Items.ArmorItem")) {
-            itemDisplayView.loadHUD();
-            if(itemDisplayView.getResponse().equals(0)) {
-                //Do nothing : go back to the main menu
-            } else {
-                player.equipArmor((ArmorItem) treasure);
+            
+            try{
+                int i = Integer.parseInt((String) errorItemView.getResponse());
+                abandonTreasure = true;
+                break;
+            }catch(NumberFormatException e){
+                player.removeItem((Item) errorItemView.getResponse());
             }
         }
         
-        if(treasureClass.equals("class model.Items.WeaponItem")) {
-            itemDisplayView.loadHUD();
-            if(itemDisplayView.getResponse().equals(0)) {
-                //Do nothing : go back to the main menu
-            } else {
-                player.equipWeapon((WeaponItem) treasure);
+        if(abandonTreasure) {
+            //Do nothing, we leave the treasure
+        } else {
+            player.addItem(treasure);
+            
+            if(treasureClass.equals("class model.Items.ArmorItem")) {
+                itemDisplayView.loadHUD();
+                if(itemDisplayView.getResponse().equals(0)) {
+                    //Do nothing : go back to the main menu
+                } else {
+                    player.equipArmor((ArmorItem) treasure);
+                }
             }
-        }
         
-        itemView.canAddItem();
-        manageItemBag(player, itemView);
+            if(treasureClass.equals("class model.Items.WeaponItem")) {
+                itemDisplayView.loadHUD();
+                if(itemDisplayView.getResponse().equals(0)) {
+                    //Do nothing : go back to the main menu
+                } else {
+                    player.equipWeapon((WeaponItem) treasure);
+                }
+            }
+
+            itemView.canAddItem();
+            manageItemBag(player, itemView);
+        }   
     }
 
     /***
