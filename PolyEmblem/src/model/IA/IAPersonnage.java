@@ -19,6 +19,8 @@ public class IAPersonnage{
     private model.Personnage personnage;
     private int levelIA;
     
+    private String lastAction;
+    
     public IAPersonnage(model.Personnage personnnage, int levelIA) {
         this.personnage = personnage;
         if(levelIA<LEVEL_IA_MIN){
@@ -51,6 +53,7 @@ public class IAPersonnage{
         
         if(levelIA == 2){
             if (personnage.getActualLife()> personnage.getMaxHealth()/2){
+                lastAction = "heal";
                 return heal;
             }
             else{
@@ -60,7 +63,19 @@ public class IAPersonnage{
         return null;
     }
     
-    public model.Personnage getTarget(List<model.Personnage> potentialTarget){
+    public model.Personnage getTarget(List<model.Personnage> potentialTarget, List <IAPersonnage> IAs){
+        //si on heal
+        if(this.lastAction == "heal"){
+            lastAction = "";
+             model.Personnage target = IAs.get(0).personnage;
+            for(IAPersonnage ia : IAs){
+                if(target.getActualLife()> ia.personnage.getActualLife()){
+                    target = ia.personnage;
+                }
+            }
+            return target;
+        }
+    
         //choisis de maniere random
         if(levelIA == 1){
             double random = (Math.random()*potentialTarget.size());
@@ -77,6 +92,10 @@ public class IAPersonnage{
             return target;
         }
         return null;
+    }
+    
+    public model.Personnage getPersonnage(){
+        return personnage;
     }
 }
 
