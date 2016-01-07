@@ -5,11 +5,11 @@ import java.util.Map;
 /**
  * View that display in detail all characters of the player.
  */
-public class PersonnageDisplay implements HUD{
+public class PersonnageDisplayView implements HUD{
 
     private model.Personnage perso;
     
-    public PersonnageDisplay (model.Personnage perso){
+    public PersonnageDisplayView (model.Personnage perso){
         this.perso = perso;
     }
     @Override

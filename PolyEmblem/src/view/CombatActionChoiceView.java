@@ -1,28 +1,27 @@
 package view;
 
 import controller.KeyboardInput;
-import java.util.List;
 import model.Personnage;
 
 /**
- * View that manage the target of a fight.
- * Give to the controller the target choosen.
+ * View that manage all actions possibles by the character in a fight.
+ * Give to the controller the action choosen.
  */
-public class CombatOpponentChoice implements HUD{
+public class CombatActionChoiceView implements HUD{
     
-    private List<Personnage> opponents;
+    private final Personnage personnage;
     private String enteredText;
 
-    public CombatOpponentChoice(List <Personnage> opponents){
-        this.opponents = opponents;
+    public CombatActionChoiceView(model.Personnage perso){
+        this.personnage = perso;
     }
     
     @Override 
     public void loadHUD() {
-        System.out.println("Veuillez choisir le personage à attaquer:");
+        System.out.println("Veuillez choisir une action à faire pendant ce tour:");
         int i = 1;
-        for(Personnage p:opponents){
-            System.out.println( i + ":" + p.getBasicDescription());
+        for(model.Skill s:personnage.getSkills()){
+            System.out.println( i + ":" + s.getName());
             i++;
         }
         do{
@@ -31,9 +30,9 @@ public class CombatOpponentChoice implements HUD{
     }
 
     @Override
-    public Personnage getResponse() {
+    public model.Skill getResponse() {
         try{
-            return opponents.get(Integer.parseInt(enteredText) -1);
+            return personnage.getSkills().get(Integer.parseInt(enteredText) -1);
         }catch(Exception e){
             
         }
@@ -56,8 +55,8 @@ public class CombatOpponentChoice implements HUD{
             return valid;
         }
         
-        if(i>opponents.size()||i <=0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+opponents.size()+".");
+        if(i>=personnage.getSkills().size()||i <=0){
+            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+personnage.getSkills().size()+".");
             valid = false;
             return valid;
         }
@@ -65,5 +64,4 @@ public class CombatOpponentChoice implements HUD{
         
         return valid;
     }
-    
 }

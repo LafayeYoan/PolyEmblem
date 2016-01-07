@@ -14,8 +14,8 @@ import model.Items.EdibleItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.PersonnageDisplay;
-import view.SelectItem;
+import view.PersonnageDisplayView;
+import view.SelectItemView;
 
 /***
  * Main Controller : Run the game ! 
@@ -102,22 +102,27 @@ public class StoryController {
                         currentEvent.setValue(Boolean.TRUE);
                         break;
                     case 2 : /* Manage the bag */
-                        SelectItem bagView = new SelectItem(player);
+                        SelectItemView bagView = new SelectItemView(player);
                         bagView.loadHUD();
                         break;
+                        
                     case 3 : /* Display characters details */
-                        PersonnageDisplay playerView = new PersonnageDisplay(player);
+                        PersonnageDisplayView playerView = new PersonnageDisplayView(player);
                         playerView.loadHUD();
                         break;
+                        
                     case 4 : /* Load a game */
                         //TODO
                         break;
+                        
                     case 5 : /* Save the game */ 
                         //TODO
                         break;
+                        
                     case 6 : /* Exit */
                         System.exit(0);
                         break;
+                        
                     default: /* Show the main menu */
                         eventView.loadHUD();
                 }

@@ -3,8 +3,8 @@ package controller;
 import java.util.List;
 import model.Personnage;
 import model.Skill;
-import view.CombatActionChoice;
-import view.CombatOpponentChoice;
+import view.CombatActionChoiceView;
+import view.CombatOpponentChoiceView;
 
 /**
  *
@@ -20,8 +20,8 @@ public class FightController {
      */
     public void runTheFight(/*List<Personnage> players*/ Personnage p, List<Personnage> allBadGuys) {
         boolean isPlayerTurn = true;
-        CombatActionChoice fightChoice;
-        CombatOpponentChoice opponentChoice;
+        CombatActionChoiceView fightChoice;
+        CombatOpponentChoiceView opponentChoice;
         
         while(true) {
             int fightResult = theFightIsOver(/*players*/ p, allBadGuys);
@@ -37,11 +37,11 @@ public class FightController {
             }                
             
             //for(Personnage p: players){
-            opponentChoice = new CombatOpponentChoice(allBadGuys);
+            opponentChoice = new CombatOpponentChoiceView(allBadGuys);
             opponentChoice.loadHUD();
             Personnage badGuy = opponentChoice.getResponse();
 
-            fightChoice = new CombatActionChoice(p);
+            fightChoice = new CombatActionChoiceView(p);
             fightChoice.loadHUD();
             Skill skillToUse = fightChoice.getResponse();
             skillToUse.useAbility(p, allBadGuys);
