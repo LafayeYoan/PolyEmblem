@@ -61,9 +61,8 @@ public class FightController {
             
             for(IAPersonnage aBadGuy: allBadGuys){
                 Skill skillToUse = aBadGuy.getSkill();
-                Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);                
-                skillToUse.useAbility(aBadGuy.getPersonnage(), perso);
-                if(skillToUse != null){
+                Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);
+                if(skillToUse.useAbility(aBadGuy.getPersonnage(), perso) != null){
                     RoundView.IAAttackDisplay(aBadGuy, perso);
                 }
                 if(perso.getActualLife()<= 0){
