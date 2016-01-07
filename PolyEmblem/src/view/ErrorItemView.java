@@ -1,5 +1,8 @@
 package view;
 
+import java.util.List;
+import model.Bag;
+import model.Item;
 import utils.KeyboardInput;
 import model.Personnage;
 
@@ -9,11 +12,11 @@ import model.Personnage;
  */
 public class ErrorItemView implements HUD {
     
-    private final Personnage perso;
+    private Bag bag;
     private String itemToDelete;
     
-    public ErrorItemView(Personnage perso){
-        this.perso = perso;
+    public ErrorItemView(Bag bag){
+        this.bag = bag;
     }
 
     @Override
@@ -23,7 +26,7 @@ public class ErrorItemView implements HUD {
         System.out.println("(Saisir -1 si vous ne souhaitez pas supprimer d'objet et laisser le trésor ici)");
         
         int i = 1;
-        for(model.Item o:perso.getItems()){
+        for(model.Item o: bag.allItems){
             System.out.print( i + ":" + o.getName());
             
             if(o.equiped){
@@ -45,7 +48,7 @@ public class ErrorItemView implements HUD {
             return "-1";
         }
         try{
-            return perso.getItems().get(Integer.parseInt(itemToDelete) -1);
+            return bag.allItems.get(Integer.parseInt(itemToDelete) -1);
         }catch(Exception e){
             
         }
@@ -68,7 +71,7 @@ public class ErrorItemView implements HUD {
             return true;
         }
         
-        if(!utils.Validator.checkRange(i, 0, perso.getSkills().size())){
+        if(!utils.Validator.checkRange(i, 0, bag.allItems.size())){
             return false;
         }        
         

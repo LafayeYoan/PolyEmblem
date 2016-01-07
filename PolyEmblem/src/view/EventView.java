@@ -2,6 +2,8 @@ package view;
 
 import controller.FightController;
 import controller.ItemController;
+import java.util.List;
+import model.Bag;
 import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -16,11 +18,13 @@ public class EventView implements HUD {
     
     private static final int NB_OPTIONS = 6;
     
-    private final Personnage player;
+    private Bag bag;
+    private List<Personnage> allPlayers;
     private String nextAction;
     
-    public EventView(Personnage player){
-        this.player = player;
+    public EventView(Bag bag, List<Personnage> allPlayers){
+        this.bag = bag;
+        this.allPlayers = allPlayers;
     }
     
     @Override 
@@ -32,6 +36,7 @@ public class EventView implements HUD {
                             + "\n4 : Charger une partie déjà existante"
                             + "\n5 : Sauvegarder"
                             + "\n6 : Quitter" );
+
         do{
             nextAction = KeyboardInput.getInput();
         }while(!isValid());
@@ -75,7 +80,7 @@ public class EventView implements HUD {
             System.out.println("Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.itemFound(player, event.getTreasure()); 
+            itemController.itemFound(allPlayers, event.getTreasure(), bag); 
             
         } else if(currentEvent.getClass() == FightEvent.class){
             
@@ -92,7 +97,7 @@ public class EventView implements HUD {
                 System.out.println("veulent se battre !"); 
             }
             
-            fightController.runTheFight(player, event.getAllBadGuys());
+            fightController.runTheFight(allPlayers, event.getAllBadGuys());
         }
         //System.out.println("----------------------------------------");
     }

@@ -15,37 +15,40 @@ public class FightController {
     /***
      * Run the Fight between player and all bad guys.
      * Call the correct view for each action.
-     * @param players the players
+     * @param allPlayers a list of all players who will fight (one or many)
      * @param allBadGuys a list of bad guys (one or many)
      */
-    public void runTheFight(/*List<Personnage> players*/ Personnage p, List<Personnage> allBadGuys) {
+    public void runTheFight(List<Personnage> allPlayers, List<Personnage> allBadGuys) {
         boolean isPlayerTurn = true;
         CombatActionChoiceView fightChoice;
         CombatOpponentChoiceView opponentChoice;
         
         while(true) {
-            int fightResult = theFightIsOver(/*players*/ p, allBadGuys);
+            int fightResult = theFightIsOver(allPlayers, allBadGuys);
             //le joueur a perdu
             if(fightResult == 1) {
+                //TODO 
                 //Afficher la vue de fin de partie (la partie est perdu !)
                 break;
-            } else if(fightResult == -1){ // le joueur à gagné
+            } else if(fightResult == -1){ 
+                //Le joueur à gagné
+                //TODO
                 //Dire que que joueur a gagné
                 //A la fin, mise à jour xp : appelle vue xp
                 //Joueur regagne un peu de sa vie : appelle vue détail perso
                 break;
             }                
             
-            //for(Personnage p: players){
-            opponentChoice = new CombatOpponentChoiceView(allBadGuys);
-            opponentChoice.loadHUD();
-            Personnage badGuy = opponentChoice.getResponse();
+            for(Personnage p: allPlayers){
+                opponentChoice = new CombatOpponentChoiceView(allBadGuys);
+                opponentChoice.loadHUD();
+                Personnage badGuy = opponentChoice.getResponse();
 
-            fightChoice = new CombatActionChoiceView(p);
-            fightChoice.loadHUD();
-            Skill skillToUse = fightChoice.getResponse();
-            skillToUse.useAbility(p, allBadGuys);
-            //}
+                fightChoice = new CombatActionChoiceView(p);
+                fightChoice.loadHUD();
+                Skill skillToUse = fightChoice.getResponse();
+                skillToUse.useAbility(p, allBadGuys);
+            }
             
             for(Personnage aBadGuy: allBadGuys){
                 //TODO IA stuff
@@ -56,20 +59,20 @@ public class FightController {
     /***
      * Check if it's the end of the fight. Fight stop when the player
      * OR bad guys is/are dead.
-     * @param player the player
+     * @param allPlayers a list of all players who fight (one or many)
      * @param allBadGuys a list of bad guys (one or many)
      * @return 1 if player life equal 0. -1 if all bad guys life equal 0. 0 if one player is alive and at least one of the bad guys is alive
      */
-    private int theFightIsOver(/*List<Personnage> players*/ Personnage p, List<Personnage> allBadGuys) {
+    private int theFightIsOver(List<Personnage> allPlayers, List<Personnage> allBadGuys) {
         
         boolean onePlayerAlive = false;
         boolean oneBadGuyAlive = false;
-        //for(Personnage p: players){
+        for(Personnage p: allPlayers){
             if(!isDead(p)){
                 onePlayerAlive = true;
-                //break;
+                break;
             }
-        //}
+        }
         
         if(!onePlayerAlive){
             return 1;
