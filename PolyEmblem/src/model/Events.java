@@ -1,7 +1,6 @@
 package model;
 
-
-public abstract class Events {
+public class Events {
     
     /* Describe the event for the player */
     private String descriptionEvent;
@@ -12,7 +11,5 @@ public abstract class Events {
     
     public String getDescriptionEvent() {
         return descriptionEvent;
-    }   
-    
-    abstract Events execute();
+    }
 }

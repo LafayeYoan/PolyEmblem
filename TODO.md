@@ -60,15 +60,17 @@ Attention, une parade augmente la défense quand le personnage subis une attaque
 
 # Developpement View
 
+* [DONE, class KeyboardInput] Refactoring de l'ensemble des vues (principalement isValid et le Scanner...)
+
 * [OPTION] "help" : donne toutes les commandes possibles au joueur. 
 
 * [OPTION] "moi" : affiche le détail du personnage que joue le joueur.
 
-* Prévoir "une fenêtre" pour attribuer un point de compétence lors du gars de niveau.
+* [DONE]Prévoir "une fenêtre" pour attribuer un point de compétence lors du gars de niveau.
 
-* Prévoir "une fenêtre" pour visualiser et gérer le contenu du sac à dos.  
+* [DONE]Prévoir "une fenêtre" pour visualiser et gérer le contenu du sac à dos.  
 
-* Prévoir "une fenêtre" pour visualiser un combat au tour par tour.
+* [DONE]Prévoir "une fenêtre" pour visualiser un combat au tour par tour.
 
 * [OPTION] Si le joueur tape une commande qui n'est pas prise en charge, "commande non reconnue" apparait et le jeu se poursuit. 
 
