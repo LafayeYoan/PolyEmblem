@@ -1,12 +1,12 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 
 /**
  * View that manage the name of the character when created.
  * Give to the controller the name choosen.
  */
-public class PersonnageNom implements HUD{
+public class PersonnageNomView implements HUD{
 
     private String nom;
 

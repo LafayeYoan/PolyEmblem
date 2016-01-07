@@ -1,12 +1,16 @@
 
 package view;
-import controller.KeyboardInput;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import utils.KeyboardInput;
+import utils.Validator;
 
 /**
  * View that manage the class of the character when created. 
  * Give to the controller the class choosen.
  */
-public class PersonnageClasse implements HUD {
+public class PersonnageClasseView implements HUD {
 
     private String className;
     @Override
@@ -24,16 +28,11 @@ public class PersonnageClasse implements HUD {
     
     private boolean isValid(){
         boolean valid = true;
-        if(className.isEmpty()){
-            valid = false;
-            System.out.println("Le nom est vide, veuillez le reentrer.");
+        valid = valid & Validator.checkEmpty(className);
+        if(!valid){
             return valid;
         }
-        
-        if(!(className.equals("GBM")|className.equals("INFO")||className.equals("MAM")||className.equals("MAT")||className.equals("MECA"))){
-            valid = false;
-            System.out.println("La classe choisie n'existe pas, veuillez le reentrer.");
-        }
+        valid = valid & Validator.checkInList(className,Arrays.asList(new Object[]{"GBM","INFO","MAM","MAT","MECA"}));
         return valid;
     }
 

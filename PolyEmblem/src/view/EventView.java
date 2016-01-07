@@ -2,7 +2,7 @@ package view;
 
 import controller.FightController;
 import controller.ItemController;
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;
@@ -86,7 +86,8 @@ public class EventView implements HUD {
             System.out.println("\n Vous trouvez : " + event.getTreasure().getName() 
                     + ". \n" + event.getTreasure().getDescription());     
             
-            itemController.itemFound(player, event.getTreasure());       
+            itemController.itemFound(player, event.getTreasure()); 
+            
         } else if(currentEvent.getClass() == FightEvent.class){
             
             FightEvent event = (FightEvent) currentEvent;

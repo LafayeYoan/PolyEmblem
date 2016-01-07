@@ -1,8 +1,7 @@
 package controller;
 
-import java.util.HashMap;
+import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 import model.Characteristic;
 import model.Classes.Meca;
 import model.Effect;
@@ -11,11 +10,12 @@ import model.Event.FightEvent;
 import model.Events;
 import model.Items.ArmorItem;
 import model.Items.EdibleItem;
+import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
 import view.EventView;
-import view.PersonnageDisplay;
-import view.SelectItem;
+import view.PersonnageDisplayView;
+import view.SelectItemView;
 
 /***
  * Main Controller : Run the game ! 
@@ -24,20 +24,20 @@ public class StoryController {
 
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
     It becomes true when the event is playing by the player. */
-    private static Map<Events, Boolean> event;
+    private static List<Events> event;
     public static List<Personnage> players;
     
     /***
      * Generate all events for the game.
-     * WARNING : when running the game, the last event of the map is reading first 
+     * WARNING : when running the game, don't know what is the first event to be running ?...
      */
     public static void generateEvents() {
         
-        event = new HashMap<Events, Boolean>();
+        event = new LinkedList<>();
         
         //TODO : add story events here
         
-        event.put(new DiscoverPlaceEvent("En route vers Polytech, votre très chère école, "
+        event.add(new DiscoverPlaceEvent("En route vers Polytech, votre très chère école, "
                 + "vous vous retrouvez au milieu de tous les autres étudiants du campus "
                 + "de l'université Lyon 1 dans le Tram menant à Condorcet. "
                 + "\n Ils sentent la transpiration et l'alcool, ce qui ne vous gêne pas beaucoup... "
@@ -47,17 +47,17 @@ public class StoryController {
                 + "Une chance qu'il reste des tics tacs dans la boite...",
                 new EdibleItem("Boite de tic tac entamée", 1, 
                         new Effect(Characteristic.STRENGHT, -2, 0),
-                        new Effect(Characteristic.HEALTH, 2, 0))), false);
+                        new Effect(Characteristic.HEALTH, 2, 0))));
         
-        event.put(new FightEvent("Heureux de cette nouvelle découverte,"
+        event.add(new FightEvent("Heureux de cette nouvelle découverte,"
                 + "vous ne sentez pas tout de suite cette main moite qui se pose "
                 + "fermement sur votre épaule. \n C'est Charlie (aka le Kaid), une vermine"
-                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard"
+                + "en Méca, qui sème la terreur et le chaos dans tout le réseau. \n Vous sentez dans son regard "
                 + "la haine qu'il éprouve pour vous : \n - Ce sont mes tic tac, vermine. \n"
                 + "Il va falloir vous battre pour conserver votre précieux butin... ",
-                new Meca("Charlie le Kaid", new Level(10))), false);
+                new Meca("Charlie le Kaid", new Level(10))));
         
-        event.put(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech. \n"
+        event.add(new DiscoverPlaceEvent("C'est une première victoire qui vous fait chaud au coeur, et vous poursuivez votre route vers Polytech. \n"
                 + "Il y a presque une demi-minute que vous vous frayez un chemin parmi les autres étudiants lorsque vous entendez un battement d'ailes au-dessus des arbres. \n"
                 + "Vous levez les yeux et vous distinguez la silhouette d'un membre du BDE qui accroche une affiche sur un prochain évènement alcoolisé. \n"
                 + "C'est l'un des amis de Charlie qui vous a attaqué plus tôt. \n"
@@ -65,15 +65,16 @@ public class StoryController {
                 + "C'est une relique, et lorsqu'elle tombe à vos pieds, vous ne vous faite pas prier pour la saisir. \n"
                 + "L'élève du BDE se tourne vers vous, et voyant votre sourir radieux, il s'exclame : \n"
                 + " - Ola camarade ! Tu peux garder ma casquette si tu veux, y en a plein d'autres dans la remise ! \n",
-                new ArmorItem("Poly'casquette", 10, 1)), false);
+                new ArmorItem("Poly'casquette", 10, 1)));
         
-        event.put(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre. \n"
+        event.add(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre. \n"
                 + "En vous approchant, près de la machine à café située sous l'escalier, vous apercevez bientôt un groupe d'étudiants que vous connaissez bien. \n"
                 + "Vos cinq amis (car oui, ce sont vos amis) sont en train de discuter autour d'un boisson chaude. \n"
                 + "D'autres groupes sont disperçés ça et là parmi autour de vous. \n"
-                + "Lorsque vous vous approchez, Esteban vous tend un café tout chaud : \n"
+                + "Lorsque vous vous approchez, Esteban vous tend son cahier de mathématique : \n"
                 + " - Tien salut ! Bien dormis ? \n", 
-                new EdibleItem("Café (bien) chaud", 5, new Effect(Characteristic.DEXTIRITY, 5, 3))), false);
+                new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))));
+
         
         
         System.out.println("---------------------------------------------------");
@@ -88,36 +89,44 @@ public class StoryController {
      * @param player the player
      */
     public static void runTheGame(Personnage player) {
+        //TODO : passer une liste de personnage en paramètre
         
-        for(Map.Entry<Events, Boolean> currentEvent : event.entrySet()) {
+        for(Events currentEvent : event) {
             
-            while(currentEvent.getValue() == false) {
+            while(currentEvent.isDone == false) {
                 
                 EventView eventView = new EventView(player);
                 eventView.loadHUD();
 
                 switch(Integer.parseInt(eventView.getResponse())){
+                    
                     case 1 : /* Execute the next event of the story */
-                        eventView.showPlayer(currentEvent.getKey());
-                        currentEvent.setValue(Boolean.TRUE);
+                        eventView.showPlayer(currentEvent);
+                        currentEvent.isDone = true;
                         break;
+                        
                     case 2 : /* Manage the bag */
-                        SelectItem bagView = new SelectItem(player);
+                        SelectItemView bagView = new SelectItemView(player);
                         bagView.loadHUD();
                         break;
+                        
                     case 3 : /* Display characters details */
-                        PersonnageDisplay playerView = new PersonnageDisplay(player);
+                        PersonnageDisplayView playerView = new PersonnageDisplayView(player);
                         playerView.loadHUD();
                         break;
+                        
                     case 4 : /* Load a game */
                         //TODO
                         break;
+                        
                     case 5 : /* Save the game */ 
                         //TODO
                         break;
+                        
                     case 6 : /* Exit */
                         System.exit(0);
                         break;
+                        
                     default: /* Show the main menu */
                         eventView.loadHUD();
                 }

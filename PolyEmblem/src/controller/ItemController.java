@@ -6,7 +6,7 @@ import model.Items.WeaponItem;
 import model.Personnage;
 import view.ErrorItemView;
 import view.ItemDisplayView;
-import view.SelectItem;
+import view.SelectItemView;
 
 public class ItemController {
 
@@ -17,50 +17,52 @@ public class ItemController {
      */
     public void itemFound(Personnage player, Item treasure) {
         
-        SelectItem itemView = new SelectItem(player);
+        SelectItemView itemView = new SelectItemView(player);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
+        ErrorItemView errorItemView = new ErrorItemView(player);
         
-        switch (treasure.getClass().toString()) {
+        String treasureClass = treasure.getClass().toString();
+        boolean abandonTreasure = false;
+        
+        /* Try to put the item in the bag */
+        while(player.getActualInUseWeight() + treasure.getWeight() > Personnage.MAX_WEIGHT) {
+            errorItemView.loadHUD();
             
-            case "class model.Items.ArmorItem" :
-                /**
-                TODO : NOT WORKING
-                
+            try{
+                int i = Integer.parseInt((String) errorItemView.getResponse());
+                abandonTreasure = true;
+                break;
+            }catch(NumberFormatException e){
+                player.removeItem((Item) errorItemView.getResponse());
+            }
+        }
+        
+        if(abandonTreasure) {
+            //Do nothing, we leave the treasure
+        } else {
+            player.addItem(treasure);
+            
+            if(treasureClass.equals("class model.Items.ArmorItem")) {
                 itemDisplayView.loadHUD();
-                
                 if(itemDisplayView.getResponse().equals(0)) {
                     //Do nothing : go back to the main menu
                 } else {
-                    System.out.println(treasure.toString());
                     player.equipArmor((ArmorItem) treasure);
                 }
-                break;*/
-                
-            case "class model.Items.WeaponItem":
-                /**
+            }
+        
+            if(treasureClass.equals("class model.Items.WeaponItem")) {
                 itemDisplayView.loadHUD();
-                
                 if(itemDisplayView.getResponse().equals(0)) {
                     //Do nothing : go back to the main menu
                 } else {
                     player.equipWeapon((WeaponItem) treasure);
                 }
-                break;*/
-                
-            case "class model.Items.EdibleItem":
-                
-            default:
-                if(player.getActualInUseWeight() + treasure.getWeight() < Personnage.MAX_WEIGHT) {
-                    
-                } else {
-                    ErrorItemView errorItemView = new ErrorItemView(player);
-                    errorItemView.loadHUD();
-                    player.removeItem(player.getItems().get((int) errorItemView.getResponse()));
-                }
-                player.addItem(treasure);
-                itemView.canAddItem();
-                manageItemBag(player, itemView);
-        }
+            }
+
+            itemView.canAddItem();
+            manageItemBag(player, itemView);
+        }   
     }
 
     /***
@@ -69,15 +71,15 @@ public class ItemController {
      * @param player the player with the bag
      * @param itemView the SelectItem view 
      */
-    private void manageItemBag(Personnage player, SelectItem itemView) {
+    private void manageItemBag(Personnage player, SelectItemView itemView) {
         
         switch(itemView.getResponse().getClass().toString()) {
             
-            case  "class java.lang.Integer" : /* Retour au menu principal */
+            case  "class java.lang.Integer" : /* Go back to the main menu */
                 
                 break;
             
-            default : /* Afficher le détail d'un objet */
+            default : /* Display the item details */
                 ItemDisplayView itemDisplayView = new ItemDisplayView((Item) itemView.getResponse());
                 itemDisplayView.loadHUD();  
         }

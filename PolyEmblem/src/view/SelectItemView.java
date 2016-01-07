@@ -1,18 +1,18 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 
 /**
  * View that manage the bag of the player.
  * Give to the controller the action to do next 
  * (i.e : an item to display OR go back to the main menu).
  */
-public class SelectItem implements HUD{
+public class SelectItemView implements HUD{
 
     private model.Personnage perso;
     private String enteredText;
     
-    public SelectItem(model.Personnage perso){
+    public SelectItemView(model.Personnage perso){
         this.perso = perso;
     }
     
@@ -23,14 +23,15 @@ public class SelectItem implements HUD{
         System.out.println("----------------------------------------");
         System.out.println("Choisissez un objet pour voir son détail : ");
         System.out.println("(Appuyez sur 0 pour revenir au menu principal) \n");
+        
         int i = 1;
         for(model.Item o:perso.getItems()){
             System.out.print( i + ":" + o.getName());
             
             if(o.equiped){
+                
                 System.out.println(" est équipé.");
-            }else
-            {
+            } else {
                 System.out.println();
             }
             i++;

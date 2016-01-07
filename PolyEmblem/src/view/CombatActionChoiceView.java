@@ -1,18 +1,19 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import model.Personnage;
+import utils.Validator;
 
 /**
  * View that manage all actions possibles by the character in a fight.
  * Give to the controller the action choosen.
  */
-public class CombatActionChoice implements HUD{
+public class CombatActionChoiceView implements HUD{
     
     private final Personnage personnage;
     private String enteredText;
 
-    public CombatActionChoice(model.Personnage perso){
+    public CombatActionChoiceView(model.Personnage perso){
         this.personnage = perso;
     }
     
@@ -41,27 +42,21 @@ public class CombatActionChoice implements HUD{
     
     private boolean isValid(){
         boolean valid = true;
-        if(enteredText.isEmpty()){
-            System.out.println("Veuillez entrer une valeur.");
-            valid = false;
-            return valid;
+        if(!Validator.checkEmpty(enteredText)){
+            return false;
         }
-        int i;
+        int i = 0;
+        if(!Validator.checkIsInteger(enteredText)){
+            return false;
+        }
         try{
-            i = Integer.parseInt(enteredText);         
+            i = Integer.parseInt(enteredText);
         }catch(Exception e){
-            System.out.println("Veuillez entrer un chiffre.");
-            valid = false;
-            return valid;
+            
         }
-        
-        if(i>=personnage.getSkills().size()||i <=0){
-            System.out.println("Veuillez entrer un chiffre compris entre 1 et "+personnage.getSkills().size()+".");
-            valid = false;
-            return valid;
+        if(!Validator.checkRange(i, 1, personnage.getSkills().size())){
+            return false;
         }
-        
-        
-        return valid;
+        return true;
     }
 }

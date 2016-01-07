@@ -1,18 +1,18 @@
 package view;
 
 import java.util.Map;
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 
 /**
  * View that manage "l'attribution d'un point de compétence" when level up.
  * Give to the controller the field chosen.
  */
-public class CapacityAssignPoint implements HUD{
+public class CapacityAssignPointView implements HUD{
     
     private final model.Personnage  perso;
     private String enteredText;
     
-    public CapacityAssignPoint(model.Personnage perso){
+    public CapacityAssignPointView(model.Personnage perso){
         this.perso = perso;
     }
     @Override

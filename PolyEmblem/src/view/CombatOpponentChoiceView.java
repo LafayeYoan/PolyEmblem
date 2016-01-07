@@ -1,6 +1,6 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import java.util.List;
 import model.Personnage;
 
@@ -8,12 +8,12 @@ import model.Personnage;
  * View that manage the target of a fight.
  * Give to the controller the target choosen.
  */
-public class CombatOpponentChoice implements HUD{
+public class CombatOpponentChoiceView implements HUD{
     
     private List<Personnage> opponents;
     private String enteredText;
 
-    public CombatOpponentChoice(List <Personnage> opponents){
+    public CombatOpponentChoiceView(List <Personnage> opponents){
         this.opponents = opponents;
     }
     

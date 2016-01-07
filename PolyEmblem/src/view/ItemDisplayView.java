@@ -1,6 +1,6 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import model.Item;
 
 /**
@@ -45,9 +45,9 @@ public class ItemDisplayView implements HUD {
     @Override
     public Object getResponse() {
         if(enteredText.equals("0")) {
-            return 1;
+            return 0;
         } 
-        return 0;
+        return 1;
     }
     
 }

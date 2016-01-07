@@ -24,11 +24,9 @@ public class HealSkill implements Skill {
                 //on calcul le soin de l'arme 
                 heal += weapon.getHeal();                
             }
-            //On ajoute l'inteligence
-            heal += srcCharacter.getCharacteritics().getOrDefault(model.Characteristic.INTELIGENCE,0);
             
             //on applique l'effet
-            p.applicateEffect(new Effect(model.Characteristic.LIFE, heal,0));
+            p.applicateEffect(new Effect(model.Characteristic.LIFE, heal,1));
             
         }
         return null;
@@ -36,7 +34,7 @@ public class HealSkill implements Skill {
 
     @Override
     public double successProbability(Personnage srcCharacter) {
-        return  0.85;
+        return  0.8;
     }
 
     @Override
