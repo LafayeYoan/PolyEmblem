@@ -66,29 +66,22 @@ public class SelectItemView implements HUD{
     }
     
     private boolean isValid(){
-        boolean valid = true;
-        if(enteredText.isEmpty()){
-            System.out.println("Veuillez entrer une valeur.");
-            valid = false;
-            return valid;
+        if(!utils.Validator.checkEmpty(enteredText)){
+            return false;
         }
-        int i;
+        int i =0;
+        if(!utils.Validator.checkIsInteger(enteredText)){
+            return false;
+        }
         try{
             i = Integer.parseInt(enteredText);         
         }catch(Exception e){
-            System.out.println("Veuillez entrer un chiffre.");
-            valid = false;
-            return valid;
         }
         
-        if(i>=perso.getSkills().size()||i < 0){
-            System.out.println("Veuillez entrer un chiffre compris entre 0 et "+perso.getItems().size()+".");
-            valid = false;
-            return valid;
-        }
-        
-        
-        return valid;
+        if(!utils.Validator.checkRange(i, 0, perso.getItems().size())){
+            return false;
+        } 
+        return true;
     }
     
 }
