@@ -27,11 +27,11 @@ public class Validator {
     public static boolean checkRange(int val, int min, int max){
         boolean valid = true;
         if(val< min){
-            System.out.println("La valeur entrée doit être supérieure à "+ min+ ".");
+            System.out.println("La valeur entrée doit être supérieure ou égale à "+ min+ ".");
             valid = false;
         }
         if(val > max){
-            System.out.println("La valeur entrée doit être inférieure à "+ max+ ".");
+            System.out.println("La valeur entrée doit être inférieure ou égale à "+ max+ ".");
             valid = false;
         }
         return valid;
