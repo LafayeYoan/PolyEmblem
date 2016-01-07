@@ -42,14 +42,12 @@ public class ItemController {
         }
         
         if(treasureClass.equals("class model.Items.WeaponItem")) {
-            /**
             itemDisplayView.loadHUD();
-
             if(itemDisplayView.getResponse().equals(0)) {
                 //Do nothing : go back to the main menu
             } else {
                 player.equipWeapon((WeaponItem) treasure);
-            }*/
+            }
         }
         
         itemView.canAddItem();

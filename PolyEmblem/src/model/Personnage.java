@@ -102,16 +102,18 @@ public abstract class Personnage {
     }
     
     public void equipWeapon(model.Items.WeaponItem weaponItem){
-        if(!this.weapon.equals(null)){
+        if(this.weapon != null){
             unequipWeapon();
         }
         //equiper
         this.weapon = weaponItem;
+        this.weapon.equiped = true;
         //code pour les effets de l'arme
     }
    
     public void unequipWeapon(){
         //enlever effet
+        this.weapon.equiped = false;
         this.weapon=null;
     }
     
