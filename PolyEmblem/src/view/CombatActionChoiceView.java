@@ -1,6 +1,6 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import model.Personnage;
 
 /**
@@ -55,7 +55,7 @@ public class CombatActionChoiceView implements HUD{
             return valid;
         }
         
-        if(i>=personnage.getSkills().size()||i <=0){
+        if(i>personnage.getSkills().size()||i <=0){
             System.out.println("Veuillez entrer un chiffre compris entre 1 et "+personnage.getSkills().size()+".");
             valid = false;
             return valid;

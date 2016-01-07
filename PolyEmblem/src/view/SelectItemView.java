@@ -1,6 +1,6 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 
 /**
  * View that manage the bag of the player.

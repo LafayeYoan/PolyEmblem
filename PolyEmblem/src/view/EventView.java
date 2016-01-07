@@ -2,7 +2,7 @@ package view;
 
 import controller.FightController;
 import controller.ItemController;
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
 import model.Events;

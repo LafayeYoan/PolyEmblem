@@ -1,7 +1,7 @@
 package view;
 
 import java.util.Map;
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 
 /**
  * View that manage "l'attribution d'un point de compétence" when level up.

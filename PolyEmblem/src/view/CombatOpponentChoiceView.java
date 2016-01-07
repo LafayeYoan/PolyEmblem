@@ -1,6 +1,6 @@
 package view;
 
-import controller.KeyboardInput;
+import utils.KeyboardInput;
 import java.util.List;
 import model.Personnage;
 
