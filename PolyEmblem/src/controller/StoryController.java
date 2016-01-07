@@ -14,6 +14,7 @@ import model.Items.EdibleItem;
 import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
+import view.EndOfGameView;
 import view.EventView;
 import view.Personnage.PersonnageDisplayView;
 import view.Item.SelectItemView;
@@ -133,5 +134,7 @@ public class StoryController {
                 }
             }
         }
+        
+        EndOfGameView.loadWinnerEnding();
     }    
 }

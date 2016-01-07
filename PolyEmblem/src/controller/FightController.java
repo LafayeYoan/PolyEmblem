@@ -3,6 +3,7 @@ package controller;
 import java.util.List;
 import model.Personnage;
 import model.Skill;
+import view.EndOfGameView;
 import view.Fight.CombatActionChoiceView;
 import view.Fight.CombatOpponentChoiceView;
 
@@ -25,13 +26,11 @@ public class FightController {
         
         while(true) {
             int fightResult = theFightIsOver(allPlayers, allBadGuys);
-            //le joueur a perdu
-            if(fightResult == 1) {
-                //TODO 
-                //Afficher la vue de fin de partie (la partie est perdu !)
+            
+            if(fightResult == 1) { /* Player loose */
+                EndOfGameView.loadLooserEnding();
                 break;
-            } else if(fightResult == -1){ 
-                //Le joueur à gagné
+            } else if(fightResult == -1){ /* Player win */
                 //TODO
                 //Dire que que joueur a gagné
                 //A la fin, mise à jour xp : appelle vue xp
@@ -39,7 +38,7 @@ public class FightController {
                 break;
             }                
             
-            for(Personnage p: allPlayers){
+            for(Personnage p : allPlayers){
                 opponentChoice = new CombatOpponentChoiceView(allBadGuys);
                 opponentChoice.loadHUD();
                 Personnage badGuy = opponentChoice.getResponse();
