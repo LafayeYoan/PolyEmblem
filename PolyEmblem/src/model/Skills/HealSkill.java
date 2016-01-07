@@ -34,7 +34,7 @@ public class HealSkill implements Skill {
 
     @Override
     public double successProbability(Personnage srcCharacter) {
-        return  0.70;
+        return  0.8;
     }
 
     @Override

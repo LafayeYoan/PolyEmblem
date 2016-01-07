@@ -17,6 +17,7 @@ public class AttackSkill implements Skill {
             Random r = new Random();
             if(r.nextFloat() > this.successProbability(srcCharacter)){
                 //on saute ce personnage, l'attaque a ratée
+                System.out.println("Miss !");
                 continue;
             }
             int damages = 0;
@@ -27,6 +28,8 @@ public class AttackSkill implements Skill {
             //On ajoute les degats de force
             damages += srcCharacter.getCharacteritics().getOrDefault(model.Characteristic.STRENGHT,0);
             
+            //On reduit les degat de la defence
+            damages -= p.getCharacteritics().getOrDefault(model.Characteristic.DEFENCE,0);
             
             //on retire les effets d'armure
             model.Items.ArmorItem armor = p.getArmor();
@@ -37,7 +40,7 @@ public class AttackSkill implements Skill {
             
             //test d'esquive
             Random d = new Random();
-            double dext = p.getCharacteritics().get(model.Characteristic.DEXTIRITY)*2/100;
+            double dext = p.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
             if(d.nextFloat() > dext){
                 //le personnage a esquivé
                 System.out.println("Le personnage "+p.getName()+" esquive !");
@@ -54,7 +57,7 @@ public class AttackSkill implements Skill {
 
     @Override
     public double successProbability(Personnage srcCharacter) {
-        return 0.80;
+        return 0.9;
     }
 
     @Override
