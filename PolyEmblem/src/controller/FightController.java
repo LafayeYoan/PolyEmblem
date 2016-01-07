@@ -6,6 +6,7 @@ import model.Personnage;
 import model.Skill;
 import view.CombatActionChoiceView;
 import view.CombatOpponentChoiceView;
+import view.RoundView;
 
 /**
  *
@@ -63,6 +64,7 @@ public class FightController {
                 Skill skillToUse = aBadGuy.getSkill();
                 Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);                
                 skillToUse.useAbility(aBadGuy.getPersonnage(), perso);
+                RoundView.IAAttackDisplay(aBadGuy, perso);
                 
                 if(perso.getActualLife()<= 0){
                     allPlayers.remove(perso);
@@ -72,6 +74,9 @@ public class FightController {
                     }
                 }
             }
+            
+            RoundView roundView = new RoundView(allPlayers, allBadGuys);
+            roundView.loadHUD();
         }
     }        
 

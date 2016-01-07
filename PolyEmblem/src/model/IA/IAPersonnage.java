@@ -67,7 +67,7 @@ public class IAPersonnage{
         //si on heal
         if(this.lastAction == "heal"){
             lastAction = "";
-             model.Personnage target = IAs.get(0).personnage;
+            model.Personnage target = IAs.get(0).personnage;
             for(IAPersonnage ia : IAs){
                 if(target.getActualLife()> ia.personnage.getActualLife()){
                     target = ia.personnage;

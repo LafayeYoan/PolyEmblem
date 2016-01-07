@@ -1,14 +1,21 @@
 package view;
 
 import java.util.List;
+import model.IA.IAPersonnage;
+import model.Personnage;
 
 /**
  * View that display the details of a fight.
  */
 public class RoundView implements HUD{
 
-    public List<model.Personnage> players;
-    public List<model.Personnage> badGuys;
+    private List<model.Personnage> players;
+    private List<model.IA.IAPersonnage> badGuys;
+    
+    public RoundView(List<model.Personnage> players,List<model.IA.IAPersonnage> badGuys){
+        this.players = players;
+        this.badGuys = badGuys;
+    }
     
     @Override
     public void loadHUD() {
@@ -24,9 +31,15 @@ public class RoundView implements HUD{
         }
         
         System.out.println("L'équipe adverse se compose de:");
-        for(model.Personnage p:badGuys){
-            System.out.println(p.getBasicDescription());
+        for(model.IA.IAPersonnage p:badGuys){
+            System.out.println(p.getPersonnage().getBasicDescription());
         }
+    }
+    
+    public static void IAAttackDisplay(IAPersonnage source, Personnage target){
+        System.out.println("-------------------------------------------");
+        System.out.println(source.getPersonnage().getName()+ " attaque "+ target.getName());
+        System.out.println("-------------------------------------------");
     }
 
     @Override
