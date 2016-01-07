@@ -1,7 +1,8 @@
-package view;
+package view.Personnage;
 
 import java.util.Map;
 import utils.KeyboardInput;
+import view.HUD;
 
 /**
  * View that manage "l'attribution d'un point de compétence" when level up.
@@ -17,7 +18,7 @@ public class CapacityAssignPointView implements HUD{
     }
     @Override
     public void loadHUD() {
-        System.out.println("--------------------------------------------------");
+        System.out.println("\n--------------------------------------------------");
         System.out.println("------- Attribution du point de compétence -------");
         System.out.println("--------------------------------------------------");
         Map <model.Characteristic, Integer> caracts = perso.getCharacteritics();

@@ -1,8 +1,9 @@
-package view;
+package view.Personnage;
 
 import java.util.List;
 import java.util.Map;
 import model.Personnage;
+import view.HUD;
 
 /**
  * View that display in detail all characters of the player.
@@ -16,6 +17,7 @@ public class PersonnageDisplayView implements HUD{
     }
     @Override
     public void loadHUD() {
+
         System.out.println("------------------------------------------------------");
         System.out.println("-------- Fiche des Personnages de l'équipe -----------");
         System.out.println("------------------------------------------------------");

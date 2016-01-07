@@ -1,10 +1,11 @@
-package view;
+package view.Item;
 
 import java.util.List;
 import model.Bag;
 import model.Item;
 import utils.KeyboardInput;
 import model.Personnage;
+import view.HUD;
 
 /***
  * View that manage the error when we try to add an item in the bag and it's not possible. 
@@ -21,8 +22,8 @@ public class ErrorItemView implements HUD {
 
     @Override
     public void loadHUD() {
-        System.out.println("\n L'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
-        System.out.println("\n Quel objet souhaitez-vous laisser sur place ?");
+        System.out.println("\nL'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
+        System.out.println("\nQuel objet souhaitez-vous laisser sur place ?");
         System.out.println("(Saisir -1 si vous ne souhaitez pas supprimer d'objet et laisser le trésor ici)");
         
         int i = 1;

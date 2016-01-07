@@ -1,8 +1,10 @@
-package view;
+package view.Fight;
 
 import utils.KeyboardInput;
 import java.util.List;
+import model.IA.IAPersonnage;
 import model.Personnage;
+import view.HUD;
 
 /**
  * View that manage the target of a fight.
@@ -10,19 +12,22 @@ import model.Personnage;
  */
 public class CombatOpponentChoiceView implements HUD{
     
-    private List<Personnage> opponents;
+    private List<IAPersonnage> opponents;
     private String enteredText;
+    private Personnage actualPersonnage;
 
-    public CombatOpponentChoiceView(List <Personnage> opponents){
+    public CombatOpponentChoiceView(Personnage actualPersonnage, List <IAPersonnage> opponents){
         this.opponents = opponents;
+        this.actualPersonnage = actualPersonnage;
     }
     
     @Override 
     public void loadHUD() {
+        System.out.println("\nAu tour de " + actualPersonnage.getName());
         System.out.println("Veuillez choisir le personage à attaquer:");
         int i = 1;
-        for(Personnage p:opponents){
-            System.out.println( i + ":" + p.getBasicDescription());
+        for(IAPersonnage p:opponents){
+            System.out.println(i + ":" + p.getPersonnage().getBasicDescription());
             i++;
         }
         do{
@@ -33,7 +38,7 @@ public class CombatOpponentChoiceView implements HUD{
     @Override
     public Personnage getResponse() {
         try{
-            return opponents.get(Integer.parseInt(enteredText) -1);
+            return opponents.get(Integer.parseInt(enteredText) -1).getPersonnage();
         }catch(Exception e){
             
         }

@@ -1,9 +1,10 @@
-package view;
+package view.Item;
 
 import java.util.List;
 import model.Bag;
 import model.Item;
 import utils.KeyboardInput;
+import view.HUD;
 
 /**
  * View that manage the bag of the player.
@@ -21,11 +22,12 @@ public class SelectItemView implements HUD{
     
     @Override
     public void loadHUD() {
+
         System.out.println("----------------------------------------");
         System.out.println("-------- Contenu de vos sacs ----------");
         System.out.println("----------------------------------------");
         System.out.println("Choisissez un objet pour voir son détail : ");
-        System.out.println("(Appuyez sur 0 pour revenir au menu principal) \n");
+        System.out.println("(Appuyez sur 0 pour revenir au menu principal)");
         
         int i = 1;
         for(Item o: bag.allItems){
@@ -49,7 +51,7 @@ public class SelectItemView implements HUD{
      * SelectItem global menu.
      */
     public void canAddItem() {
-        System.out.println("\n L'objet a correctement été ajouté au sac à dos ! \n");
+        System.out.println("\nL'objet a correctement été ajouté au sac à dos !");
         loadHUD();
     }
 

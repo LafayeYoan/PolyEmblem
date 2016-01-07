@@ -1,10 +1,11 @@
 
-package view;
+package view.Personnage;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import utils.KeyboardInput;
 import utils.Validator;
+import view.HUD;
 
 /**
  * View that manage the class of the character when created. 
@@ -15,7 +16,7 @@ public class PersonnageClasseView implements HUD {
     private String className;
     @Override
     public void loadHUD() {
-        System.out.println("Veuillez selectionez la classe:");
+        System.out.println("\nVeuillez selectionez la classe:");
         System.out.println("1 - GBM, Genie Biomedical : Soin");
         System.out.println("2 - INFO, Informatitien : Voleur");
         System.out.println("3 - MAM, Mathematique Appliquee et Modelisation : Mage");

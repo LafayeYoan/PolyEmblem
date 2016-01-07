@@ -1,7 +1,8 @@
-package view;
+package view.Item;
 
 import utils.KeyboardInput;
 import model.Item;
+import view.HUD;
 
 /**
  * View that display details of an item. 
@@ -19,7 +20,7 @@ public class ItemDisplayView implements HUD {
 
     @Override
     public void loadHUD() {
-        System.out.println("----------------------------------------");
+        System.out.println("\n----------------------------------------");
         System.out.println("--------- Details de l'objet -----------");
         System.out.println("----------------------------------------");
         System.out.println(item.getDescription());
@@ -32,7 +33,7 @@ public class ItemDisplayView implements HUD {
             if(item.equiped == false) {
                 
                 System.out.println("(Appuyez sur 0 si vous souhaitez revenir au menu principal) ");
-                System.out.println("(Appuyez sur 1 si vous souhaitez équiper cet objet) ");
+                System.out.println("(Appuyez sur 1 si vous souhaitez équiper cet objet)");
                 
                 enteredText = KeyboardInput.getInput();
                                   

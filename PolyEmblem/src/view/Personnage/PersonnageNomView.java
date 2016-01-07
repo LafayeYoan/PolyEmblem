@@ -1,6 +1,7 @@
-package view;
+package view.Personnage;
 
 import utils.KeyboardInput;
+import view.HUD;
 
 /**
  * View that manage the name of the character when created.
@@ -12,7 +13,7 @@ public class PersonnageNomView implements HUD{
 
     @Override
     public void loadHUD() {
-        System.out.println("Veullez entrez votre nom de personnage.");
+        System.out.println("\nVeullez entrez votre nom de personnage.");
         do{
             nom = KeyboardInput.getInput();         
             if(nom.isEmpty()){
