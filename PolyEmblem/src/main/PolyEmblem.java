@@ -1,5 +1,6 @@
 package main;
 
+import controller.CharacterCreation;
 import controller.StoryController;
 import java.util.ArrayList;
 import java.util.List;
@@ -24,18 +25,18 @@ public class PolyEmblem {
         
         /* Initialisation */
         StoryController.generateEvents();
-        //Controller.players = CharacterCreation.start();
+        //List<Personnage> players = CharacterCreation.start();
         
         /* Run the game */
-        //StoryController.runTheGame(Controller.players));
+        //StoryController.runTheGame(players);
         
         //To remove : 
         List<Personnage> testList = new ArrayList<Personnage>();
         testList.add(new Info("Sacha"));
-        testList.add(new Meca("Pierre-Yves"));
+        testList.add(new Mam("Pierre-Yves"));
         
         StoryController.runTheGame(testList);
     }
     
-    
+  
 }

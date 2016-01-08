@@ -5,6 +5,7 @@ import java.util.List;
 import model.Bag;
 import model.Characteristic;
 import model.Classes.Mat;
+import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -62,8 +63,8 @@ public class StoryController {
                 + "la haine qu'il éprouve pour vous : \n- Ce sont mes tic tac, vermine."
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
                 new IAPersonnage(
-                        new Mat("Charlie le Kaid",new Level(3))
-                        ,2)
+                        new Meca("Charlie le Kaid",new Level(3))
+                        ,1)
                     )
         );
         
