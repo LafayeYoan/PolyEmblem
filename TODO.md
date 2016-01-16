@@ -26,13 +26,13 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * Gérer la sauvegarde EN BINAIRE (Sérialisation + déserialisation). 
 
-* [DONE] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
+* [EN COURS PAR SACHA ET YOAN] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
 
 * [OPTION PRINCIPALE] Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
 
-* [EN COURS PAR LOICK] La vie du joueur se met à jour quand il est attaqué pendant un combat.
+* [DONE] La vie du joueur se met à jour quand il est attaqué pendant un combat.
 
-* [EN COURS PAR LOICK] Utilisation d'une capacité : 
+* [DONE] Utilisation d'une capacité : 
     1. Vérifier qu'elle est réussite (proba de réussite). Cette probabilité dépend des caractéristiques du personnage (?) et de ses points de compétences. 
     2. Si la capacité est réussie : 
         - Calculer les dégats occasionés (force de l'attaquant + valeur de dégats de l'arme) : DEG
@@ -46,18 +46,18 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
     - [DONE] Capacité(s)
     - Utiliser un consomable
     
-* Si le personnage arrive à 0 de vie, la partie est terminée (cd. View).
+* [DONE] Si le personnage arrive à 0 de vie, la partie est terminée (cd. View).
 
 * A la fin du combat (en cas de victoire), le joueur gagne de l'xp. 
 
 * [DONE] Un combat oppose plusieurs personnages à plusieurs personnages.
 
-* [EN COURS PAR SACHA] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
-    - [EN COURS] Combat contre un enemis ([A TESTER] plusieurs)
+* [DONE] Evenements possibles ([OPTION] aléatoires ou prédéfinis) :
+    - [DONE] Combat contre un enemis ([DONE] plusieurs)
     - [DONE] Découverte d'un endroit avec du stuff
     - Autres (?)
     
-* [EN COURS PAR YOAN] Implémenter l'IA pour les combats.
+* [DONE] Implémenter l'IA pour les combats.
 
 # Developpement View
 
@@ -65,7 +65,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [OPTION] "help" : donne toutes les commandes possibles au joueur. 
 
-* [DONE]Prévoir "une fenêtre" pour attribuer un point de compétence lors du gars de niveau.
+* [DONE]Prévoir "une fenêtre" pour attribuer un point de compétence lors du gain de niveau.
 
 * [DONE]Prévoir "une fenêtre" pour visualiser et gérer le contenu du sac à dos.  
 
