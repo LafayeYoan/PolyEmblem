@@ -13,11 +13,19 @@ public class RoundView implements HUD{
     private List<model.Personnage> players;
     private List<model.IA.IAPersonnage> badGuys;
     
+    /**
+     *
+     * @param players
+     * @param badGuys
+     */
     public RoundView(List<model.Personnage> players,List<model.IA.IAPersonnage> badGuys){
         this.players = players;
         this.badGuys = badGuys;
     }
     
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\n-------------------------------------------");
@@ -37,12 +45,21 @@ public class RoundView implements HUD{
         }
     }
     
+    /**
+     *
+     * @param source
+     * @param target
+     */
     public static void IAAttackDisplay(IAPersonnage source, Personnage target){
         System.out.println("-------------------------------------------");
         System.out.println(source.getPersonnage().getName()+ " attaque "+ target.getName());
         System.out.println("-------------------------------------------");
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object getResponse() {
         return null;

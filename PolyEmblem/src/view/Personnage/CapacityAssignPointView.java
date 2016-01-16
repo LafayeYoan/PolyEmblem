@@ -13,9 +13,17 @@ public class CapacityAssignPointView implements HUD{
     private final model.Personnage  perso;
     private String enteredText;
     
+    /**
+     *
+     * @param perso
+     */
     public CapacityAssignPointView(model.Personnage perso){
         this.perso = perso;
     }
+
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\n--------------------------------------------------");
@@ -41,6 +49,10 @@ public class CapacityAssignPointView implements HUD{
    
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public model.Characteristic getResponse() {
         int selected = Integer.parseInt(enteredText);

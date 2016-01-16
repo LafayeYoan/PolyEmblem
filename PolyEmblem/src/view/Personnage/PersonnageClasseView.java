@@ -14,6 +14,10 @@ import view.HUD;
 public class PersonnageClasseView implements HUD {
 
     private String className;
+
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\nVeuillez selectionez la classe:");
@@ -37,6 +41,10 @@ public class PersonnageClasseView implements HUD {
         return valid;
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getResponse() {
         return className;

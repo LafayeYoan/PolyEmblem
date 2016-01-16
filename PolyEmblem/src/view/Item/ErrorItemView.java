@@ -16,10 +16,17 @@ public class ErrorItemView implements HUD {
     private Bag bag;
     private String itemToDelete;
     
+    /**
+     *
+     * @param bag
+     */
     public ErrorItemView(Bag bag){
         this.bag = bag;
     }
 
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\nL'objet ne peux pas être ajouté au sac à dos car il est déjà plein !");
@@ -43,6 +50,10 @@ public class ErrorItemView implements HUD {
         }while(!isValid());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object getResponse() {
         if(itemToDelete.equals("-1")) {

@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package model.Classes;
 
 import java.util.HashMap;
@@ -10,24 +5,37 @@ import model.Characteristic;
 import model.Level;
 
 /**
- *
- * @author Darkos
+ * Character class : MECA 
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class Meca extends model.Personnage{
+
     public static int BASIC_STRENGHT = 2;
     public static int BASIC_HEALTH = 15;
     public static int BASIC_DEXTIRITY = 15;
     public static int BASIC_DEFENCE = 2;
     public static int BASIC_INTELIGENCE = 5;
     
+    /**
+     * Constructor for player
+     * @param name the name of the character
+     */
     public Meca(String name){
         super(name);
     }
     
+    /**
+     * Constuctor for PNJ
+     * @param name the name of the character
+     * @param level the level of the character
+     */
     public Meca(String name, Level level){
         super(name, level);
     }
     
+    /**
+     * Initialize characteristics of the MECA
+     */
     @Override
     protected void initCharacteristics() {
         this.characteritics=new HashMap<>();
@@ -38,6 +46,10 @@ public class Meca extends model.Personnage{
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
     }    
 
+    /**
+     * Get class Name
+     * @return "MECA"
+     */
     @Override
     public String getClassName() {
         return "MECA";

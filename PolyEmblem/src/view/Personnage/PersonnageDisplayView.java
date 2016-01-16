@@ -12,9 +12,17 @@ public class PersonnageDisplayView implements HUD{
 
     private List<Personnage> allPlayers;
     
+    /**
+     *
+     * @param allPlayers
+     */
     public PersonnageDisplayView (List<Personnage> allPlayers){
         this.allPlayers = allPlayers;
     }
+
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
 
@@ -55,6 +63,10 @@ public class PersonnageDisplayView implements HUD{
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object getResponse() {
         return null;

@@ -11,6 +11,9 @@ public class PersonnageNomView implements HUD{
 
     private String nom;
 
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\nVeullez entrez votre nom de personnage.");
@@ -23,6 +26,10 @@ public class PersonnageNomView implements HUD{
         
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public String getResponse() {
         return nom;

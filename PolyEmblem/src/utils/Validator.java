@@ -1,19 +1,18 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package utils;
 
 import java.util.List;
 
 /**
- *
- * @author Darkos
+ * Check if the input entered by the user is valid
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class Validator {
     
-    
+    /**
+     * Static method that check is the input is an integer
+     * @param input the value to check
+     * @return true if the input is an interget - false otherwise
+     */
     public static boolean checkIsInteger(String input){
         try{
             Integer.parseInt(input);
@@ -24,6 +23,13 @@ public class Validator {
         return true;
     }
     
+    /** 
+     * Check if the input is not an unexpected value
+     * @param val the input to check
+     * @param min the min value expected
+     * @param max the max value expected
+     * @return true if the input is correct - false otherwise
+     */
     public static boolean checkRange(int val, int min, int max){
         boolean valid = true;
         if(val< min){
@@ -37,6 +43,12 @@ public class Validator {
         return valid;
     }
     
+    /**
+     * Check if the input is in a list of expected values
+     * @param val the input to check
+     * @param vals a list of expected values
+     * @return return true if it's correct - false otherwise
+     */
     public static boolean checkInList(Object val, List<Object> vals){
         boolean valid = true;
         if(!vals.contains(val)){
@@ -49,6 +61,11 @@ public class Validator {
         return valid;
     }
     
+    /**
+     * Check if the input is an empty string
+     * @param txt the input to check
+     * @return true if the input value is empty - false otherwise
+     */
     public static boolean checkEmpty(String txt){
         boolean valid = true;
         if(txt.isEmpty()){

@@ -32,7 +32,10 @@ public class StoryController {
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
     * It becomes true when the event is playing by the player. */
     private static List<Events> event;
-    /* List of all characters of the player. */
+
+    /**
+     * List of all characters of the player
+     */
     public static List<Personnage> players;
     
     /***

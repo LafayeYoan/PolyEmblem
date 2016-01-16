@@ -1,18 +1,33 @@
 package model;
 
+/**
+ * Create a level for a character. 
+ * @author lhopital
+ */
 public class Level {
+
+    /**
+     * Level max for a character
+     */
     public static int MAXLEVEL=60;
     
     private int level;
     private int exp;
     private int step;
     
+    /**
+     * Constructor for a new character : level 1.
+     */
     public Level(){
         level = 1;
         exp = 0;
         step = this.getStep();
     }
     
+    /**
+     * Constructor for an experimented character
+     * @param lv the level of the character
+     */
     public Level(int lv) {
         level = lv;
         exp = 0;
@@ -23,6 +38,11 @@ public class Level {
         return level * 50 +50;
     }
     
+    /**
+     * Add xp to the current level. If the step of the next level is reached : level up !
+     * @param xp the xp gained
+     * @return true if the character level up - false otherwise.
+     */
     public boolean addXP(int xp){
         exp += xp;
         if(exp >= step){
@@ -38,10 +58,18 @@ public class Level {
         step = this.getStep();
     }
     
+    /**
+     * Get the level
+     * @return the level
+     */
     public int getLevelValue(){
         return level;
     }
     
+    /**
+     * Get the current xp
+     * @return the value of the xp
+     */
     public int getExp(){
         return exp;
     }

@@ -1,13 +1,21 @@
 package model.Skills;
 
-import java.util.List;
-import java.util.Random;
 import model.Skill;
 import model.Personnage;
 import model.Effect;
 
+/**
+ * Attack skill
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class AttackSkill implements Skill {
 
+    /**
+     * Attack !
+     * @param srcCharacter the character who attack
+     * @param targetCharacter the target
+     * @return an effects table
+     */
     @Override
     public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
@@ -73,11 +81,20 @@ public class AttackSkill implements Skill {
         
     }
 
+    /**
+     * Counting the success probability of the attack
+     * @param srcCharacter the character who attack
+     * @return the success probability
+     */
     @Override
     public double successProbability(Personnage srcCharacter) {
         return 0.9;
     }
 
+    /**
+     * Get the skill name
+     * @return "Attaque"
+     */
     @Override
     public String getName() {
         return "Attaque";

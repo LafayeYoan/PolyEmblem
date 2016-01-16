@@ -7,16 +7,27 @@ import java.util.Map;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
 
+/**
+ * Abstract class to create a character
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public abstract class Personnage {  
     
+    /**
+     * Maximum weight the character can carry in his bag
+     */
     public static final int MAX_WEIGHT = 100;  
 
-        public enum Classes{
-            GBM,
-            INFO,
-            MAM,
-            MAT,
-            MECA,
+    /**
+     * All Classes possibles in the game
+     */
+    public enum Classes{
+
+        GBM,
+        INFO,
+        MAM,
+        MAT,
+        MECA,
         }
     
     private String name;
@@ -28,10 +39,22 @@ public abstract class Personnage {
     private WeaponItem weapon;
     private ArmorItem armor;
     
+    /**
+     * All characteristic of the character with their values.  
+     */
     protected Map<Characteristic, Integer> characteritics;
+
+    /**
+     * List of all skills of the character.
+     */
     protected List<Skill> skills;
     private List<Effect> effects;
 
+    /**
+     * Constructor for PNJ
+     * @param name the name of the character
+     * @param level the level of the character
+     */
     public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
@@ -45,6 +68,10 @@ public abstract class Personnage {
         this.actualLife = this.calcMaxHealth();
     }
 
+    /**
+     * Constructor for the player
+     * @param name the name of the character
+     */
     public Personnage(String name) {
         this.name = name;
         this.level = new Level();
@@ -58,12 +85,22 @@ public abstract class Personnage {
         this.maxHealth = calcMaxHealth();
     }
     
+    /**
+     * Abstract method that initialize all Characteristics of the character, based on his classe.
+     */
     protected abstract void initCharacteristics();    
     
+    /**
+     * Add an Effect to the character
+     * @param effect the effect to add
+     */
     public void addEffect(Effect effect){
         this.effects.add(effect);
     }
     
+    /**
+     * Execute all effects of the character
+     */
     public void runEffects(){
         for(Effect e: this.effects)
         {
@@ -71,69 +108,93 @@ public abstract class Personnage {
         }
     }
     
-    public void applicateEffect(Effect e){
-        if(e.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
-            this.actualLife += e.getValue();
+    /**
+     * Apply all Effects of the character
+     * @param effectToApply
+     */
+    public void applicateEffect(Effect effectToApply){
+        if(effectToApply.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
+            this.actualLife += effectToApply.getValue();
         }else{
-           this.characteritics.replace(e.getCharacteristicEffect(), e.getValue() + this.characteritics.getOrDefault(e.getCharacteristicEffect(),0));
+           this.characteritics.replace(effectToApply.getCharacteristicEffect(), effectToApply.getValue() 
+                           + this.characteritics.getOrDefault(effectToApply.getCharacteristicEffect(),0));
         }
     }
     
+    /**
+     * Ceases to apply an effect to the character
+     * @param e effect to cease
+     */
     public void removeEffect(Effect e){
         if(e.getCharacteristicEffect().equals(model.Characteristic.LIFE)){
             this.actualLife -= e.getValue();
         }else{
-           this.characteritics.replace(e.getCharacteristicEffect(), this.characteritics.getOrDefault(e.getCharacteristicEffect(),0) - e.getValue());
+           this.characteritics.replace(e.getCharacteristicEffect(), 
+                   this.characteritics.getOrDefault(e.getCharacteristicEffect(),0) - e.getValue());
         }
     }
     
+    /**
+     * Equip the character with a weapon. When equip it, apply all effects of the weapon to him.
+     * @param weaponItem the weapon to equip
+     */
     public void equipWeapon(model.Items.WeaponItem weaponItem){
         if(this.weapon != null){
             unequipWeapon();
         }
-        //equiper
+        //equip
         this.weapon = weaponItem;
         this.weapon.equiped = true;
-        //appliquer effet
+        //apply effects
         for(Effect anEffect : weapon.getAllEffects()){
             applicateEffect(anEffect);
         }
     }
   
+    /**
+     * Unequip weapon. When unequip, remove all effects related.
+     */
     public void unequipWeapon(){
         if(this.weapon == null){
             System.out.println("\nAucune arme équipée !");
         }
-        //enlever effet
+        //remove effects
         for(Effect anEffect : weapon.getAllEffects()){
             removeEffect(anEffect);
-        //enlever l'arme
+        //unequip
         this.weapon.equiped = false;
         this.weapon=null;   
         }
     }
     
+    /**
+     * Equip the character with an armor. When equip it, apply all effects of the armor to him.
+     * @param armorItem the armor to equip
+     */
     public void equipArmor(model.Items.ArmorItem armorItem){
         if(this.armor != null){
             unequipArmor();
         }
-        //equiper
+        //equip
         this.armor = armorItem; 
         this.armor.equiped = true;
-        //appliquer effet
+        //apply effects
         for(Effect anEffect : armor.getAllEffects()){
             applicateEffect(anEffect);
         }
     }
     
-     public void unequipArmor(){
+    /**
+     * Unequip armor. When unequip, remove all effects related.
+     */
+    public void unequipArmor(){
         if(this.armor == null){
             System.out.println("\nAucune armure équipée !");
         }
-        //enlever effet
+        //remove effects
         for(Effect anEffect : armor.getAllEffects()){
             removeEffect(anEffect);
-        //enlever l'armure
+        //unequip armor
         this.armor.equiped = false;
         this.armor=null;   
         }
@@ -146,6 +207,10 @@ public abstract class Personnage {
         return 50;
     }
     
+    /**
+     * Initialize all skills of the character. 
+     * For the moment, each character has an attack, a heal and a parade skill.
+     */
     public void initSkills(){
         this.skills = new LinkedList<>();
         this.skills.add(new model.Skills.AttackSkill());
@@ -153,14 +218,26 @@ public abstract class Personnage {
         this.skills.add(new model.Skills.ParadeSkill());
     }
     
+    /**
+     * Get all skills of the character
+     * @return a list of skill
+     */
     public List<Skill> getSkills(){
         return this.skills;
     }
     
+    /**
+     * Get the name of the character
+     * @return the name of the character
+     */
     public String getName() {
         return name;
     }
 
+    /**
+     * Get the level of the character
+     * @return the level of the character
+     */
     public Level getLevel() {
         return level;
     }
@@ -173,33 +250,65 @@ public abstract class Personnage {
         return actualLife;
     }
     
+    /**
+     * Get the max health of the character. 
+     * @return the max health of the character
+     */
     public int getMaxHealth(){
         return this.maxHealth;
     }
 
+    /**
+     * Get the current equiped weapon
+     * @return the weapon of the character
+     */
     public WeaponItem getWeapon() {
         return weapon;
     }
 
+    /**
+     * Get the current equiped armor
+     * @return the armor of the character
+     */
     public ArmorItem getArmor() {
         return armor;
     }
 
+    /**
+     * Get all characteristics of the character
+     * @return a map of characteristic with thei values
+     */
     public Map<Characteristic, Integer> getCharacteritics() {
         return characteritics;
     }
     
+    /**
+     * Increase a characteristic of the character
+     * @param charac the characteristic to increase
+     */
     public void increaseCharacteristic(model.Characteristic charac){
         int val  = this.characteritics.getOrDefault(charac, 0);
         this.characteritics.replace(charac, val+1);
     }
 
+    /**
+     * Get all effects apply on the character
+     * @return a list of effect
+     */
     public List<Effect> getEffects() {
         return effects;
     }
     
+    /**
+     * Abstract method to get the class of the character
+     * @return the class name of the character
+     */
     public abstract String getClassName();
     
+    /**
+     * Kind of ToString method
+     * @return a basic description of the character
+     */
     public String getBasicDescription(){
         String description = "";
         

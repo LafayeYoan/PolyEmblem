@@ -16,11 +16,19 @@ public class CombatOpponentChoiceView implements HUD{
     private String enteredText;
     private Personnage actualPersonnage;
 
+    /**
+     *
+     * @param actualPersonnage
+     * @param opponents
+     */
     public CombatOpponentChoiceView(Personnage actualPersonnage, List <IAPersonnage> opponents){
         this.opponents = opponents;
         this.actualPersonnage = actualPersonnage;
     }
     
+    /**
+     *
+     */
     @Override 
     public void loadHUD() {
         System.out.println("\nAu tour de " + actualPersonnage.getName());
@@ -35,6 +43,10 @@ public class CombatOpponentChoiceView implements HUD{
         }while(!isValid());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Personnage getResponse() {
         try{

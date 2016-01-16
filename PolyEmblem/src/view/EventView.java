@@ -19,15 +19,23 @@ public class EventView implements HUD {
     
     private static final int NB_OPTIONS = 6;
     
-    private Bag bag;
-    private List<Personnage> allPlayers;
+    private final Bag bag;
+    private final List<Personnage> allPlayers;
     private String nextAction;
     
+    /**
+     * Constructor 
+     * @param bag the bag of the player's team
+     * @param allPlayers the list of all player's characters 
+     */
     public EventView(Bag bag, List<Personnage> allPlayers){
         this.bag = bag;
         this.allPlayers = allPlayers;
     }
     
+    /**
+     *
+     */
     @Override 
     public void loadHUD() {
         System.out.println("\nQuelle est votre prochaine action ?");
@@ -58,6 +66,10 @@ public class EventView implements HUD {
         return true;
     }
     
+    /**
+     *
+     * @return
+     */
     @Override
     public String getResponse() {
         return nextAction;
