@@ -62,6 +62,17 @@ public class PersonnageDisplayView implements HUD{
             System.out.println("Dextiritée: "+ caract.getOrDefault(model.Characteristic.DEXTIRITY, 0));
             System.out.println("Inteligence: "+ caract.getOrDefault(model.Characteristic.INTELIGENCE, 0));
             System.out.println("Vie: "+ caract.getOrDefault(model.Characteristic.HEALTH, 0));
+            System.out.println("------------ Equipement ----------------");
+            if(aPlayer.getWeapon()!=null){
+                System.out.println("Arme: "+ aPlayer.getWeapon().getName());
+            }else{
+                System.out.println("Arme: Aucune arme équipée");
+            }
+            if(aPlayer.getArmor()!=null){
+                System.out.println("Armure: "+ aPlayer.getArmor().getName());
+            }else{
+                System.out.println("Armure: Aucune armure équipée");
+            }
             System.out.println("----------------------------------------");
         
         }
