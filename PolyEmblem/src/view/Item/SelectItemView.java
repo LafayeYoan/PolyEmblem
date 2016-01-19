@@ -63,6 +63,14 @@ public class SelectItemView implements HUD{
     }
 
     /**
+     * 
+     */
+    public void haveEquiped(){
+        System.out.println("\nL'objet a été équipé !");
+    }
+    
+    
+    /**
      *
      * @return
      */

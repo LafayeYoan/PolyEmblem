@@ -2,6 +2,7 @@ package view.Item;
 
 import utils.KeyboardInput;
 import model.Item;
+import utils.Validator;
 import view.HUD;
 
 /**
@@ -33,8 +34,16 @@ public class ItemDisplayView implements HUD {
         System.out.println(item.getDescription());
         
         enteredText = "0";
-        
-        /* If the item is equipable */
+    }
+
+    /**
+     *
+     * @return
+     */
+    @Override
+    public Object getResponse() {
+        do{
+            /* If the item is equipable */
         if(item.getClass().toString().equals("class model.Items.ArmorItem")
                 || item.getClass().toString().equals("class model.Items.WeaponItem")) {
             
@@ -48,18 +57,25 @@ public class ItemDisplayView implements HUD {
                                   
             }
         }
+        }while(!isValid());
+        int val = Integer.parseInt(enteredText, 0);
+        
+        return val;
     }
-
-    /**
-     *
-     * @return
-     */
-    @Override
-    public Object getResponse() {
-        if(enteredText.equals("0")) {
-            return 0;
-        } 
-        return 1;
+    
+    boolean isValid(){
+        boolean valid = true;
+        
+        valid = valid & Validator.checkEmpty(enteredText);
+        if(!valid){
+            return valid;
+        }
+        valid = valid & Validator.checkIsInteger(enteredText);
+        if(!valid){
+            return valid;
+        }
+        valid = valid & Validator.checkRange(Integer.parseInt(enteredText), 0, 1);
+        return valid;
     }
     
 }
