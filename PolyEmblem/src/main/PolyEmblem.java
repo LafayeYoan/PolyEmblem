@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Classes.Gbm;
 import model.Classes.Info;
-import model.Classes.Mam;
 import model.Personnage;
 
 /**

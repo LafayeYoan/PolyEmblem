@@ -41,9 +41,11 @@ public class FightController {
             } else if(fightResult == -1){ /* Player win */
                
                 RoundView.showWinnerEnding();
+                for(Personnage p : allPlayers) {
+                    p.regainLife();
+                }
                 //TODO
                 //A la fin, mise à jour xp : appelle vue xp
-                //Joueur regagne un peu de sa vie : appelle vue détail perso
                 break;
             }                
             
