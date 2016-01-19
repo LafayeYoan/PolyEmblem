@@ -55,6 +55,15 @@ public class RoundView implements HUD{
         System.out.println(source.getPersonnage().getName()+ " attaque "+ target.getName());
         System.out.println("-------------------------------------------");
     }
+    
+    /**
+     *  Display the end of the fight. It only appends when the player wins the fight. 
+     */
+    public static void showWinnerEnding() {
+       System.out.println("----------------------------------------");
+       System.out.println("\n Félicitation !");
+       System.out.println("\n Vous avez tout déchiré !");        
+    }
 
     /**
      *

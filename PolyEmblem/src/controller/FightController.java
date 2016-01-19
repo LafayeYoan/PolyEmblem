@@ -8,6 +8,7 @@ import view.EndOfGameView;
 import view.Fight.CombatActionChoiceView;
 import view.Fight.CombatOpponentChoiceView;
 import view.Fight.RoundView;
+import view.Personnage.PersonnageDisplayView;
 
 /**
  * Controller for Fights : run the fight and check when it's over. 
@@ -22,9 +23,12 @@ public class FightController {
      * @param allBadGuys a list of bad guys (one or many)
      */
     public void runTheFight(List<Personnage> allPlayers, List<IAPersonnage> allBadGuys) {
-        boolean isPlayerTurn = true;
+        
+        RoundView roundView = new RoundView(allPlayers, allBadGuys);
         CombatActionChoiceView fightChoice;
         CombatOpponentChoiceView opponentChoice;
+        PersonnageDisplayView playerToHeal;
+        Personnage badGuy; 
         
         while(true) {
             int fightResult = theFightIsOver(allPlayers, allBadGuys);
@@ -33,28 +37,39 @@ public class FightController {
                 EndOfGameView.loadLooserEnding();
                 break;
             } else if(fightResult == -1){ /* Player win */
+               
+                RoundView.showWinnerEnding();
                 //TODO
-                //Dire que que joueur a gagné
                 //A la fin, mise à jour xp : appelle vue xp
                 //Joueur regagne un peu de sa vie : appelle vue détail perso
                 break;
             }                
             
             for(Personnage p: allPlayers){
-                opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
-                opponentChoice.loadHUD();
-                Personnage badGuy = opponentChoice.getResponse();
-
+                
                 fightChoice = new CombatActionChoiceView(p);
                 fightChoice.loadHUD();
                 Skill skillToUse = fightChoice.getResponse();
-                skillToUse.useAbility(p, badGuy);
                 
-                if(badGuy.getActualLife()<= 0){
-                    allBadGuys.remove(badGuy);
-                    if(theFightIsOver(allPlayers, allBadGuys)==-1){
-                        //player win
-                        break;
+                if(skillToUse.getName().equals("Soin")) {
+                    
+                    playerToHeal = new PersonnageDisplayView(allPlayers);
+                    playerToHeal.loadHUD();
+                    skillToUse.useAbility(p, playerToHeal.getResponse());
+                    
+                } else {
+                    
+                    opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
+                    opponentChoice.loadHUD();
+                    badGuy = opponentChoice.getResponse();
+                    skillToUse.useAbility(p, badGuy);
+                    
+                    if(badGuy.getActualLife()<= 0){
+                        allBadGuys.remove(badGuy);
+                        if(theFightIsOver(allPlayers, allBadGuys)==-1){
+                            //player win
+                            break;
+                        }
                     }
                 }
             }
@@ -73,8 +88,6 @@ public class FightController {
                     }
                 }
             }
-            
-            RoundView roundView = new RoundView(allPlayers, allBadGuys);
             roundView.loadHUD();
         }
     }        
