@@ -14,10 +14,17 @@ public class CombatActionChoiceView implements HUD{
     private final Personnage personnage;
     private String enteredText;
 
+    /**
+     *
+     * @param perso
+     */
     public CombatActionChoiceView(model.Personnage perso){
         this.personnage = perso;
     }
     
+    /**
+     *
+     */
     @Override 
     public void loadHUD() {
         System.out.println("\nVeuillez choisir une action à faire pendant ce tour:");
@@ -31,6 +38,10 @@ public class CombatActionChoiceView implements HUD{
         }while(!isValid());
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public model.Skill getResponse() {
         try{

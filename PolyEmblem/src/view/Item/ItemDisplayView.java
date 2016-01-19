@@ -14,10 +14,17 @@ public class ItemDisplayView implements HUD {
     private final Item item;
     private String enteredText;
     
+    /**
+     *
+     * @param itemToDisplay
+     */
     public ItemDisplayView(Item itemToDisplay){
         this.item = itemToDisplay;
     }
 
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
         System.out.println("\n----------------------------------------");
@@ -43,6 +50,10 @@ public class ItemDisplayView implements HUD {
         }
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object getResponse() {
         if(enteredText.equals("0")) {

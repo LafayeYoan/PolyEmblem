@@ -1,26 +1,29 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package model.IA;
 
 import java.util.List;
 import model.Skill;
 
 /**
- *
- * @author Darkos
+ * Create an AI for a PNJ. There is two "level" of AI : 
+ * >> an easy one who only attack a random character
+ * >> a hard one who attack and heal a selected character
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class IAPersonnage{
 
-    private int LEVEL_IA_MAX = 2;
-    private int LEVEL_IA_MIN = 1;
-    private model.Personnage personnage;
+    private final int LEVEL_IA_MAX = 2;
+    private final int LEVEL_IA_MIN = 1;
+    private final model.Personnage personnage;
     private int levelIA;
     
     private String lastAction;
     
+    /**
+     * Constructor
+     * @param personnage the PNJ
+     * @param levelIA the level of the AI
+     */
     public IAPersonnage(model.Personnage personnage, int levelIA) {
         this.personnage = personnage;
         if(levelIA<LEVEL_IA_MIN){
@@ -32,6 +35,10 @@ public class IAPersonnage{
         }        
     }
     
+    /**
+     * Get the skill of the AI
+     * @return a skill
+     */
     public model.Skill getSkill(){
         model.Skills.AttackSkill attack = null;
         model.Skills.HealSkill heal = null;
@@ -63,6 +70,12 @@ public class IAPersonnage{
         return null;
     }
     
+    /**
+     * Get the target of the AI. A target is one of the player character who is steal alive
+     * @param potentialTarget the list of all characters of the player
+     * @param IAs the list of all others PNJ who fight with the current AI.
+     * @return a target
+     */
     public model.Personnage getTarget(List<model.Personnage> potentialTarget, List <IAPersonnage> IAs){
         //si on heal
         if(this.lastAction == "heal"){
@@ -81,6 +94,7 @@ public class IAPersonnage{
             double random = (Math.random()*potentialTarget.size());
             return potentialTarget.get((int)random);            
         }
+        
         //choisi de maniere inteligente
         if(levelIA == 2){
             model.Personnage target = potentialTarget.get(0);
@@ -94,6 +108,10 @@ public class IAPersonnage{
         return null;
     }
     
+    /**
+     * Get the character associate with the current AI
+     * @return the character
+     */
     public model.Personnage getPersonnage(){
         return personnage;
     }

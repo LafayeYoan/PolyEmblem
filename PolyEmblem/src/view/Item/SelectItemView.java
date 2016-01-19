@@ -16,10 +16,17 @@ public class SelectItemView implements HUD{
     private Bag bag;
     private String enteredText;
     
+    /**
+     *
+     * @param bag
+     */
     public SelectItemView(Bag bag){
         this.bag = bag;
     }
     
+    /**
+     *
+     */
     @Override
     public void loadHUD() {
 
@@ -55,6 +62,10 @@ public class SelectItemView implements HUD{
         loadHUD();
     }
 
+    /**
+     *
+     * @return
+     */
     @Override
     public Object getResponse() {
         int i = 0;

@@ -5,11 +5,19 @@ import java.util.ArrayList;
 import java.util.List;
 import model.Classes.Info;
 import model.Classes.Mam;
-import model.Classes.Meca;
 import model.Personnage;
 
+/**
+ * PolyEmblem the game. 
+ * 2015/2016
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class PolyEmblem {
     
+    /**
+     * PolyEmblem the game
+     * @param args
+     */
     public static void main(String [] args){
         
         System.out.println("\nPolyEmblem, created by "); 
@@ -20,22 +28,25 @@ public class PolyEmblem {
         run();        
     }
     
+    /**
+     * run the game, and all events of the story
+     */
     public static void run(){
         
         /* Initialisation */
         StoryController.generateEvents();
-        //Controller.players = CharacterCreation.start();
+        //List<Personnage> players = CharacterCreation.start();
         
         /* Run the game */
-        //StoryController.runTheGame(Controller.players));
+        //StoryController.runTheGame(players);
         
         //To remove : 
         List<Personnage> testList = new ArrayList<Personnage>();
         testList.add(new Info("Sacha"));
-        testList.add(new Meca("Pierre-Yves"));
+        testList.add(new Mam("Pierre-Yves"));
         
         StoryController.runTheGame(testList);
     }
     
-    
+  
 }

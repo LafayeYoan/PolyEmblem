@@ -5,7 +5,15 @@ package view;
  */
 public interface HUD {
     
+    /**
+     *
+     */
     public void loadHUD();
+
+    /**
+     *
+     * @return
+     */
     public Object getResponse();
 
 }

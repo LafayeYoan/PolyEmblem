@@ -5,6 +5,7 @@ import java.util.List;
 import model.Bag;
 import model.Characteristic;
 import model.Classes.Mat;
+import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
 import model.Event.FightEvent;
@@ -31,7 +32,10 @@ public class StoryController {
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
     * It becomes true when the event is playing by the player. */
     private static List<Events> event;
-    /* List of all characters of the player. */
+
+    /**
+     * List of all characters of the player
+     */
     public static List<Personnage> players;
     
     /***
@@ -62,8 +66,8 @@ public class StoryController {
                 + "la haine qu'il éprouve pour vous : \n- Ce sont mes tic tac, vermine."
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
                 new IAPersonnage(
-                        new Mat("Charlie le Kaid",new Level(3))
-                        ,2)
+                        new Meca("Charlie le Kaid",new Level(3))
+                        ,1)
                     )
         );
         

@@ -1,13 +1,21 @@
 package model.Skills;
 
-import java.util.List;
-import java.util.Random;
 import model.Skill;
 import model.Personnage;
 import model.Effect;
 
+/**
+ * Heal skill
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class HealSkill implements Skill {
 
+    /**
+     * Heal 
+     * @param srcCharacter the character who heal
+     * @param targetCharacter the target of the heal
+     * @return an effects table 
+     */
     @Override
     public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
@@ -28,11 +36,20 @@ public class HealSkill implements Skill {
         return null;
     }
 
+    /**
+     * Counting the success probability for heal
+     * @param srcCharacter the character who heal
+     * @return the success probability
+     */
     @Override
     public double successProbability(Personnage srcCharacter) {
         return  0.8;
     }
 
+    /**
+     * Get the skill name
+     * @return "Soin"
+     */
     @Override
     public String getName() {
         return "Soin";

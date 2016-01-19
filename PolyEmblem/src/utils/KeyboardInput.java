@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package utils;
 
 import java.util.ArrayList;
@@ -10,12 +5,13 @@ import java.util.List;
 import java.util.Scanner;
 
 /**
- *
- * @author Darkos
+ * Utils to manage the keyboard Input
+ * @author Lafaye, Lhopital, Paccaud
  */
 public class KeyboardInput {
-    private static Scanner sc;
-    private static List<String> keywords;
+    
+    private static final Scanner sc;
+    private static final List<String> keywords;
     
     //init
     static{
@@ -27,6 +23,10 @@ public class KeyboardInput {
         keywords.add("help");
     }
     
+    /**
+     * Get the current input and check if it's a keyword
+     * @return the input
+     */
     public static String getInput(){
         String input = sc.nextLine();
         

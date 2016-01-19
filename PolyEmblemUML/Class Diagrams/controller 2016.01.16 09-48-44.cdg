@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="controller">
+  <ClassDiagramComponents>
+    <Class name="CharacterCreation" package="controller" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="NUMBER_OF_CHARACTERS" type="int" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="start" returnType="List&lt;Personnage&gt;" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="FightController" package="controller" visibility="public" xPosition="320.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="runTheFight" returnType="void" visibility="public">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="allBadGuys"/>
+        </Method>
+        <Method name="theFightIsOver" returnType="int" visibility="private">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="allBadGuys"/>
+        </Method>
+        <Method name="isDead" returnType="boolean" visibility="private">
+          <Argument type="Personnage" name="player"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ItemController" package="controller" visibility="public" xPosition="620.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="itemFound" returnType="void" visibility="public">
+          <Argument type="Item" name="treasure"/>
+          <Argument type="Bag" name="bag"/>
+        </Method>
+        <Method name="manageItemBag" returnType="void" visibility="private">
+          <Argument type="Bag" name="bag"/>
+          <Argument type="SelectItemView" name="itemView"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersonnageAssignPointController" package="controller" visibility="public" xPosition="920.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="assignPoint" returnType="void" visibility="public" isStatic="true">
+          <Argument type="model.Personnage" name="player"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="StoryController" package="controller" visibility="public" xPosition="1220.0" yPosition="20.0">
+      <Fields>
+        <Field name="event" type="List&lt;Events&gt;" visibility="private" isStatic="true"/>
+        <Field name="players" type="List&lt;Personnage&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="generateEvents" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="runTheGame" returnType="void" visibility="public" isStatic="true">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+        </Method>
+      </Methods>
+    </Class>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations/>
+</ClassDiagram>

@@ -1,13 +1,21 @@
 package model.Skills;
 
-import java.util.List;
-import java.util.Random;
 import model.Skill;
 import model.Personnage;
 import model.Effect;
 
+/**
+ * Parade skill
+ * @author Lafaye, Lhopital, Paccaud
+ */
 public class ParadeSkill implements Skill {
 
+    /**
+     * Parade
+     * @param srcCharacter the character who parry
+     * @param targetCharacter the target
+     * @return an effects table
+     */
     @Override
     public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
             //test si l'action est success
@@ -23,11 +31,20 @@ public class ParadeSkill implements Skill {
         return null;
     }
 
+    /**
+     * Counting the success probability for parry
+     * @param srcCharacter the character who parry
+     * @return the success probability (For the moment : 1)
+     */
     @Override
     public double successProbability(Personnage srcCharacter) {
         return 1;
     }
 
+    /**
+     * Get the skill name
+     * @return "Parade"
+     */
     @Override
     public String getName() {
         return "Parade";
