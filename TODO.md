@@ -16,7 +16,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [EN COURS PAR LOICK] Réequilibrer les valeurs concernants les caractéristiques des différentes classes.
 
-* La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne. <<< Base implémenté, mais il faut pofiner l'algorithme et le mettre en place >>> 
+* La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne.
 
 * Le niveau d'expérience augmente lorsqu'un combat est gagné. Utiliser une fonction logarithmique ou une fonction qui permet une évolution réaliste. Il est nécéssaire d'avoir de plus en plus d'expérience au fil des niveaux. 
 
@@ -40,7 +40,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
         - Calculer les dommages (DEG - DEF)
         - Soustraire les dommages subis à la santé du personnage attaqué
 
-* Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
+* [EN COURS PAR YOAN] Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
 
 * Actions disponibles pendant un combat : 
     - [DONE] Capacité(s)
@@ -77,8 +77,8 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 # Autres
 
-* Créer un fichier UML Complet et à jour du projet.
+* [EN COURS] Créer un fichier UML Complet et à jour du projet.
 
-* [EN COURS PAR TOUS] Créer une Javadoc complète pour le projet.
+* [DONE] Créer une Javadoc complète pour le projet.
 
-* Prévoir une "présentation" du jeu pour le 14 JAN 2016.
+* [EN COURS] Prévoir une "présentation" du jeu pour le 14 JAN 2016.
