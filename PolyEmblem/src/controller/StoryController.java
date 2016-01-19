@@ -61,7 +61,7 @@ public class StoryController {
         
         event.add(new FightEvent("Heureux de cette nouvelle découverte,"
                 + "vous ne sentez pas tout de suite cette main moite qui se pose "
-                + "fermement sur votre épaule.\nC'est Charlie (aka le Kaid), une vermine"
+                + "fermement sur votre épaule.\nC'est Charlie (aka le Kaid), une vermine "
                 + "en Méca, qui sème la terreur et le chaos dans tout le réseau.\nVous sentez dans son regard "
                 + "la haine qu'il éprouve pour vous : \n- Ce sont mes tic tac, vermine."
                 + "\nIl va falloir vous battre pour conserver votre précieux butin...",
@@ -88,7 +88,7 @@ public class StoryController {
                 + "\nD'autres groupes sont disperçés ça et là parmi autour de vous."
                 + "\nLorsque vous vous approchez, Esteban vous tend son cahier de mathématique : "
                 + "\n- Tien salut ! Bien dormis ?", 
-                new WeaponItem("Cahier de mathématiques très Rigide", 99, 5, 2, new Effect(Characteristic.STRENGHT, 2, 1))));
+                new WeaponItem("Cahier de mathématiques très Rigide", 15, 4, 1, new Effect(Characteristic.INTELIGENCE, 1, -1))));
         
     }
     
