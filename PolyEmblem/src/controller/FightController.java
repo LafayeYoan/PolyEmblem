@@ -33,6 +33,7 @@ public class FightController {
         Personnage badGuy;
         
         while(true) {
+            
             int fightResult = theFightIsOver(allPlayers, allBadGuys);
             
             if(fightResult == 1) { /* Player loose */
@@ -53,41 +54,7 @@ public class FightController {
                 fightChoice.loadHUD();
                 Skill skillToUse = fightChoice.getResponse();
                 
-                if(skillToUse.getName().equals("Soin")) {
-                    
-                    playerToHeal = new PersonnageDisplayView(allPlayers);
-                    playerToHeal.loadHUD();
-                    if(skillToUse.useAbility(p, playerToHeal.getResponse()) == Skill.PROBABILITY_FAIL) { 
-                        skillMessageView.displayCriticalFail();
-                    }
-                    
-                } else {
-                    
-                    opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
-                    opponentChoice.loadHUD();
-                    badGuy = opponentChoice.getResponse();
-                    int zeSkill = skillToUse.useAbility(p, badGuy);
-                    if(zeSkill == Skill.CANNOT_ATTACK_FAIL) {
-                        skillMessageView.displayCannotAttackFail();
-                    } 
-                    if(zeSkill == Skill.PROBABILITY_FAIL) {
-                        skillMessageView.displayCriticalFail();
-                    } 
-                    if(zeSkill == Skill.CRITICAL_SUCCES) {
-                        skillMessageView.displayCriticalSuccess();
-                    }
-                    if(zeSkill == Skill.DODGE_FAIL) {
-                        skillMessageView.displayDodgeFail();
-                    }
-                    
-                    if(badGuy.getActualLife()<= 0){
-                        allBadGuys.remove(badGuy);
-                        if(theFightIsOver(allPlayers, allBadGuys)==-1){
-                            //player win
-                            break;
-                        }
-                    }
-                }
+                playerUseSkill();
             }
             
             for(IAPersonnage aBadGuy: allBadGuys){
