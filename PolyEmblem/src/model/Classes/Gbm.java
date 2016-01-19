@@ -48,9 +48,9 @@ public class Gbm extends model.Personnage{
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
         WeaponItem w = new WeaponItem("Café bien chaud", 5, 1, 4, new Effect(Characteristic.INTELIGENCE, 1, -1));
-        this.equipWeapon(w);
+        this.equipWeapon(w,this.sharedBag);
         ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
-        this.equipArmor(a);
+        this.equipArmor(a,this.sharedBag);
     }
 
     /**

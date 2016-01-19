@@ -78,7 +78,7 @@ public class StoryController {
                 + "\nC'est une relique, et lorsqu'elle tombe à vos pieds, vous ne vous faite pas prier pour la saisir."
                 + "\nL'élève du BDE se tourne vers vous, et voyant votre sourir radieux, il s'exclame : "
                 + "\n- Ola camarade ! Tu peux garder ma casquette si tu veux, y en a plein d'autres dans la remise !",
-                new ArmorItem("Poly'casquette", 10, 1)));
+                new ArmorItem("Poly'casquette", 10, 2)));
         
         event.add(new DiscoverPlaceEvent("Vous êtes à peine rentré dans le hall du batîment ISTIL lorsque vous entendez des cris et des bruits semblables au fracas du tonnerre."
                 + "\nEn vous approchant, près de la machine à café située sous l'escalier, "

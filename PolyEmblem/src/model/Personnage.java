@@ -38,6 +38,7 @@ public abstract class Personnage {
     
     private WeaponItem weapon;
     private ArmorItem armor;
+    protected Bag sharedBag;
     
     /**
      * All characteristic of the character with their values.  
@@ -58,7 +59,7 @@ public abstract class Personnage {
     public Personnage(String name, Level level) {
         this.name = name;
         this.level = level;
-        
+       
         this.initCharacteristics();
         this.initSkills();
      

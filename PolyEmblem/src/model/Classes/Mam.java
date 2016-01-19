@@ -48,9 +48,9 @@ public class Mam extends model.Personnage{
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
         WeaponItem w = new WeaponItem("Théorème de Pythagore", 1, 1, 3, new Effect(Characteristic.INTELIGENCE, 2, -1));
-        this.equipWeapon(w);
+        this.equipWeapon(w,this.sharedBag);
         ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
-        this.equipArmor(a);
+        this.equipArmor(a,this.sharedBag);
     }
 
     /**

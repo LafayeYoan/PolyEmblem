@@ -51,9 +51,9 @@ public class Mat extends model.Personnage{
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
         WeaponItem w = new WeaponItem("Règle en plastique", 5, 3, 0, new Effect(Characteristic.DEFENCE, 0, -1));
-        this.equipWeapon(w);
+        this.equipWeapon(w,this.sharedBag);
         ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
-        this.equipArmor(a);
+        this.equipArmor(a,this.sharedBag);
     }
 
     /**

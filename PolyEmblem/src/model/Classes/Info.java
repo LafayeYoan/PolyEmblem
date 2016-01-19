@@ -20,6 +20,7 @@ public class Info extends Personnage {
     public static int BASIC_DEFENCE = 4;
     public static int BASIC_INTELIGENCE = 4;
     
+    
     /**
      * Constructor for player
      * @param name the name of the character
@@ -49,9 +50,9 @@ public class Info extends Personnage {
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
         WeaponItem w = new WeaponItem("Clavier sans touches, sauf quelques unes", 5, 3, 1, new Effect(Characteristic.INTELIGENCE, 1, -1));
-        this.equipWeapon(w);
+        this.equipWeapon(w,this.sharedBag);
         ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
-        this.equipArmor(a);
+        this.equipArmor(a,this.sharedBag);
     }
 
     /**

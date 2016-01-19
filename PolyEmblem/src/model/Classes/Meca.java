@@ -48,9 +48,9 @@ public class Meca extends model.Personnage{
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
         WeaponItem w = new WeaponItem("Boulette de papier", 1, 2, 1, new Effect(Characteristic.DEXTIRITY, 1, -1));
-        this.equipWeapon(w);
+        this.equipWeapon(w,this.sharedBag);
         ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
-        this.equipArmor(a);
+        this.equipArmor(a,this.sharedBag);
     }    
 
     /**
