@@ -11,11 +11,11 @@ import model.Personnage;
  */
 public class Info extends Personnage {
 
-    public static int BASIC_STRENGHT = 5;
-    public static int BASIC_HEALTH = 15;
-    public static int BASIC_DEXTIRITY = 15;
-    public static int BASIC_DEFENCE = 3;
-    public static int BASIC_INTELIGENCE = 10;
+    public static int BASIC_STRENGHT = 13;
+    public static int BASIC_HEALTH = 100;
+    public static int BASIC_DEXTIRITY = 9;
+    public static int BASIC_DEFENCE = 4;
+    public static int BASIC_INTELIGENCE = 4;
     
     /**
      * Constructor for player

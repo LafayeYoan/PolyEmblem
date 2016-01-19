@@ -11,10 +11,10 @@ import model.Level;
 public class Mam extends model.Personnage{
 
     public static int BASIC_STRENGHT = 1;
-    public static int BASIC_HEALTH = 20;
+    public static int BASIC_HEALTH = 100;
     public static int BASIC_DEXTIRITY = 5;
-    public static int BASIC_DEFENCE = 2;
-    public static int BASIC_INTELIGENCE = 15;
+    public static int BASIC_DEFENCE = 1;
+    public static int BASIC_INTELIGENCE = 22;
     
     /**
      * Constructor for player

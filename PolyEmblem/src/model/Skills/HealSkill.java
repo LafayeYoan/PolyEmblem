@@ -31,6 +31,11 @@ public class HealSkill implements Skill {
                 heal += weapon.getHeal();                
             }
             
+            //Oui, le gbm est un bon healer !
+            if(srcCharacter instanceof model.Classes.Gbm){
+                heal += heal;
+            }
+            
             //on applique l'effet
             targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, heal,1));
         return null;
@@ -43,7 +48,7 @@ public class HealSkill implements Skill {
      */
     @Override
     public double successProbability(Personnage srcCharacter) {
-        return  0.8;
+        return  0.9;
     }
 
     /**
