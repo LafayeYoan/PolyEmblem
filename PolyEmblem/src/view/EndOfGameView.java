@@ -24,7 +24,7 @@ public class EndOfGameView {
        System.out.println("----------------------------------------");
        System.out.println("\n Félicitation !");
        System.out.println("\n Vous avez terminé le jeu ! Soyez fier de vous !");
-       System.out.println("\n (Après tout, vous , n'êtes que la 999 999ème personne a avoir fini le jeu !S)");
+       System.out.println("\n (Après tout, vous , n'êtes que la 999 999ème personne a avoir fini le jeu !)");
        System.out.println("\n Merci d'avoir joué !");        
     }
     

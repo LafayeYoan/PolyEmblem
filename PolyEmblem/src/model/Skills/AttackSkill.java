@@ -89,7 +89,6 @@ public class AttackSkill implements Skill {
         //test d'esquive
         double dext = targetCharacter.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
         if(Math.random() < dext){
-            System.out.println("DODGE INSIDE");
             return DODGE_FAIL;
         }
         //on applique l'effet
