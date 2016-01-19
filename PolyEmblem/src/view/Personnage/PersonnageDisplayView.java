@@ -3,6 +3,8 @@ package view.Personnage;
 import java.util.List;
 import java.util.Map;
 import model.Personnage;
+import utils.KeyboardInput;
+import utils.Validator;
 import view.HUD;
 
 /**
@@ -11,6 +13,7 @@ import view.HUD;
 public class PersonnageDisplayView implements HUD{
 
     private List<Personnage> allPlayers;
+    private String entry;
     
     /**
      *
@@ -30,9 +33,10 @@ public class PersonnageDisplayView implements HUD{
         System.out.println("-------- Fiche des Personnages de l'équipe -----------");
         System.out.println("------------------------------------------------------");
         
+        int i = 0;
         for(Personnage aPlayer : this.allPlayers) {
-            
-            System.out.println("Nom: "+ aPlayer.getName());
+            i++;
+            System.out.println(i +") Nom: "+ aPlayer.getName());
             System.out.print("Classe: ");
             if(aPlayer instanceof model.Classes.Gbm){
                 System.out.println("GBM");
@@ -68,8 +72,34 @@ public class PersonnageDisplayView implements HUD{
      * @return
      */
     @Override
-    public Object getResponse() {
-        return null;
+    public Personnage getResponse() {
+        
+        do{
+            System.out.println("Quel est le personnage selectionné (0 pour ne selectionner personne):");
+            entry = KeyboardInput.getInput();
+        }while(!isValid());
+        
+        int selectedIndex = Integer.parseInt(entry)-1;
+        if(selectedIndex <0){
+            return null;
+        }
+        return  allPlayers.get(selectedIndex);
+    }
+    
+    private boolean isValid(){
+        boolean valid = true;
+        valid = valid & Validator.checkEmpty(entry);
+        if(!valid){
+            return valid;
+        }
+        
+        valid = valid & Validator.checkIsInteger(entry);
+        if(!valid){
+            return valid;
+        }
+        
+        valid = valid & Validator.checkRange(Integer.parseInt(entry), 0, allPlayers.size());
+        return valid;
     }
 
     

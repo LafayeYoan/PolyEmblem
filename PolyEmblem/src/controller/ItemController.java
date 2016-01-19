@@ -3,10 +3,13 @@ package controller;
 import java.util.List;
 import model.Bag;
 import model.Item;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 import model.Personnage;
 import view.Item.ErrorItemView;
 import view.Item.ItemDisplayView;
 import view.Item.SelectItemView;
+import view.Personnage.PersonnageDisplayView;
 
 /***
  * Controller for items : 
@@ -20,7 +23,7 @@ public class ItemController {
      * @param treasure the item to arrange
      * @param bag the team's bag
      */
-    public void itemFound(Item treasure, Bag bag) {
+    public void itemFound(Item treasure, Bag bag, List<Personnage> players) {
         
         SelectItemView itemView = new SelectItemView(bag);
         ItemDisplayView itemDisplayView = new ItemDisplayView(treasure);
@@ -45,27 +48,39 @@ public class ItemController {
         if(abandonTreasure) {
             //Do nothing, we leave the treasure
         } else {
-            bag.addItem(treasure);
+            //equiper
+            PersonnageDisplayView pdv = new PersonnageDisplayView(players);
             
             if(treasureClass.equals("class model.Items.ArmorItem")) {
                 itemDisplayView.loadHUD();
-                if(itemDisplayView.getResponse().equals(0)) {
+                pdv.loadHUD();
+                Personnage persoSelectionne = pdv.getResponse();
+                if(persoSelectionne==null) {
                     //Do nothing : go back to the main menu
                 } else {
-                    //TODO
-                    //player.equipArmor((ArmorItem) treasure);
+                    persoSelectionne.equipArmor((ArmorItem) treasure, bag);
+                    itemView.haveEquiped();
+                    return;
                 }
             }
         
             if(treasureClass.equals("class model.Items.WeaponItem")) {
                 itemDisplayView.loadHUD();
-                if(itemDisplayView.getResponse().equals(0)) {
+                pdv.loadHUD();
+                Personnage persoSelectionne = pdv.getResponse();
+                if(persoSelectionne==null) {
                     //Do nothing : go back to the main menu
                 } else {
-                    //TODO
-                    //player.equipWeapon((WeaponItem) treasure);
+                    persoSelectionne.equipWeapon((WeaponItem) treasure, bag);
+                    itemView.haveEquiped();
+                    return;
                 }
             }
+            
+            //ajouter si il n'as pas été équipé
+            bag.addItem(treasure);
+            
+
 
             itemView.canAddItem();
             manageItemBag(bag, itemView);

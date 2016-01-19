@@ -138,9 +138,9 @@ public abstract class Personnage {
      * Equip the character with a weapon. When equip it, apply all effects of the weapon to him.
      * @param weaponItem the weapon to equip
      */
-    public void equipWeapon(model.Items.WeaponItem weaponItem){
+    public void equipWeapon(model.Items.WeaponItem weaponItem, Bag bag){
         if(this.weapon != null){
-            unequipWeapon();
+            unequipWeapon(bag);
         }
         //equip
         this.weapon = weaponItem;
@@ -153,17 +153,19 @@ public abstract class Personnage {
   
     /**
      * Unequip weapon. When unequip, remove all effects related.
+     * @param bag
      */
-    public void unequipWeapon(){
+    public void unequipWeapon(Bag bag){
         if(this.weapon == null){
-            System.out.println("\nAucune arme équipée !");
+            //System.out.println("\nAucune arme équipée !");
         }
         //remove effects
         for(Effect anEffect : weapon.getAllEffects()){
             removeEffect(anEffect);
         //unequip
         this.weapon.equiped = false;
-        this.weapon=null;   
+        bag.addItem(this.weapon);
+        this.weapon=null;
         }
     }
     
@@ -171,9 +173,9 @@ public abstract class Personnage {
      * Equip the character with an armor. When equip it, apply all effects of the armor to him.
      * @param armorItem the armor to equip
      */
-    public void equipArmor(model.Items.ArmorItem armorItem){
+    public void equipArmor(model.Items.ArmorItem armorItem, Bag bag){
         if(this.armor != null){
-            unequipArmor();
+            unequipArmor(bag);
         }
         //equip
         this.armor = armorItem; 
@@ -186,16 +188,18 @@ public abstract class Personnage {
     
     /**
      * Unequip armor. When unequip, remove all effects related.
+     * @param bag
      */
-    public void unequipArmor(){
+    public void unequipArmor(Bag bag){
         if(this.armor == null){
-            System.out.println("\nAucune armure équipée !");
+            //System.out.println("\nAucune armure équipée !");
         }
         //remove effects
         for(Effect anEffect : armor.getAllEffects()){
             removeEffect(anEffect);
         //unequip armor
         this.armor.equiped = false;
+        bag.addItem(this.armor);
         this.armor=null;   
         }
     }
