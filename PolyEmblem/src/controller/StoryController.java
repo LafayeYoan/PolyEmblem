@@ -4,6 +4,7 @@ import java.util.LinkedList;
 import java.util.List;
 import model.Bag;
 import model.Characteristic;
+import model.Classes.Mat;
 import model.Classes.Meca;
 import model.Effect;
 import model.Event.DiscoverPlaceEvent;
