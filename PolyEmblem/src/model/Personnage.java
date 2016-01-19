@@ -324,4 +324,15 @@ public abstract class Personnage {
         
         return description;
     }
+    
+    /**
+     * Add half of missing life to the character
+     */
+    public void regainLife(){
+        int lifeLeft = this.getMaxHealth()-this.getActualLife();
+        int lifeToAdd = lifeLeft /2;
+        
+        this.applicateEffect(new Effect(model.Characteristic.LIFE, lifeToAdd, 0));
+        
+    }
 }
