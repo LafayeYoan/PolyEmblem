@@ -2,6 +2,9 @@ package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Effect;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 import model.Level;
 
 /**
@@ -47,6 +50,10 @@ public class Mat extends model.Personnage{
         this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
+        WeaponItem w = new WeaponItem("Règle en plastique", 5, 3, 0, new Effect(Characteristic.DEFENCE, 0, -1));
+        this.equipWeapon(w);
+        ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
+        this.equipArmor(a);
     }
 
     /**
@@ -57,6 +64,7 @@ public class Mat extends model.Personnage{
     public String getClassName() {
         return "MAT";
     }
+    
     
     /**
      * To balance the game, MAT can only attack a ride on two. 
