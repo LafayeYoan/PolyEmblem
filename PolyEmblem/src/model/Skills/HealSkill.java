@@ -14,26 +14,24 @@ public class HealSkill implements Skill {
      * Heal 
      * @param srcCharacter the character who heal
      * @param targetCharacter the target of the heal
-     * @return an effects table 
+     * @return a constante to know if the ability was correctly use or not 
      */
     @Override
-    public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
+    public int useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
   
         //test si l'action est success
         if(Math.random() > this.successProbability(srcCharacter)){
-            //on saute ce personnage, l'attaque a ratée
-            return null;
+            return PROBABILITY_FAIL;
         }
         int heal = 0;
         if(weapon!= null){
             //on calcul le soin de l'arme 
             heal += weapon.getHeal();                
         }
-
-        //on applique l'effet
+        
         targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, heal,1));
-        return null;
+        return SUCCES;
     }
 
     /**

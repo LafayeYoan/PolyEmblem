@@ -14,10 +14,10 @@ public class AttackSkill implements Skill {
      * Attack !
      * @param srcCharacter the character who attack
      * @param targetCharacter the target
-     * @return an effects table
+     * @return a constante to know if the ability was correctly use or not
      */
     @Override
-    public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
+    public int useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
         
         int damages = 0;
@@ -27,21 +27,14 @@ public class AttackSkill implements Skill {
             model.Classes.Mat m = (model.Classes.Mat)srcCharacter;
             if(m.isTired()){
                 m.setTired(false);
-                System.out.println("\n----------------------------------------");
-                System.out.println(srcCharacter.getName()+ " est fatigué !");
-                System.out.println("----------------------------------------");
-                return null;
+                return CANNOT_ATTACK_FAIL;
             }
             m.setTired(true);
         }
         
         //test si l'action est success
         if(Math.random() > this.successProbability(srcCharacter)){
-            //on saute ce personnage, l'attaque a ratée
-            System.out.println("\n----------------------------------------");
-            System.out.println(srcCharacter.getName()+ " a fait un échec critique !");
-            System.out.println("----------------------------------------");
-            return null;
+            return PROBABILITY_FAIL;
         }   
             
         //Dégats en fonction de l'inteligence pour les mages
@@ -59,7 +52,7 @@ public class AttackSkill implements Skill {
             targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,1));
             
             //On n'esquive pas une attaque magique !
-            return null;
+            return SUCCES;
         }
             
         if(weapon!= null){
@@ -86,32 +79,23 @@ public class AttackSkill implements Skill {
          
         //test de succes critique
         if(Math.random() < 0.05){
-            //on inflige plus de degat
-            System.out.println("\n----------------------------------------");
-            System.out.println(srcCharacter.getName()+ " a fait une réussite critique !");
-            System.out.println("----------------------------------------");
-            damages += damages;  
-            
-            //on applique l'effet
+            //on inflige plus de degat            
+            damages += damages;
             targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,1));
             
-            return null;
+            return CRITICAL_SUCCES;
         }
          
         //test d'esquive
         double dext = targetCharacter.getCharacteritics().get(model.Characteristic.DEXTIRITY)*0.02;
         if(Math.random() < dext){
-            //le personnage a esquivé
-            System.out.println("\n----------------------------------------");
-            System.out.println(targetCharacter.getName()+" esquive !");
-            System.out.println("----------------------------------------");
-            return null;
-           
+            System.out.println("DODGE INSIDE");
+            return DODGE_FAIL;
         }
         //on applique l'effet
         targetCharacter.applicateEffect(new Effect(model.Characteristic.LIFE, -damages,1));
             
-        return null;
+        return SUCCES;
     }
 
     /**

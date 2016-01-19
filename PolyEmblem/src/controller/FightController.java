@@ -8,6 +8,7 @@ import view.EndOfGameView;
 import view.Fight.CombatActionChoiceView;
 import view.Fight.CombatOpponentChoiceView;
 import view.Fight.RoundView;
+import view.Fight.UseSkillView;
 import view.Personnage.PersonnageDisplayView;
 
 /**
@@ -25,10 +26,11 @@ public class FightController {
     public void runTheFight(List<Personnage> allPlayers, List<IAPersonnage> allBadGuys) {
         
         RoundView roundView = new RoundView(allPlayers, allBadGuys);
+        UseSkillView skillMessageView = new UseSkillView();
         CombatActionChoiceView fightChoice;
         CombatOpponentChoiceView opponentChoice;
         PersonnageDisplayView playerToHeal;
-        Personnage badGuy; 
+        Personnage badGuy;
         
         while(true) {
             int fightResult = theFightIsOver(allPlayers, allBadGuys);
@@ -55,14 +57,28 @@ public class FightController {
                     
                     playerToHeal = new PersonnageDisplayView(allPlayers);
                     playerToHeal.loadHUD();
-                    skillToUse.useAbility(p, playerToHeal.getResponse());
+                    if(skillToUse.useAbility(p, playerToHeal.getResponse()) == Skill.PROBABILITY_FAIL) { 
+                        skillMessageView.displayCriticalFail();
+                    }
                     
                 } else {
                     
                     opponentChoice = new CombatOpponentChoiceView(p, allBadGuys);
                     opponentChoice.loadHUD();
                     badGuy = opponentChoice.getResponse();
-                    skillToUse.useAbility(p, badGuy);
+                    int zeSkill = skillToUse.useAbility(p, badGuy);
+                    if(zeSkill == Skill.CANNOT_ATTACK_FAIL) {
+                        skillMessageView.displayCannotAttackFail();
+                    } 
+                    if(zeSkill == Skill.PROBABILITY_FAIL) {
+                        skillMessageView.displayCriticalFail();
+                    } 
+                    if(zeSkill == Skill.CRITICAL_SUCCES) {
+                        skillMessageView.displayCriticalSuccess();
+                    }
+                    if(zeSkill == Skill.DODGE_FAIL) {
+                        skillMessageView.displayDodgeFail();
+                    }
                     
                     if(badGuy.getActualLife()<= 0){
                         allBadGuys.remove(badGuy);
@@ -77,7 +93,7 @@ public class FightController {
             for(IAPersonnage aBadGuy: allBadGuys){
                 Skill skillToUse = aBadGuy.getSkill();
                 Personnage perso = aBadGuy.getTarget(allPlayers, allBadGuys);
-                if(skillToUse.useAbility(aBadGuy.getPersonnage(), perso) != null){
+                if(skillToUse.useAbility(aBadGuy.getPersonnage(), perso) == Skill.SUCCES){
                     RoundView.IAAttackDisplay(aBadGuy, perso);
                 }
                 if(perso.getActualLife()<= 0){
