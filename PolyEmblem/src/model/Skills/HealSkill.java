@@ -19,7 +19,7 @@ public class HealSkill implements Skill {
     @Override
     public Effect[] useAbility(Personnage srcCharacter, Personnage targetCharacter) {
         model.Items.WeaponItem weapon = srcCharacter.getWeapon();
-        
+  
         //test si l'action est success
         if(Math.random() > this.successProbability(srcCharacter)){
             //on saute ce personnage, l'attaque a ratée
@@ -43,7 +43,7 @@ public class HealSkill implements Skill {
      */
     @Override
     public double successProbability(Personnage srcCharacter) {
-        return  0.8;
+        return  0.9;
     }
 
     /**

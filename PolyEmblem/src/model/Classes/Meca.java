@@ -2,6 +2,9 @@ package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Effect;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 import model.Level;
 
 /**
@@ -10,11 +13,11 @@ import model.Level;
  */
 public class Meca extends model.Personnage{
 
-    public static int BASIC_STRENGHT = 2;
-    public static int BASIC_HEALTH = 15;
-    public static int BASIC_DEXTIRITY = 15;
+    public static int BASIC_STRENGHT = 14;
+    public static int BASIC_HEALTH = 100;
+    public static int BASIC_DEXTIRITY = 12;
     public static int BASIC_DEFENCE = 2;
-    public static int BASIC_INTELIGENCE = 5;
+    public static int BASIC_INTELIGENCE = 10;
     
     /**
      * Constructor for player
@@ -44,6 +47,10 @@ public class Meca extends model.Personnage{
         this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
+        WeaponItem w = new WeaponItem("Boulette de papier", 1, 2, 1, new Effect(Characteristic.DEXTIRITY, 1, -1));
+        this.equipWeapon(w);
+        ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
+        this.equipArmor(a);
     }    
 
     /**

@@ -2,6 +2,9 @@ package model.Classes;
 
 import java.util.HashMap;
 import model.Characteristic;
+import model.Effect;
+import model.Items.ArmorItem;
+import model.Items.WeaponItem;
 import model.Level;
 import model.Personnage;
 
@@ -11,11 +14,11 @@ import model.Personnage;
  */
 public class Info extends Personnage {
 
-    public static int BASIC_STRENGHT = 5;
-    public static int BASIC_HEALTH = 15;
-    public static int BASIC_DEXTIRITY = 15;
-    public static int BASIC_DEFENCE = 3;
-    public static int BASIC_INTELIGENCE = 10;
+    public static int BASIC_STRENGHT = 13;
+    public static int BASIC_HEALTH = 100;
+    public static int BASIC_DEXTIRITY = 9;
+    public static int BASIC_DEFENCE = 4;
+    public static int BASIC_INTELIGENCE = 4;
     
     /**
      * Constructor for player
@@ -45,6 +48,10 @@ public class Info extends Personnage {
         this.characteritics.put(Characteristic.DEXTIRITY, BASIC_DEXTIRITY);
         this.characteritics.put(Characteristic.DEFENCE, BASIC_DEFENCE);
         this.characteritics.put(Characteristic.INTELIGENCE, BASIC_INTELIGENCE);
+        WeaponItem w = new WeaponItem("Clavier sans touches, sauf quelques unes", 5, 3, 1, new Effect(Characteristic.INTELIGENCE, 1, -1));
+        this.equipWeapon(w);
+        ArmorItem a = new ArmorItem("Tee-shirt de soirée",1,1);
+        this.equipArmor(a);
     }
 
     /**

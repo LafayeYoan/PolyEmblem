@@ -29,7 +29,7 @@ public class Item {
         this.name = name; 
         this.weight = weight;
         this.allEffects = new ArrayList();
-        for (int i = 0; i < effects.length; i++) {
+        for(int i = 0; i < effects.length; i++) {
             this.allEffects.add(effects[i]);
         }
         equiped = false;
