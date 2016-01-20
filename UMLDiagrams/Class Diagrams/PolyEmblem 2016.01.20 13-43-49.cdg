@@ -495,7 +495,7 @@
         <Method name="getName" returnType="String" visibility="public"/>
       </Methods>
     </Class>
-    <Class name="KeyboardInput" package="utils" visibility="public" xPosition="2339.0" yPosition="1943.0">
+    <Class name="KeyboardInput" package="utils" visibility="public" xPosition="2584.0" yPosition="1700.0">
       <Fields>
         <Field name="sc" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
         <Field name="keywords" type="List&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
@@ -505,7 +505,7 @@
         <Method name="getInput" returnType="String" visibility="public" isStatic="true"/>
       </Methods>
     </Class>
-    <Class name="Validator" package="utils" visibility="public" xPosition="2568.0" yPosition="1801.0">
+    <Class name="Validator" package="utils" visibility="public" xPosition="2215.0" yPosition="1691.0">
       <Fields/>
       <Constructors/>
       <Methods>
