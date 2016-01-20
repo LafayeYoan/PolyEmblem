@@ -1,0 +1,790 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ClassDiagram name="PolyEmblem">
+  <ClassDiagramComponents>
+    <Class name="CharacterCreation" package="controller" visibility="public" xPosition="20.0" yPosition="20.0">
+      <Fields>
+        <Field name="NUMBER_OF_CHARACTERS" type="int" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="start" returnType="List&lt;Personnage&gt;" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="FightController" package="controller" visibility="public" xPosition="53.0" yPosition="217.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="runTheFight" returnType="void" visibility="public">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="allBadGuys"/>
+        </Method>
+        <Method name="theFightIsOver" returnType="int" visibility="private">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="allBadGuys"/>
+        </Method>
+        <Method name="isDead" returnType="boolean" visibility="private">
+          <Argument type="Personnage" name="player"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="ItemController" package="controller" visibility="public" xPosition="368.0" yPosition="20.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="itemFound" returnType="void" visibility="public">
+          <Argument type="Item" name="treasure"/>
+          <Argument type="Bag" name="bag"/>
+          <Argument type="List&lt;Personnage&gt;" name="players"/>
+        </Method>
+        <Method name="manageItemBag" returnType="void" visibility="private">
+          <Argument type="Bag" name="bag"/>
+          <Argument type="SelectItemView" name="itemView"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PersonnageAssignPointController" package="controller" visibility="public" xPosition="32.0" yPosition="399.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="assignPoint" returnType="void" visibility="public" isStatic="true">
+          <Argument type="model.Personnage" name="player"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="StoryController" package="controller" visibility="public" xPosition="606.0" yPosition="240.0">
+      <Fields>
+        <Field name="event" type="List&lt;Events&gt;" visibility="private" isStatic="true"/>
+        <Field name="players" type="List&lt;Personnage&gt;" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="generateEvents" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="runTheGame" returnType="void" visibility="public" isStatic="true">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="PolyEmblem" package="main" visibility="public" xPosition="1235.0" yPosition="46.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="main" returnType="void" visibility="public" isStatic="true">
+          <Argument type="String[]" name="args"/>
+        </Method>
+        <Method name="run" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Bag" package="model" visibility="public" xPosition="3260.0" yPosition="-13.0">
+      <Fields>
+        <Field name="allItems" type="List&lt;Item&gt;" visibility="public"/>
+        <Field name="maxWeight" type="int" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="removeItem" returnType="void" visibility="public">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="addItem" returnType="void" visibility="public">
+          <Argument type="Item" name="item"/>
+        </Method>
+        <Method name="getActualInUseWeight" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Gbm" package="model.Classes" visibility="public" xPosition="4312.0" yPosition="531.0">
+      <Fields>
+        <Field name="BASIC_STRENGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_HEALTH" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEXTIRITY" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEFENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_INTELIGENCE" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected"/>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Info" package="model.Classes" visibility="public" xPosition="4331.0" yPosition="808.0">
+      <Fields>
+        <Field name="BASIC_STRENGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_HEALTH" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEXTIRITY" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEFENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_INTELIGENCE" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected"/>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mam" package="model.Classes" visibility="public" xPosition="4351.0" yPosition="1112.0">
+      <Fields>
+        <Field name="BASIC_STRENGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_HEALTH" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEXTIRITY" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEFENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_INTELIGENCE" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected"/>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Mat" package="model.Classes" visibility="public" xPosition="4331.0" yPosition="1446.0">
+      <Fields>
+        <Field name="BASIC_STRENGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_HEALTH" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEXTIRITY" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEFENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_INTELIGENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="tired" type="boolean" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected"/>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+        <Method name="isTired" returnType="boolean" visibility="public"/>
+        <Method name="setTired" returnType="void" visibility="public">
+          <Argument type="boolean" name="tired"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="Meca" package="model.Classes" visibility="public" xPosition="4331.0" yPosition="217.0">
+      <Fields>
+        <Field name="BASIC_STRENGHT" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_HEALTH" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEXTIRITY" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_DEFENCE" type="int" visibility="public" isStatic="true"/>
+        <Field name="BASIC_INTELIGENCE" type="int" visibility="public" isStatic="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected"/>
+        <Method name="getClassName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Effect" package="model" visibility="public" xPosition="3273.0" yPosition="531.0">
+      <Fields>
+        <Field name="characteristicEffect" type="Characteristic" visibility="private"/>
+        <Field name="value" type="int" visibility="private"/>
+        <Field name="permanent" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Characteristic" name="characteristicEffect"/>
+          <Argument type="int" name="value"/>
+          <Argument type="int" name="permanent"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getCharacteristicEffect" returnType="Characteristic" visibility="public"/>
+        <Method name="getValue" returnType="int" visibility="public"/>
+        <Method name="decrementPermanent" returnType="void" visibility="public"/>
+        <Method name="getPermanent" returnType="int" visibility="public"/>
+        <Method name="toString" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="DiscoverPlaceEvent" package="model.Event" visibility="public" xPosition="1125.0" yPosition="419.0">
+      <Fields>
+        <Field name="zeTreasure" type="Item" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+          <Argument type="Item" name="treasure"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getTreasure" returnType="Item" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="FightEvent" package="model.Event" visibility="public" xPosition="1451.0" yPosition="559.0">
+      <Fields>
+        <Field name="allBadGuys" type="List&lt;IAPersonnage&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+          <Argument type="IAPersonnage" name="badGuys"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getAllBadGuys" returnType="List&lt;IAPersonnage&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Events" package="model" visibility="public" xPosition="1264.0" yPosition="856.0">
+      <Fields>
+        <Field name="descriptionEvent" type="String" visibility="private"/>
+        <Field name="isDone" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="description"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDescriptionEvent" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="IAPersonnage" package="model.IA" visibility="public" xPosition="2841.0" yPosition="1112.0">
+      <Fields>
+        <Field name="LEVEL_IA_MAX" type="int" visibility="private" isFinal="true"/>
+        <Field name="LEVEL_IA_MIN" type="int" visibility="private" isFinal="true"/>
+        <Field name="personnage" type="model.Personnage" visibility="private" isFinal="true"/>
+        <Field name="levelIA" type="int" visibility="private"/>
+        <Field name="lastAction" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="model.Personnage" name="personnage"/>
+          <Argument type="int" name="levelIA"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getSkill" returnType="model.Skill" visibility="public"/>
+        <Method name="getTarget" returnType="model.Personnage" visibility="public">
+          <Argument type="List&lt;model.Personnage&gt;" name="potentialTarget"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="IAs"/>
+        </Method>
+        <Method name="getPersonnage" returnType="model.Personnage" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Item" package="model" visibility="public" xPosition="2181.0" yPosition="77.0">
+      <Fields>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="weight" type="int" visibility="private"/>
+        <Field name="allEffects" type="List&lt;Effect&gt;" visibility="private"/>
+        <Field name="equiped" type="boolean" visibility="public"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="weight"/>
+          <Argument type="Effect" name="effects"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getDescription" returnType="String" visibility="public"/>
+        <Method name="getWeight" returnType="int" visibility="public"/>
+        <Method name="getAllEffects" returnType="List&lt;Effect&gt;" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ArmorItem" package="model.Items" visibility="public" xPosition="1451.0" yPosition="167.0">
+      <Fields>
+        <Field name="protection" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="weight"/>
+          <Argument type="int" name="protection"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getProtection" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="EdibleItem" package="model.Items" visibility="public" xPosition="1902.0" yPosition="578.0">
+      <Fields/>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="weight"/>
+          <Argument type="Effect" name="effects"/>
+        </Constructor>
+      </Constructors>
+      <Methods/>
+    </Class>
+    <Class name="WeaponItem" package="model.Items" visibility="public" xPosition="2240.0" yPosition="630.0">
+      <Fields>
+        <Field name="damage" type="int" visibility="private" isFinal="true"/>
+        <Field name="heal" type="int" visibility="private" isFinal="true"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="int" name="weight"/>
+          <Argument type="int" name="damage"/>
+          <Argument type="int" name="heal"/>
+          <Argument type="Effect" name="effects"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getDamage" returnType="int" visibility="public"/>
+        <Method name="getHeal" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Level" package="model" visibility="public" xPosition="1820.0" yPosition="820.0">
+      <Fields>
+        <Field name="MAXLEVEL" type="int" visibility="public" isStatic="true"/>
+        <Field name="level" type="int" visibility="private"/>
+        <Field name="exp" type="int" visibility="private"/>
+        <Field name="step" type="int" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public"/>
+        <Constructor visibility="public">
+          <Argument type="int" name="lv"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="getStep" returnType="int" visibility="private"/>
+        <Method name="addXP" returnType="boolean" visibility="public">
+          <Argument type="int" name="xp"/>
+        </Method>
+        <Method name="levelUp" returnType="void" visibility="private"/>
+        <Method name="getLevelValue" returnType="int" visibility="public"/>
+        <Method name="getExp" returnType="int" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="Personnage" package="model" visibility="public" isAbstract="true" xPosition="3712.0" yPosition="364.0">
+      <Fields>
+        <Field name="MAX_WEIGHT" type="int" visibility="public" isStatic="true" isFinal="true"/>
+        <Field name="name" type="String" visibility="private"/>
+        <Field name="level" type="Level" visibility="private"/>
+        <Field name="maxHealth" type="int" visibility="private"/>
+        <Field name="actualLife" type="int" visibility="private"/>
+        <Field name="weapon" type="WeaponItem" visibility="private"/>
+        <Field name="armor" type="ArmorItem" visibility="private"/>
+        <Field name="sharedBag" type="Bag" visibility="protected"/>
+        <Field name="characteritics" type="Map&lt;Characteristic, Integer&gt;" visibility="protected"/>
+        <Field name="skills" type="List&lt;Skill&gt;" visibility="protected"/>
+        <Field name="effects" type="List&lt;Effect&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+          <Argument type="Level" name="level"/>
+        </Constructor>
+        <Constructor visibility="public">
+          <Argument type="String" name="name"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="initCharacteristics" returnType="void" visibility="protected" isAbstract="true"/>
+        <Method name="addEffect" returnType="void" visibility="public">
+          <Argument type="Effect" name="effect"/>
+        </Method>
+        <Method name="runEffects" returnType="void" visibility="public"/>
+        <Method name="applicateEffect" returnType="void" visibility="public">
+          <Argument type="Effect" name="effectToApply"/>
+        </Method>
+        <Method name="removeEffect" returnType="void" visibility="public">
+          <Argument type="Effect" name="e"/>
+        </Method>
+        <Method name="equipWeapon" returnType="void" visibility="public">
+          <Argument type="model.Items.WeaponItem" name="weaponItem"/>
+          <Argument type="Bag" name="bag"/>
+        </Method>
+        <Method name="unequipWeapon" returnType="void" visibility="public">
+          <Argument type="Bag" name="bag"/>
+        </Method>
+        <Method name="equipArmor" returnType="void" visibility="public">
+          <Argument type="model.Items.ArmorItem" name="armorItem"/>
+          <Argument type="Bag" name="bag"/>
+        </Method>
+        <Method name="unequipArmor" returnType="void" visibility="public">
+          <Argument type="Bag" name="bag"/>
+        </Method>
+        <Method name="calcMaxHealth" returnType="int" visibility="private"/>
+        <Method name="initSkills" returnType="void" visibility="public"/>
+        <Method name="getSkills" returnType="List&lt;Skill&gt;" visibility="public"/>
+        <Method name="getName" returnType="String" visibility="public"/>
+        <Method name="getLevel" returnType="Level" visibility="public"/>
+        <Method name="getActualLife" returnType="int" visibility="public"/>
+        <Method name="getMaxHealth" returnType="int" visibility="public"/>
+        <Method name="getWeapon" returnType="WeaponItem" visibility="public"/>
+        <Method name="getArmor" returnType="ArmorItem" visibility="public"/>
+        <Method name="getCharacteritics" returnType="Map&lt;Characteristic, Integer&gt;" visibility="public"/>
+        <Method name="increaseCharacteristic" returnType="void" visibility="public">
+          <Argument type="model.Characteristic" name="charac"/>
+        </Method>
+        <Method name="getEffects" returnType="List&lt;Effect&gt;" visibility="public"/>
+        <Method name="getClassName" returnType="String" visibility="public" isAbstract="true"/>
+        <Method name="getBasicDescription" returnType="String" visibility="public"/>
+        <Method name="regainLife" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="AttackSkill" package="model.Skills" visibility="public" xPosition="3582.0" yPosition="2346.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="useAbility" returnType="int" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+          <Argument type="Personnage" name="targetCharacter"/>
+        </Method>
+        <Method name="successProbability" returnType="double" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="HealSkill" package="model.Skills" visibility="public" xPosition="3750.0" yPosition="2139.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="useAbility" returnType="int" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+          <Argument type="Personnage" name="targetCharacter"/>
+        </Method>
+        <Method name="successProbability" returnType="double" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ParadeSkill" package="model.Skills" visibility="public" xPosition="3996.0" yPosition="1911.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="useAbility" returnType="int" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+          <Argument type="Personnage" name="targetCharacter"/>
+        </Method>
+        <Method name="successProbability" returnType="double" visibility="public">
+          <Argument type="Personnage" name="srcCharacter"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="KeyboardInput" package="utils" visibility="public" xPosition="2339.0" yPosition="1943.0">
+      <Fields>
+        <Field name="sc" type="Scanner" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="keywords" type="List&lt;String&gt;" visibility="private" isStatic="true" isFinal="true"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="getInput" returnType="String" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="Validator" package="utils" visibility="public" xPosition="2568.0" yPosition="1801.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="checkIsInteger" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="input"/>
+        </Method>
+        <Method name="checkRange" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="int" name="val"/>
+          <Argument type="int" name="min"/>
+          <Argument type="int" name="max"/>
+        </Method>
+        <Method name="checkInList" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="Object" name="val"/>
+          <Argument type="List&lt;Object&gt;" name="vals"/>
+        </Method>
+        <Method name="checkEmpty" returnType="boolean" visibility="public" isStatic="true">
+          <Argument type="String" name="txt"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="EndOfGameView" package="view" visibility="public" xPosition="1212.0" yPosition="1593.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="loadLooserEnding" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="loadWinnerEnding" returnType="void" visibility="public" isStatic="true"/>
+      </Methods>
+    </Class>
+    <Class name="EventView" package="view" visibility="public" xPosition="11.0" yPosition="1258.0">
+      <Fields>
+        <Field name="NB_OPTIONS" type="int" visibility="private" isStatic="true" isFinal="true"/>
+        <Field name="bag" type="Bag" visibility="private" isFinal="true"/>
+        <Field name="allPlayers" type="List&lt;Personnage&gt;" visibility="private" isFinal="true"/>
+        <Field name="nextAction" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Bag" name="bag"/>
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+        <Method name="getResponse" returnType="String" visibility="public"/>
+        <Method name="showPlayer" returnType="void" visibility="public">
+          <Argument type="Events" name="currentEvent"/>
+        </Method>
+      </Methods>
+    </Class>
+    <Class name="CombatActionChoiceView" package="view.Fight" visibility="public" xPosition="43.0" yPosition="1801.0">
+      <Fields>
+        <Field name="personnage" type="Personnage" visibility="private" isFinal="true"/>
+        <Field name="enteredText" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="model.Personnage" name="perso"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="model.Skill" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="CombatOpponentChoiceView" package="view.Fight" visibility="public" xPosition="856.0" yPosition="2139.0">
+      <Fields>
+        <Field name="opponents" type="List&lt;IAPersonnage&gt;" visibility="private"/>
+        <Field name="enteredText" type="String" visibility="private"/>
+        <Field name="actualPersonnage" type="Personnage" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Personnage" name="actualPersonnage"/>
+          <Argument type="List&lt;IAPersonnage&gt;" name="opponents"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Personnage" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="RoundView" package="view.Fight" visibility="public" xPosition="1125.0" yPosition="1801.0">
+      <Fields>
+        <Field name="players" type="List&lt;model.Personnage&gt;" visibility="private"/>
+        <Field name="badGuys" type="List&lt;model.IA.IAPersonnage&gt;" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;model.Personnage&gt;" name="players"/>
+          <Argument type="List&lt;model.IA.IAPersonnage&gt;" name="badGuys"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="IAAttackDisplay" returnType="void" visibility="public" isStatic="true">
+          <Argument type="IAPersonnage" name="source"/>
+          <Argument type="Personnage" name="target"/>
+        </Method>
+        <Method name="showWinnerEnding" returnType="void" visibility="public" isStatic="true"/>
+        <Method name="getResponse" returnType="Object" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="UseSkillView" package="view.Fight" visibility="public" xPosition="1175.0" yPosition="1258.0">
+      <Fields/>
+      <Constructors/>
+      <Methods>
+        <Method name="displayCriticalFail" returnType="void" visibility="public"/>
+        <Method name="displayCannotAttackFail" returnType="void" visibility="public"/>
+        <Method name="displayCriticalSuccess" returnType="void" visibility="public"/>
+        <Method name="displayDodgeFail" returnType="void" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="ErrorItemView" package="view.Item" visibility="public" xPosition="892.0" yPosition="1249.0">
+      <Fields>
+        <Field name="bag" type="Bag" visibility="private"/>
+        <Field name="itemToDelete" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Bag" name="bag"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Object" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="ItemDisplayView" package="view.Item" visibility="public" xPosition="450.0" yPosition="1220.0">
+      <Fields>
+        <Field name="item" type="Item" visibility="private" isFinal="true"/>
+        <Field name="enteredText" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Item" name="itemToDisplay"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Object" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="package"/>
+      </Methods>
+    </Class>
+    <Class name="SelectItemView" package="view.Item" visibility="public" xPosition="937.0" yPosition="1498.0">
+      <Fields>
+        <Field name="bag" type="Bag" visibility="private"/>
+        <Field name="enteredText" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="Bag" name="bag"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="canAddItem" returnType="void" visibility="public"/>
+        <Method name="haveEquiped" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Object" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="CapacityAssignPointView" package="view.Personnage" visibility="public" xPosition="17.0" yPosition="2083.0">
+      <Fields>
+        <Field name="perso" type="model.Personnage" visibility="private" isFinal="true"/>
+        <Field name="enteredText" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="model.Personnage" name="perso"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="model.Characteristic" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="PersonnageClasseView" package="view.Personnage" visibility="public" xPosition="380.0" yPosition="2120.0">
+      <Fields>
+        <Field name="className" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+        <Method name="getResponse" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Class name="PersonnageDisplayView" package="view.Personnage" visibility="public" xPosition="544.0" yPosition="1886.0">
+      <Fields>
+        <Field name="allPlayers" type="List&lt;Personnage&gt;" visibility="private"/>
+        <Field name="entry" type="String" visibility="private"/>
+      </Fields>
+      <Constructors>
+        <Constructor visibility="public">
+          <Argument type="List&lt;Personnage&gt;" name="allPlayers"/>
+        </Constructor>
+      </Constructors>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Personnage" visibility="public"/>
+        <Method name="isValid" returnType="boolean" visibility="private"/>
+      </Methods>
+    </Class>
+    <Class name="PersonnageNomView" package="view.Personnage" visibility="public" xPosition="32.0" yPosition="1576.0">
+      <Fields>
+        <Field name="nom" type="String" visibility="private"/>
+      </Fields>
+      <Constructors/>
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="String" visibility="public"/>
+      </Methods>
+    </Class>
+    <Interface name="Skill" package="model" visibility="public" xPosition="3631.0" yPosition="1464.0">
+      <Methods>
+        <Method name="useAbility" returnType="int" visibility="package">
+          <Argument type="Personnage" name="srcCharacter"/>
+          <Argument type="Personnage" name="targetCharacter"/>
+        </Method>
+        <Method name="successProbability" returnType="double" visibility="package">
+          <Argument type="Personnage" name="srcCharacter"/>
+        </Method>
+        <Method name="getName" returnType="String" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Interface name="HUD" package="view" visibility="public" xPosition="398.0" yPosition="1606.0">
+      <Methods>
+        <Method name="loadHUD" returnType="void" visibility="public"/>
+        <Method name="getResponse" returnType="Object" visibility="public"/>
+      </Methods>
+    </Interface>
+    <Enum name="Characteristic" package="model" visibility="public" xPosition="3660.0" yPosition="54.0">
+      <Literals>
+        <Literal name="STRENGHT"/>
+        <Literal name="HEALTH"/>
+        <Literal name="DEXTIRITY"/>
+        <Literal name="DEFENCE"/>
+        <Literal name="INTELIGENCE"/>
+        <Literal name="LIFE"/>
+      </Literals>
+    </Enum>
+  </ClassDiagramComponents>
+  <ClassDiagramRelations>
+    <IsRelation name="is" source="model.Classes.Mam" target="model.Personnage"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.EventView" target="view.HUD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Fight.CombatActionChoiceView" target="view.HUD"/>
+    <IsRelation name="is" source="model.Classes.Info" target="model.Personnage"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Item.ErrorItemView" target="view.HUD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Personnage.PersonnageDisplayView" target="view.HUD"/>
+    <HasRelation name="effects" source="model.Personnage" target="model.Effect" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Effect&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Fight.RoundView" target="view.HUD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Personnage.PersonnageNomView" target="view.HUD"/>
+    <IsRelation name="is" source="model.Classes.Mat" target="model.Personnage"/>
+    <IsRelation name="is" source="model.Items.WeaponItem" target="model.Item"/>
+    <UseRelation source="model.IA.IAPersonnage" target="model.Personnage" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <HasRelation name="sharedBag" source="model.Personnage" target="model.Bag" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="model.Items.ArmorItem" target="model.Item"/>
+    <IsRelation name="is" source="model.Classes.Gbm" target="model.Personnage"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Skills.HealSkill" target="model.Skill"/>
+    <HasRelation name="level" source="model.Personnage" target="model.Level" type="Aggregation" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Skills.ParadeSkill" target="model.Skill"/>
+    <HasRelation name="allItems" source="model.Bag" target="model.Item" type="Aggregation" sourceCardinality="0..1" targetCardinality="0..*" collectionType="List"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Item.SelectItemView" target="view.HUD"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Personnage.PersonnageClasseView" target="view.HUD"/>
+    <UseRelation source="model.Personnage" target="model.Effect" sourceCardinality="1..1" targetCardinality="1..1"/>
+    <IsRelation name="is" source="model.Items.EdibleItem" target="model.Item"/>
+    <IsRelation name="is" source="model.Classes.Meca" target="model.Personnage"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Item.ItemDisplayView" target="view.HUD"/>
+    <IsRelation name="is" source="model.Event.FightEvent" target="model.Events"/>
+    <HasRelation name="characteritics" source="model.Personnage" target="model.Characteristic" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="Map&lt;Characteristic, Integer&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Personnage.CapacityAssignPointView" target="view.HUD"/>
+    <IsRelation name="is" source="model.Event.DiscoverPlaceEvent" target="model.Events"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="model.Skills.AttackSkill" target="model.Skill"/>
+    <HasRelation name="skills" source="model.Personnage" target="model.Skill" type="Aggregation" sourceCardinality="1..1" targetCardinality="0..*" collectionType="List&lt;Skill&gt;"/>
+    <ImplementsRelation name="&lt;&lt;implements&gt;&gt;" source="view.Fight.CombatOpponentChoiceView" target="view.HUD"/>
+  </ClassDiagramRelations>
+</ClassDiagram>
