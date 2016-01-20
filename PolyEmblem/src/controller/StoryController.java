@@ -63,8 +63,9 @@ public class StoryController {
         event.add(new FightEvent("Heureux de cette nouvelle découverte,"
                 + "vous ne sentez pas tout de suite cette main moite qui se pose "
                 + "fermement sur votre épaule.\nC'est Charlie (aka le Kaid), un voyou "
-                + "en Mécanique, qui sème la terreur et le chaos dans tout le réseau.\nVous sentez dans son regard "
-                + "la haine qu'il éprouve pour vous : \n- Ce sont mes tic tac, vermine."
+                + "en Mécanique, qui sème la terreur et le chaos dans tout le réseau."
+                +"\nVous sentez dans son regard la haine qu'il éprouve pour vous : "
+                +"\n- Ce sont mes tic tac, vermine."
                 + "\nIl est facilement reconnaissable à son poly'acoutrement : un t-shirt bordeaux, un jean délavé et une casquette qui arborent fièrement le P lyonnais."
                 + "\nMais il est en colère et il va falloir vous battre pour conserver votre précieux butin...",
                 new IAPersonnage(new Meca("Charlie le Kaid",new Level(3)),1)));
@@ -74,7 +75,7 @@ public class StoryController {
                 + "\nMais vous êtes encore plus joyeux quand vous remarquez que dans sa fuite, il a oublié sa casquette..."
                 + "\nVous la saisissez, et lorsque vous la mettez, vous entendez un battement d'ailes au-dessus des arbres."
                 + "\nVous levez les yeux et vous distinguez la silhouette d'un membre du BDE qui accroche une affiche sur un prochain évènement alcoolisé."
-                + "\n 'AFTERWORK à l'Oxo' qu'il est écrit, d'une écriture rose paillette."
+                + "\n 'AFTERWORK à l'OxxO' qu'il est écrit, d'une écriture rose paillette."
                 + "\nEnfin une bonne nouvelle !",
                 new ArmorItem("Poly'casquette", 10, 2)));
         
