@@ -6,8 +6,8 @@ import model.Skill;
 
 /**
  * Create an AI for a PNJ. There is two "level" of AI : 
- * >> an easy one who only attack a random character
- * >> a hard one who attack and heal a selected character
+ *  an easy one who only attack a random character
+ *  a hard one who attack and heal a selected character
  * @author Lafaye, Lhopital, Paccaud
  */
 public class IAPersonnage{

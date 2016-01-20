@@ -2,6 +2,13 @@
 
 RPG étudiant
 
+## Installation sur Netbeans
+
+* Sous Netbeans, ouvrir comme un projet le dossier PolyEmblem.
+* Pour lancer le jeu, executer le fichier "PolyEmblem" présent dans le package "Main" de l'application. 
+
+*Pour afficher l'UML du projet, ouvrir le projet UMLDiagram avec le plugin easyUML
+
 ## BackGround and Story line 
 
 Alors que l'école Polytech Lyon viens tout juste d'ouvrir ces portes, une lutte acharnée s'engage entre les différentes factions. Une lutte, qui n'a pour but que le prestige de devenir la plus repectable et la plus crainte des filières. Une lutte sanglante et brutale à coup de stéréotypes et de coups bas, où les soirées étudiantes se transforment en boucherie et où le respect est porté disparu. 
