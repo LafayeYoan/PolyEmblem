@@ -10,6 +10,8 @@ import view.HUD;
  */
 public class CapacityAssignPointView implements HUD{
     
+    public static final int NUMBER_OF_CHARACTERISTICS = 5;
+    
     private final model.Personnage  perso;
     private String enteredText;
     
@@ -86,7 +88,7 @@ public class CapacityAssignPointView implements HUD{
         }catch(Exception e){
         }
         
-        if(!utils.Validator.checkRange(selected, 1, 5)){
+        if(!utils.Validator.checkRange(selected, 1, NUMBER_OF_CHARACTERISTICS)){
             return false;
         }        
         return true;

@@ -1,6 +1,5 @@
 package view.Item;
 
-import java.util.List;
 import model.Bag;
 import model.Item;
 import utils.KeyboardInput;
@@ -13,7 +12,7 @@ import view.HUD;
  */
 public class SelectItemView implements HUD{
 
-    private Bag bag;
+    private final Bag bag;
     private String enteredText;
     
     /**
@@ -63,7 +62,7 @@ public class SelectItemView implements HUD{
     }
 
     /**
-     * 
+     * Show the confirmation message when the item have been equiped.
      */
     public void haveEquiped(){
         System.out.println("\nL'objet a été équipé !");

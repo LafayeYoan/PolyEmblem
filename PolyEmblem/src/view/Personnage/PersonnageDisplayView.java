@@ -12,7 +12,7 @@ import view.HUD;
  */
 public class PersonnageDisplayView implements HUD{
 
-    private List<Personnage> allPlayers;
+    private final List<Personnage> allPlayers;
     private String entry;
     
     /**

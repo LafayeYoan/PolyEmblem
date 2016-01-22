@@ -9,10 +9,10 @@ import view.HUD;
  */
 public class XpView implements HUD {
     
-    private Personnage personnage;
+    private final Personnage personnage;
     
     /**
-     *
+     * 
      * @param perso
      */
     public XpView(Personnage perso) {
@@ -27,7 +27,7 @@ public class XpView implements HUD {
     }
     
     /**
-     *  Display the xp status at the end of the fight 
+     * Display the xp status at the end of the fight 
      * @param xp the xp value earned
      */
     public void showXpStatus(int xp) {
@@ -44,6 +44,6 @@ public class XpView implements HUD {
 
     @Override
     public Object getResponse() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        return null;
     }    
 }

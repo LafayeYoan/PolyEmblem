@@ -10,8 +10,8 @@ import model.Personnage;
  */
 public class RoundView implements HUD{
 
-    private List<model.Personnage> players;
-    private List<model.IA.IAPersonnage> badGuys;
+    private final List<model.Personnage> players;
+    private final List<model.IA.IAPersonnage> badGuys;
     
     /**
      *

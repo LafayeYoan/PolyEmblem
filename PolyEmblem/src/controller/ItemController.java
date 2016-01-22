@@ -79,9 +79,6 @@ public class ItemController {
             
             //ajouter si il n'as pas été équipé
             bag.addItem(treasure);
-            
-
-
             itemView.canAddItem();
             manageItemBag(bag, itemView);
         }   

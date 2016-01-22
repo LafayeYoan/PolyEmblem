@@ -12,9 +12,9 @@ import view.HUD;
  */
 public class CombatOpponentChoiceView implements HUD{
     
-    private List<IAPersonnage> opponents;
+    private final List<IAPersonnage> opponents;
     private String enteredText;
-    private Personnage actualPersonnage;
+    private final Personnage actualPersonnage;
 
     /**
      *

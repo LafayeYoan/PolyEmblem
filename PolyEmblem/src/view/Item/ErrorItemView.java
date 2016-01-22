@@ -1,10 +1,7 @@
 package view.Item;
 
-import java.util.List;
 import model.Bag;
-import model.Item;
 import utils.KeyboardInput;
-import model.Personnage;
 import view.HUD;
 
 /***
@@ -13,7 +10,7 @@ import view.HUD;
  */
 public class ErrorItemView implements HUD {
     
-    private Bag bag;
+    private final Bag bag;
     private String itemToDelete;
     
     /**
