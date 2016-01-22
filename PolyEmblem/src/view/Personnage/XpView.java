@@ -21,9 +21,8 @@ public class XpView implements HUD {
 
     @Override
     public void loadHUD() {
-        System.out.println("\n\n\n" + personnage.getName() 
-                + "est niveau " + personnage.getLevel());
-        System.out.println("\n xp : " + personnage.getLevel().getExp() 
+        System.out.println(personnage.getName()+ " est niveau " + personnage.getLevel().getLevelValue());
+        System.out.println("XP : " + personnage.getLevel().getExp() 
                 + " / " + personnage.getLevel().getStep()); 
     }
     
