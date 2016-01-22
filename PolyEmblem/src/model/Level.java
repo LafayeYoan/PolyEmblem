@@ -34,7 +34,11 @@ public class Level {
         step = this.getStep();
     }
     
-    private int getStep(){
+    /**
+     * Get the next value of xp to level up
+     * @return the step before the next level
+     */
+    public int getStep(){
         return level * 50 +50;
     }
     

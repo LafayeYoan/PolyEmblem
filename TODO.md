@@ -16,7 +16,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [EN COURS PAR LOICK] Réequilibrer les valeurs concernants les caractéristiques des différentes classes.
 
-* La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne.
+* [DONE] La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne.
 
 * Le niveau d'expérience augmente lorsqu'un combat est gagné. Utiliser une fonction logarithmique ou une fonction qui permet une évolution réaliste. Il est nécéssaire d'avoir de plus en plus d'expérience au fil des niveaux. 
 

@@ -62,7 +62,7 @@ public class RoundView implements HUD{
     public static void showWinnerEnding() {
        System.out.println("----------------------------------------");
        System.out.println("\n Félicitation !");
-       System.out.println("\n Vous avez tout déchiré !");        
+       System.out.println("\n Vous avez tout déchiré !");
     }
 
     /**

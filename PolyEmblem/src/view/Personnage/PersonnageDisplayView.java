@@ -52,7 +52,8 @@ public class PersonnageDisplayView implements HUD{
             System.out.println("Points de Vie: "+ aPlayer.getActualLife() + "/" + aPlayer.getMaxHealth());
 
             //Level
-            System.out.println("Niveau: " + aPlayer.getLevel().getLevelValue());
+            XpView playerXpView = new XpView(aPlayer);
+            playerXpView.loadHUD();
 
             //Caracteristics
             System.out.println("--------- Caracteristiques -------------");

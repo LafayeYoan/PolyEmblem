@@ -1,6 +1,7 @@
 package controller;
 
 import java.util.List;
+import model.Characteristic;
 import model.IA.IAPersonnage;
 import model.Personnage;
 import model.Skill;
@@ -9,13 +10,17 @@ import view.Fight.CombatActionChoiceView;
 import view.Fight.CombatOpponentChoiceView;
 import view.Fight.RoundView;
 import view.Fight.UseSkillView;
+import view.Personnage.CapacityAssignPointView;
 import view.Personnage.PersonnageDisplayView;
+import view.Personnage.XpView;
 
 /**
  * Controller for Fights : run the fight and check when it's over. 
  * @author Lafaye, Lhopital, Paccaud
  */
 public class FightController {
+    
+    public static final int XP_EARNED = 50;
 
     /***
      * Run the Fight between the team of the player and all bad guys.
@@ -40,12 +45,13 @@ public class FightController {
                 break;
             } else if(fightResult == -1){ /* Player win */
                
-                RoundView.showWinnerEnding();
                 for(Personnage p : allPlayers) {
+                    
                     p.regainLife();
+                    giveXpTo(p);
                 }
-                //TODO
-                //A la fin, mise à jour xp : appelle vue xp
+                
+                RoundView.showWinnerEnding();
                 break;
             }                
             
@@ -151,5 +157,50 @@ public class FightController {
      */
     private boolean isDead(Personnage player) {
         return (player.getActualLife() <= 0);
+    }
+
+    /***
+     * Update the level of the player : update the xp and the level if necessary
+     * @param player the personnage who gain xp
+     */
+    private void giveXpTo(Personnage p) {
+        
+        XpView zeXpView = new XpView(p);
+        
+        //If the character level up
+        if(p.getLevel().addXP(XP_EARNED)) {
+                        
+            zeXpView.showLevelUp();
+            
+            CapacityAssignPointView assignPointView = new CapacityAssignPointView(p);
+            assignPointView.loadHUD();
+            
+            //Update a characteristic
+            switch(assignPointView.getResponse()) {
+                case STRENGHT :
+                    p.increaseCharacteristic(Characteristic.STRENGHT);
+                    break;
+                    
+                case DEFENCE :
+                    p.increaseCharacteristic(Characteristic.DEFENCE);
+                    break;
+                    
+                case DEXTIRITY :
+                    p.increaseCharacteristic(Characteristic.DEXTIRITY);
+                    break;
+                    
+                case INTELIGENCE :
+                    p.increaseCharacteristic(Characteristic.INTELIGENCE);
+                    break;
+                    
+                case HEALTH :
+                    p.increaseCharacteristic(Characteristic.LIFE);
+                    break;
+            }
+        
+        } else {
+            
+            zeXpView.showXpStatus(XP_EARNED);
+        }
     }
 }
