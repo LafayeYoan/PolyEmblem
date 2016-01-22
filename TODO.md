@@ -18,17 +18,19 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [DONE] La santé diminue lorsque le personnage est blessé au combat. Elle peut augmenter si le personnage se soigne.
 
-* Le niveau d'expérience augmente lorsqu'un combat est gagné. Utiliser une fonction logarithmique ou une fonction qui permet une évolution réaliste. Il est nécéssaire d'avoir de plus en plus d'expérience au fil des niveaux. 
+* [DONE] Le niveau d'expérience augmente lorsqu'un combat est gagné. 
 
-* Quand le personnage gagne un niveau, il dispose d'un point de compétence à attribuer quelque part dans ces compétences. (voir Dev. View pour afficher une fenêtre spécifique). <<< Fenêtre et Assignation (Views + Controllers) existent mais ils faut tout relier ensemble (Model) >>> 
+* Utiliser une fonction logarithmique ou une fonction qui permet une évolution réaliste. Il est nécéssaire d'avoir de plus en plus d'expérience au fil des niveaux. 
+
+* [DONE] Quand le personnage gagne un niveau, il dispose d'un point de compétence à attribuer quelque part dans ces compétences. (voir Dev. View pour afficher une fenêtre spécifique). <<< Fenêtre et Assignation (Views + Controllers) existent mais ils faut tout relier ensemble (Model) >>> 
 
 * [OPTION] Pour rendre le jeu équitable, une contrainte commune à tous les personnages doit être vérifier. Exemple : la somme des caractéristiques de base ne dois pas exceder une certaine valeur. (VOIR SUJET DU PROF).  
 
 * Gérer la sauvegarde EN BINAIRE (Sérialisation + déserialisation). 
 
-* [EN COURS PAR SACHA ET YOAN] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
+* [DONE] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
 
-* [OPTION PRINCIPALE] Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
+* Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
 
 * [DONE] La vie du joueur se met à jour quand il est attaqué pendant un combat.
 
@@ -40,7 +42,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
         - Calculer les dommages (DEG - DEF)
         - Soustraire les dommages subis à la santé du personnage attaqué
 
-* [EN COURS PAR YOAN] Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
+* [DONE] Après chaque combat, la santé du joueur est réinitialisée (mais pas au maximum). 
 
 * Actions disponibles pendant un combat : 
     - [DONE] Capacité(s)
@@ -48,7 +50,7 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
     
 * [DONE] Si le personnage arrive à 0 de vie, la partie est terminée (cd. View).
 
-* A la fin du combat (en cas de victoire), le joueur gagne de l'xp. 
+* [DONE] A la fin du combat (en cas de victoire), le joueur gagne de l'xp. 
 
 * [DONE] Un combat oppose plusieurs personnages à plusieurs personnages.
 
@@ -77,8 +79,8 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 # Autres
 
-* [EN COURS] Créer un fichier UML Complet et à jour du projet.
+* [DONE] Créer un fichier UML Complet et à jour du projet.
 
-* [DONE] Créer une Javadoc complète pour le projet.
+* [EN COURS] Créer une Javadoc complète pour le projet.
 
 * [EN COURS] Prévoir une "présentation" du jeu pour le 14 JAN 2016.
