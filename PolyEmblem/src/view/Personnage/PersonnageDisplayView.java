@@ -114,5 +114,13 @@ public class PersonnageDisplayView implements HUD{
         return valid;
     }
 
+    /***
+     * Display to the player the list of all players (to make a choice)
+     */
+    public void chooseAPlayer() {
+        System.out.println("Choisissez un joueur : ");
+        this.loadHUD();
+    }
+
     
 }

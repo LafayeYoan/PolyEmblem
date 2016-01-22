@@ -20,8 +20,6 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [DONE] Le niveau d'expérience augmente lorsqu'un combat est gagné. 
 
-* Utiliser une fonction logarithmique ou une fonction qui permet une évolution réaliste. Il est nécéssaire d'avoir de plus en plus d'expérience au fil des niveaux. 
-
 * [DONE] Quand le personnage gagne un niveau, il dispose d'un point de compétence à attribuer quelque part dans ces compétences. (voir Dev. View pour afficher une fenêtre spécifique). <<< Fenêtre et Assignation (Views + Controllers) existent mais ils faut tout relier ensemble (Model) >>> 
 
 * [OPTION] Pour rendre le jeu équitable, une contrainte commune à tous les personnages doit être vérifier. Exemple : la somme des caractéristiques de base ne dois pas exceder une certaine valeur. (VOIR SUJET DU PROF).  
@@ -30,7 +28,9 @@ Quand une tâche est faite, merci d'écrire DONE devant et de ne pas l'effacer.
 
 * [DONE] Le personnage peut récupérer du stuff. Dans ce cas, l'objet est ajouté au sac du joueur et/ou équipé. S'il est mis dans le sac, la poids disponible du sac est mis à jours. Le poids maximum supporté ne peut pas être dépassé. De base, le joueur peut être équipé de une arme, une armure et des bottes. Il faut également gérer la suppression d'items du sac si il est plein et que l'on veut ajouter un objet.
 
-* Si le joueur utilise un consommable, (pendant un combat uniquement), l'objet est détruit et les stats du joueur sont mis à jour en conséquence. 
+* Si le joueur utilise un consommable, l'objet est détruit et les stats du joueur sont mis à jour en conséquence.
+    - En combat
+    - [DONE] En dehors d'un combat
 
 * [DONE] La vie du joueur se met à jour quand il est attaqué pendant un combat.
 

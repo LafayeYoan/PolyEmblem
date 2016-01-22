@@ -43,23 +43,26 @@ public class ItemDisplayView implements HUD {
     @Override
     public Object getResponse() {
         do{
+            System.out.println("(Appuyez sur 0 si vous souhaitez revenir au menu principal) ");
             /* If the item is equipable */
-        if(item.getClass().toString().equals("class model.Items.ArmorItem")
-                || item.getClass().toString().equals("class model.Items.WeaponItem")) {
-            
-            /* If the item is not equiped */
-            if(item.equiped == false) {
+            if(item.getClass().toString().equals("class model.Items.ArmorItem")
+                    || item.getClass().toString().equals("class model.Items.WeaponItem")) {
+
+                /* If the item is not equiped */
+                if(item.equiped == false) {
+
+                    System.out.println("(Appuyez sur 1 si vous souhaitez équiper cet objet)");
+                }
+            } else { /* Edible item */
                 
-                System.out.println("(Appuyez sur 0 si vous souhaitez revenir au menu principal) ");
-                System.out.println("(Appuyez sur 1 si vous souhaitez équiper cet objet)");
-                
-                enteredText = KeyboardInput.getInput();
-                                  
+                System.out.println("(Appuyez sur 1 si vous souhaitez consommer cet objet)");
             }
-        }
-        }while(!isValid());
-        int val = Integer.parseInt(enteredText, 0);
+            
+            enteredText = KeyboardInput.getInput();
+            
+        } while(!isValid());
         
+        int val = Integer.parseInt(enteredText);
         return val;
     }
     
@@ -74,8 +77,8 @@ public class ItemDisplayView implements HUD {
         if(!valid){
             return valid;
         }
-        valid = valid & Validator.checkRange(Integer.parseInt(enteredText), 0, 1);
-        return valid;
+        
+        return valid & Validator.checkRange(Integer.parseInt(enteredText), 0, 1);
     }
     
 }

@@ -2,6 +2,7 @@ package controller;
 
 import java.util.List;
 import model.Bag;
+import model.Effect;
 import model.Item;
 import model.Items.ArmorItem;
 import model.Items.WeaponItem;
@@ -49,9 +50,10 @@ public class ItemController {
             //Do nothing, we leave the treasure
         } else {
             //equiper
-            PersonnageDisplayView pdv = new PersonnageDisplayView(players);
+            
             
             if(treasureClass.equals("class model.Items.ArmorItem")) {
+                PersonnageDisplayView pdv = new PersonnageDisplayView(players);
                 itemDisplayView.loadHUD();
                 pdv.loadHUD();
                 Personnage persoSelectionne = pdv.getResponse();
@@ -65,6 +67,7 @@ public class ItemController {
             }
         
             if(treasureClass.equals("class model.Items.WeaponItem")) {
+                PersonnageDisplayView pdv = new PersonnageDisplayView(players);
                 itemDisplayView.loadHUD();
                 pdv.loadHUD();
                 Personnage persoSelectionne = pdv.getResponse();
@@ -80,7 +83,7 @@ public class ItemController {
             //ajouter si il n'as pas été équipé
             bag.addItem(treasure);
             itemView.canAddItem();
-            manageItemBag(bag, itemView);
+            manageItemBag(bag, itemView, players);
         }   
     }
 
@@ -88,9 +91,10 @@ public class ItemController {
      * Manage the bag of the team. 
      * Displays items from the bag OR go back to the main menu 
      * @param bag the bag to display
-     * @param itemView the SelectItem view 
+     * @param itemView the SelectItem view
+     * @param allPlayers all Players
      */
-    private void manageItemBag(Bag bag, SelectItemView itemView) {
+    private void manageItemBag(Bag bag, SelectItemView itemView, List<Personnage> allPlayers) {
         
         switch(itemView.getResponse().getClass().toString()) {
             
@@ -99,8 +103,45 @@ public class ItemController {
                 break;
             
             default : /* Display the item details */
-                ItemDisplayView itemDisplayView = new ItemDisplayView((Item) itemView.getResponse());
-                itemDisplayView.loadHUD();  
+                manageItem((Item) itemView.getResponse(), bag, allPlayers);
+        }
+    }
+
+    /***
+     * Display detail of an item and manage it (equip, unequip, use or do nothing) 
+     * @param Item the item to manage
+     * @param Bag the bag
+     * @param allPlayers all players who can use this item
+     */
+    public void manageItem(Item item, Bag bag, List<Personnage> allPlayers) {
+        ItemDisplayView itemDisplayView = new ItemDisplayView(item);
+        itemDisplayView.loadHUD(); 
+        
+        int userChoice = (int)itemDisplayView.getResponse();
+        
+        if(userChoice == 0) {
+            //do nothing, go back to the main menu
+        } else {
+            
+            PersonnageDisplayView playersView = new PersonnageDisplayView(allPlayers);
+            playersView.chooseAPlayer();
+            Personnage persoSelectionne = playersView.getResponse();
+            
+            if(persoSelectionne==null) {
+                   //do nothing
+            } else {
+
+                if(item instanceof ArmorItem) {
+                    persoSelectionne.equipArmor((ArmorItem) item, bag);
+                } else if(item instanceof WeaponItem) { 
+                    persoSelectionne.equipWeapon((WeaponItem) item, bag);
+                } else { //Edible item
+                    for(Effect anEffect : item.getAllEffects()) {
+                        persoSelectionne.applicateEffect(anEffect);
+                    }
+                    bag.removeItem(item);
+                }
+            }
         }
     }
     

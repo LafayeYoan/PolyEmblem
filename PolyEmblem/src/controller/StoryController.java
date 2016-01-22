@@ -33,11 +33,6 @@ public class StoryController {
     /* Map with all events of the story and booleans. For each event, the boolean is setup at false.
     * It becomes true when the event is playing by the player. */
     private static List<Events> event;
-
-    /**
-     * List of all characters of the player
-     */
-    public static List<Personnage> players;
     
     /***
      * Generate all events for the game.
@@ -140,8 +135,8 @@ public class StoryController {
                         if(bagView.getResponse().getClass().toString().equals("class java.lang.Integer")) {
                             //Do nothing, go back in the main menu
                         } else {
-                            ItemDisplayView itemDisplayView = new ItemDisplayView((Item) bagView.getResponse());
-                            itemDisplayView.loadHUD(); 
+                            ItemController itemController = new ItemController();
+                            itemController.manageItem((Item) bagView.getResponse(), bag, allPlayers);
                         }
                         break;
                         
