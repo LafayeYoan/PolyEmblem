@@ -18,7 +18,7 @@ public class PolyEmblem {
      */
     public static void main(String [] args){
         
-        System.out.println("\nPolyEmblem, created by "); 
+        System.out.println("\nPolyEmblem, est un RPG développé en java par "); 
         System.out.println("Yoan Lafaye De Micheaux");
         System.out.println("Sacha Lhopital");
         System.out.println("Loïck Paccaud");
